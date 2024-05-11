@@ -4,15 +4,26 @@
   <meta charset="utf-8">
   
   
-  <title>Archives: 2024/5 | 伽马Blog</title>
+  <title>Linux之Docker安装与配置 | 伽马Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="伽马Blog">
-<meta property="og:url" content="http://gamemode1.com/archives/2024/05/index.html">
+  <meta name="description" content="第一步：检查系统是否已安装Docker，回车后未返回任何信息就可以进行手动安装。yum list installed | grep docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux之Docker安装与配置">
+<meta property="og:url" content="http://gamemode1.com/2022/07/27/Linux%E4%B9%8BDocker%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="伽马Blog">
+<meta property="og:description" content="第一步：检查系统是否已安装Docker，回车后未返回任何信息就可以进行手动安装。yum list installed | grep docker">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://gamemode1.com/images/dockercommon/dockersetup-1.jpg">
+<meta property="og:image" content="http://gamemode1.com/images/dockercommon/dockersetup-2.jpg">
+<meta property="og:image" content="http://gamemode1.com/images/dockercommon/dockersetup-3.jpg">
+<meta property="og:image" content="http://gamemode1.com/images/dockercommon/dockersetup-4.jpg">
+<meta property="og:image" content="http://gamemode1.com/images/dockercommon/dockersetup-5.jpg">
+<meta property="og:image" content="http://gamemode1.com/images/dockercommon/dockersetup-6.jpg">
+<meta property="article:published_time" content="2022-07-27T02:54:02.000Z">
+<meta property="article:modified_time" content="2024-05-11T12:29:11.227Z">
 <meta property="article:author" content="GAMEMODE1.COM">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://gamemode1.com/images/dockercommon/dockersetup-1.jpg">
   
     <link rel="alternate" href="/atom.xml" title="伽马Blog" type="application/atom+xml">
   
@@ -67,39 +78,76 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/05/11/%E7%BD%91%E7%AB%99%E7%BB%B4%E6%8A%A4%E5%85%AC%E5%91%8A/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-05-11T10:49:32.000Z" itemprop="datePublished">May 11</time>
+        <section id="main"><article id="post-Linux之Docker安装与配置" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/07/27/Linux%E4%B9%8BDocker%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time class="dt-published" datetime="2022-07-27T02:54:02.000Z" itemprop="datePublished">2022-07-27</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/05/11/%E7%BD%91%E7%AB%99%E7%BB%B4%E6%8A%A4%E5%85%AC%E5%91%8A/">网站维护公告</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      Linux之Docker安装与配置
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>第一步：检查系统是否已安装Docker，回车后未返回任何信息就可以进行手动安装。<br>yum list installed | grep docker</p>
+<span id="more"></span>
+<p><img src="/../images/dockercommon/dockersetup-1.jpg" alt="1"></p>
+<p>第二步：使用yum安装docker。<br>yum install docker</p>
+<p><img src="/../images/dockercommon/dockersetup-2.jpg" alt="1"></p>
+<p>第三步：检查安装项无误后，输入y开始安装。<br>y</p>
+<p><img src="/../images/dockercommon/dockersetup-3.jpg" alt="1"></p>
+<p>第四步：安装完成（出现“Complete！”）后，启动Docker。<br>systemctl start docker</p>
+<p><img src="/../images/dockercommon/dockersetup-4.jpg" alt="1"></p>
+<p>第五步：检查Docker运行状态，出现绿色active字样即正常运行。<br>systemctl status docker</p>
+<p><img src="/../images/dockercommon/dockersetup-5.jpg" alt="1"></p>
+<p>第六步：将Docker设置为开机自启。<br>systemctl enable docker.service</p>
+<p><img src="/../images/dockercommon/dockersetup-6.jpg" alt="1"></p>
+<p>至此已配置完毕</p>
+<p>关闭Docker开机自启指令。<br>systemctl disable docker.service</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://gamemode1.com/2022/07/27/Linux%E4%B9%8BDocker%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" data-id="clw22lom1000000ftf7fb1zjt" data-title="Linux之Docker安装与配置" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/08/19/Unity%E7%9B%B8%E6%9C%BA%E6%8A%96%E5%8A%A8%E5%AE%9E%E7%8E%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Unity相机抖动实现
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/07/11/Linux%E4%B9%8Brpm%E5%8C%85%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Linux之rpm包安装与卸载</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
 </section>
