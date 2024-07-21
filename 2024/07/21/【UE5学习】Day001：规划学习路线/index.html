@@ -18,38 +18,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"gamemode1.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="找了很久没一个想要的答案（在此痛斥某搜索引擎），于是结合其他类似问题和Apple官方文档，已得到解决。 怕再次遗忘，故做下此笔记。">
+    <meta name="description" content="🚀 开篇小语我是UE5的新手，也是Unity的老朋友。从Unity跳到Unreal，就像从熟悉的小径跳进了一片未知的森林。别担心，我会在这里记录下每一个脚印，以防哪天我迷失了方向。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Unity打包上传AppStore后显示语言为英文">
-<meta property="og:url" content="http://gamemode1.com/2022/08/22/Unity%E6%89%93%E5%8C%85%E4%B8%8A%E4%BC%A0AppStore%E5%90%8E%E6%98%BE%E7%A4%BA%E8%AF%AD%E8%A8%80%E4%B8%BA%E8%8B%B1%E6%96%87/index.html">
+<meta property="og:title" content="【UE5学习】Day001：规划学习路线">
+<meta property="og:url" content="http://gamemode1.com/2024/07/21/%E3%80%90UE5%E5%AD%A6%E4%B9%A0%E3%80%91Day001%EF%BC%9A%E8%A7%84%E5%88%92%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/index.html">
 <meta property="og:site_name" content="伽马Blog">
-<meta property="og:description" content="找了很久没一个想要的答案（在此痛斥某搜索引擎），于是结合其他类似问题和Apple官方文档，已得到解决。 怕再次遗忘，故做下此笔记。">
+<meta property="og:description" content="🚀 开篇小语我是UE5的新手，也是Unity的老朋友。从Unity跳到Unreal，就像从熟悉的小径跳进了一片未知的森林。别担心，我会在这里记录下每一个脚印，以防哪天我迷失了方向。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://gamemode1.com/images/appstorelang/before.jpg">
-<meta property="og:image" content="http://gamemode1.com/images/appstorelang/after.jpg">
-<meta property="og:image" content="http://gamemode1.com/images/appstorelang/pic-1.jpg">
-<meta property="og:image" content="http://gamemode1.com/images/appstorelang/pic-2.jpg">
-<meta property="og:image" content="http://gamemode1.com/images/appstorelang/pic-3.jpg">
-<meta property="og:image" content="http://gamemode1.com/images/appstorelang/pic-4.jpg">
-<meta property="og:image" content="http://gamemode1.com/images/appstorelang/pic-5.jpg">
-<meta property="og:image" content="http://gamemode1.com/images/appstorelang/pic-6.jpg">
-<meta property="og:image" content="http://gamemode1.com/images/appstorelang/pic-7.jpg">
-<meta property="og:image" content="http://gamemode1.com/images/appstorelang/pic-8.jpg">
-<meta property="article:published_time" content="2022-08-22T12:02:10.000Z">
-<meta property="article:modified_time" content="2024-05-12T06:22:56.595Z">
+<meta property="og:image" content="http://gamemode1.com/%5Cimages%5Cother%5CUE5.jpg">
+<meta property="article:published_time" content="2024-07-21T15:24:01.000Z">
+<meta property="article:modified_time" content="2024-07-21T16:27:28.005Z">
 <meta property="article:author" content="翱翔大使">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://gamemode1.com/images/appstorelang/before.jpg">
+<meta name="twitter:image" content="http://gamemode1.com/%5Cimages%5Cother%5CUE5.jpg">
 
 
-<link rel="canonical" href="http://gamemode1.com/2022/08/22/Unity%E6%89%93%E5%8C%85%E4%B8%8A%E4%BC%A0AppStore%E5%90%8E%E6%98%BE%E7%A4%BA%E8%AF%AD%E8%A8%80%E4%B8%BA%E8%8B%B1%E6%96%87/">
+<link rel="canonical" href="http://gamemode1.com/2024/07/21/%E3%80%90UE5%E5%AD%A6%E4%B9%A0%E3%80%91Day001%EF%BC%9A%E8%A7%84%E5%88%92%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://gamemode1.com/2022/08/22/Unity%E6%89%93%E5%8C%85%E4%B8%8A%E4%BC%A0AppStore%E5%90%8E%E6%98%BE%E7%A4%BA%E8%AF%AD%E8%A8%80%E4%B8%BA%E8%8B%B1%E6%96%87/","path":"2022/08/22/Unity打包上传AppStore后显示语言为英文/","title":"Unity打包上传AppStore后显示语言为英文"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://gamemode1.com/2024/07/21/%E3%80%90UE5%E5%AD%A6%E4%B9%A0%E3%80%91Day001%EF%BC%9A%E8%A7%84%E5%88%92%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/","path":"2024/07/21/【UE5学习】Day001：规划学习路线/","title":"【UE5学习】Day001：规划学习路线"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Unity打包上传AppStore后显示语言为英文 | 伽马Blog</title>
+<title>【UE5学习】Day001：规划学习路线 | 伽马Blog</title>
   
 
 
@@ -109,7 +100,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -122,6 +113,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84"><span class="nav-number">1.</span> <span class="nav-text">学习路径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E6%84%89%E5%BF%AB"><span class="nav-number">2.</span> <span class="nav-text">学习愉快</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -184,7 +176,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gamemode1.com/2022/08/22/Unity%E6%89%93%E5%8C%85%E4%B8%8A%E4%BC%A0AppStore%E5%90%8E%E6%98%BE%E7%A4%BA%E8%AF%AD%E8%A8%80%E4%B8%BA%E8%8B%B1%E6%96%87/">
+    <link itemprop="mainEntityOfPage" href="http://gamemode1.com/2024/07/21/%E3%80%90UE5%E5%AD%A6%E4%B9%A0%E3%80%91Day001%EF%BC%9A%E8%A7%84%E5%88%92%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar/avatar.jpg">
@@ -197,12 +189,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Unity打包上传AppStore后显示语言为英文 | 伽马Blog">
+      <meta itemprop="name" content="【UE5学习】Day001：规划学习路线 | 伽马Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Unity打包上传AppStore后显示语言为英文
+          【UE5学习】Day001：规划学习路线
         </h1>
 
         <div class="post-meta-container">
@@ -213,7 +205,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-08-22 20:02:10" itemprop="dateCreated datePublished" datetime="2022-08-22T20:02:10+08:00">2022-08-22</time>
+      <time title="创建时间：2024-07-21 23:24:01" itemprop="dateCreated datePublished" datetime="2024-07-21T23:24:01+08:00">2024-07-21</time>
     </span>
 
   
@@ -225,14 +217,67 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>找了很久没一个想要的答案（在此痛斥某搜索引擎），于是结合其他类似问题和Apple官方文档，已得到解决。</p>
-<p>怕再次遗忘，故做下此笔记。</p>
+    <div class="post-body" itemprop="articleBody"><p>🚀 开篇小语<br>我是UE5的新手，也是Unity的老朋友。从Unity跳到Unreal，就像从熟悉的小径跳进了一片未知的森林。别担心，我会在这里记录下每一个脚印，以防哪天我迷失了方向。</p>
 <span id="more"></span>
-<p><img src="/../images/appstorelang/before.jpg" alt="解决前"></p>
-<p>熟人的游戏，自己的解决前没截图，凑合下:)</p>
-<p><img src="/../images/appstorelang/after.jpg" alt="解决后"></p>
-<p>解决步骤已在图中说明<br>解决问题不易，如需转载请注明出处gamemode1.com。</p>
-<p><img src="/../images/appstorelang/pic-1.jpg" alt="1"><br><img src="/../images/appstorelang/pic-2.jpg" alt="2"><br><img src="/../images/appstorelang/pic-3.jpg" alt="3"><br><img src="/../images/appstorelang/pic-4.jpg" alt="4"><br><img src="/../images/appstorelang/pic-5.jpg" alt="5"><br><img src="/../images/appstorelang/pic-6.jpg" alt="6"><br><img src="/../images/appstorelang/pic-7.jpg" alt="7"><br><img src="/../images/appstorelang/pic-8.jpg" alt="8"></p>
+
+<p>🧠 思想准备：规划，但别被它束缚<br>Unreal Engine，一个庞然大物，学习它就像是在健身房里举重，急不得。对于我这个笨鸟，慢慢来才是王道。所以，我给自己画了个学习地图，但别误会，它只是我的指南针，不是枷锁。</p>
+<p>📝 学习路线：灵活的计划<br>计划：制定一个，但别让它成为你的全部。<br>记录：每天的进度，对比计划，发现偏差。<br>兴趣：找到兴趣点，延伸学习，像探险一样。<br>调整：累了，迷茫了，再回头看看计划，做个标记，继续前行。</p>
+<p>🤷‍♂️ 个人学习方法：别被他人左右<br>学习不是一成不变的，每个人都有自己的步调。如果你在别处看到这篇文章，别指望我能解答所有问题——毕竟，这是我的学习笔记。</p>
+<p>🎮 游戏比喻：学习就像打怪升级<br>有时候，你会遇到一些“精英怪”，现在打不过没关系，先绕过去，等“等级”高了再来挑战。学习也是一样，先标记，再回头，用新知识“秒杀”它们。</p>
+<p>📅 我的规划表：不定期更新<br>我会不定期更新我的学习路线和心得，这不仅是对自己的监督，也是和大家分享乐趣的方式。</p>
+<h1 id="学习路径"><a href="#学习路径" class="headerlink" title="学习路径"></a>学习路径</h1><table>
+<thead>
+<tr>
+<th align="center">阶段（期限）</th>
+<th align="center">入门（7天）</th>
+<th align="center">新手（90天）</th>
+<th align="center">入门（100天）</th>
+<th align="center">中级（90天）</th>
+<th align="center">高级（无期）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">第咦阶段</td>
+<td align="center">直接做项目</td>
+<td align="center">官方文档基础部分</td>
+<td align="center">蓝图进阶</td>
+<td align="center">游戏模式&#x2F;框架</td>
+<td align="center">版本管理</td>
+</tr>
+<tr>
+<td align="center">第儿阶段</td>
+<td align="center"></td>
+<td align="center">C++基础</td>
+<td align="center">C++进阶</td>
+<td align="center">Shader基础</td>
+<td align="center">网友框架</td>
+</tr>
+<tr>
+<td align="center">第仨阶段</td>
+<td align="center"></td>
+<td align="center">简单游戏项目</td>
+<td align="center">性能优化</td>
+<td align="center">制作特效</td>
+<td align="center">热更新</td>
+</tr>
+<tr>
+<td align="center">第嘶阶段</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">RPG游戏项目</td>
+<td align="center">独立小游戏</td>
+<td align="center">网游</td>
+</tr>
+<tr>
+<td align="center">第伍阶段</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">优化</td>
+<td align="center">活到老学到老</td>
+</tr>
+</tbody></table>
+<h1 id="学习愉快"><a href="#学习愉快" class="headerlink" title="学习愉快"></a>学习愉快</h1><p><img src="/%5Cimages%5Cother%5CUE5.jpg" alt="Unity信誉已死"></p>
 
     </div>
 
@@ -246,14 +291,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/08/19/Unity%E7%9B%B8%E6%9C%BA%E6%8A%96%E5%8A%A8%E5%AE%9E%E7%8E%B0/" rel="prev" title="Unity相机抖动实现">
-                  <i class="fa fa-angle-left"></i> Unity相机抖动实现
+                <a href="/2024/05/20/Windows%E4%B8%8BGithub-Desktop%E8%B5%B0%E4%BB%A3%E7%90%86/" rel="prev" title="Windows下Github Desktop走代理">
+                  <i class="fa fa-angle-left"></i> Windows下Github Desktop走代理
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/08/23/Unity%E6%89%93%E5%8C%85Xcode%E9%A1%B9%E7%9B%AE%E6%8A%A5%E9%94%99/" rel="next" title="Unity打包Xcode项目报错">
-                  Unity打包Xcode项目报错 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
