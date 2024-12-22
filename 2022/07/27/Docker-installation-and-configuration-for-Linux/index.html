@@ -25,17 +25,17 @@
 <meta property="og:site_name" content="翱翔大使的博客">
 <meta property="og:description" content="第一步：检查系统是否已安装Docker，回车后未返回任何信息就可以进行手动安装。 1yum list installed | grep docker">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/10261485/%5Cimages%5Cdockercommon%5Cdockersetup-1.jpg">
-<meta property="og:image" content="http://example.com/10261485/%5Cimages%5Cdockercommon%5Cdockersetup-2.jpg">
-<meta property="og:image" content="http://example.com/10261485/%5Cimages%5Cdockercommon%5Cdockersetup-3.jpg">
-<meta property="og:image" content="http://example.com/10261485/%5Cimages%5Cdockercommon%5Cdockersetup-4.jpg">
-<meta property="og:image" content="http://example.com/10261485/%5Cimages%5Cdockercommon%5Cdockersetup-5.jpg">
-<meta property="og:image" content="http://example.com/10261485/%5Cimages%5Cdockercommon%5Cdockersetup-6.jpg">
+<meta property="og:image" content="http://example.com/..%5Cimages%5Cdockercommon%5Cdockersetup-1.jpg">
+<meta property="og:image" content="http://example.com/..%5Cimages%5Cdockercommon%5Cdockersetup-2.jpg">
+<meta property="og:image" content="http://example.com/..%5Cimages%5Cdockercommon%5Cdockersetup-3.jpg">
+<meta property="og:image" content="http://example.com/..%5Cimages%5Cdockercommon%5Cdockersetup-4.jpg">
+<meta property="og:image" content="http://example.com/..%5Cimages%5Cdockercommon%5Cdockersetup-5.jpg">
+<meta property="og:image" content="http://example.com/..%5Cimages%5Cdockercommon%5Cdockersetup-6.jpg">
 <meta property="article:published_time" content="2022-07-27T11:10:07.000Z">
-<meta property="article:modified_time" content="2024-12-22T12:31:32.612Z">
+<meta property="article:modified_time" content="2024-12-22T16:08:49.155Z">
 <meta property="article:author" content="翱翔大使">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/10261485/%5Cimages%5Cdockercommon%5Cdockersetup-1.jpg">
+<meta name="twitter:image" content="http://example.com/..%5Cimages%5Cdockercommon%5Cdockersetup-1.jpg">
 
 
 <link rel="canonical" href="http://example.com/2022/07/27/Docker-installation-and-configuration-for-Linux/">
@@ -257,27 +257,27 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list installed | grep docker</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
 
-<p><img src="/10261485/%5Cimages%5Cdockercommon%5Cdockersetup-1.jpg"></p>
+<p><img src="/..%5Cimages%5Cdockercommon%5Cdockersetup-1.jpg"></p>
 <p>第二步：使用yum安装docker。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install docker</span><br></pre></td></tr></table></figure>
 
-<p><img src="/10261485/%5Cimages%5Cdockercommon%5Cdockersetup-2.jpg"></p>
+<p><img src="/..%5Cimages%5Cdockercommon%5Cdockersetup-2.jpg"></p>
 <p>第三步：检查安装项无误后，输入y开始安装。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y</span><br></pre></td></tr></table></figure>
 
-<p><img src="/10261485/%5Cimages%5Cdockercommon%5Cdockersetup-3.jpg"></p>
+<p><img src="/..%5Cimages%5Cdockercommon%5Cdockersetup-3.jpg"></p>
 <p>第四步：安装完成（出现“Complete！”）后，启动Docker。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
 
-<p><img src="/10261485/%5Cimages%5Cdockercommon%5Cdockersetup-4.jpg"></p>
+<p><img src="/..%5Cimages%5Cdockercommon%5Cdockersetup-4.jpg"></p>
 <p>第五步：检查Docker运行状态，出现绿色active字样即正常运行。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status docker</span><br></pre></td></tr></table></figure>
 
-<p><img src="/10261485/%5Cimages%5Cdockercommon%5Cdockersetup-5.jpg"></p>
+<p><img src="/..%5Cimages%5Cdockercommon%5Cdockersetup-5.jpg"></p>
 <p>第六步：将Docker设置为开机自启。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker.service</span><br></pre></td></tr></table></figure>
 
-<p><img src="/10261485/%5Cimages%5Cdockercommon%5Cdockersetup-6.jpg"></p>
+<p><img src="/..%5Cimages%5Cdockercommon%5Cdockersetup-6.jpg"></p>
 <p>至此已配置完毕</p>
 <p>关闭Docker开机自启指令。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl disable docker.service</span><br></pre></td></tr></table></figure>
