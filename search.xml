@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2011/10/05/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>像素宝可梦教程配套资源</title>
+    <url>/2022/06/21/Pixel-Pokemon/</url>
+    <content><![CDATA[<p>就决定是你了！</p>
+<span id="more"></span>
+
+<p>适用MC版本：1.12.2<br>适用Forge版本：1.12.2 – 14.23.5.2860</p>
+<p>教程：<a href="https://www.bilibili.com/video/BV1wr4y1472C">哔哩哔哩</a></p>
+<p>资源：<a href="https://pan.baidu.com/s/16nHLeQgT8CqllzJQAzbItQ?pwd=1rnw">百度云</a><br>资源出处：<a href="https://www.planetminecraft.com/">Planet Minecraft Community</a></p>
+]]></content>
+      <categories>
+        <category>Minecraft</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Minecraft独显运行</title>
+    <url>/2022/07/09/Minecraft-Run-On-GPU/</url>
+    <content><![CDATA[<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>适用显卡：英伟达（NVIDIA）<br>有疑问欢迎加QQ群：710218163</p>
+<span id="more"></span>
+
+<h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><p>确保已安装英伟达显卡驱动：官网</p>
+<h1 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h1><p>第一步：启动Minecraft（任意版本）。</p>
+<p>第二步：最小化Minecraft窗口，或使用“Alt+Tab”键切换至其他窗口（不要关闭游戏）。</p>
+<p>第三步：打开任务管理器（快捷键“Ctrl+Alt+Delete”）。</p>
+<p>第四步：找到”Java(TM) xxxxx”进程，单击右键，选择“打开文件所在的位置”。</p>
+<p><img src="/10261485/images/mcnvidia/mcnvidia1.jpg"><br><img src="/10261485/images/mcnvidia/mcnvidia2.jpg"></p>
+<p>第五步：此时会自动打开一个文件夹，并自动选中一个文件（并非人为选中），记住自动选中的这个文件名（可能是“java.exe”，也可能是“javaw.exe”，以它自动选中的为主），演示中为“javaw.exe”。</p>
+<p><img src="/10261485/images/mcnvidia/mcnvidia3.jpg"></p>
+<p>第六步：左键单击上方路径，复制完整路径。</p>
+<p><img src="/10261485/images/mcnvidia/mcnvidia4.jpg"></p>
+<p>第七步：打开“英伟达控制面板”（安装了驱动才有）。</p>
+<p>第八步：点击“英伟达控制面板”左侧中的“管理3D设置”，再点击右侧“程序设置”。</p>
+<p>第九步：点击添加，再点击“浏览”，在弹出的窗口中，单击路径，将复制的路径粘贴进去并回车，打开|第六步|中记下的文件名。</p>
+<p><img src="/10261485/images/mcnvidia/mcnvidia5.jpg"></p>
+<p>第十步：将“为此程序选择首选图形处理器”，更改为“高性能NVIDIA处理器”，最后点击应用。</p>
+<p><img src="/10261485/images/mcnvidia/mcnvidia6.jpg"></p>
+<p>第十一步：重启游戏，进入光影包选择界面，如果显示为”NVIDIA GeForce XXXX“则设置成功。</p>
+<p><img src="/10261485/images/mcnvidia/mcnvidia7.jpg"></p>
+<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+      <categories>
+        <category>Minecraft</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Linux之rpm包安装与卸载</title>
+    <url>/2022/07/11/rpm-package-installation-and-uninstallation-for-Linux/</url>
+    <content><![CDATA[<p>*&lt;&gt;内为解释内容，无需输入</p>
+<span id="more"></span>
+
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>基本语法：rpm -ivh &lt;rpm包（路径）全称&gt;<br>参数说明：<br>i-install 安装<br>v-verbose 提示<br>h-hash 进度条</p>
+<h1 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h1><p>基本语法：rpm -e &lt;rpm包部全称&gt;<br>一般卸载步骤（举例java jdk）：<br>1、查询包是否存在（模糊搜索，无需全称）：rpm -qa | grep jdk<br>2、卸载：rpm -e &lt;rpm包部分名称或全称&gt;</p>
+<p>卸载注意事项<br>如果其它软件包正依赖于将要卸载的软件包，卸载时会产生错误信息。<br>如果要强制卸载，可以加入参数 -–nodeps（例如：rpm -e –nodeps jdk），不过一般不推荐这样做，可能导致正在依赖该包运行的程序出现问题。<br>站长不是专业人士，如果你和我一样只用于开Minecraft服务器，那么下一条注意事项可以忽略。<br>如果出现类似&lt;warning:XXX.rpm: Header V3 RSA&#x2F;SHA256 Signature, key ID XXX: NOKEY&gt;的警告，这可能是由于安装版本与系统中其它的库文件版本不一致导致的，也可能是未导入公匙导致的。对于业余人士如果最终程序运行正常，可以忽略，专业或商业人士请谨慎对待。</p>
+<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Linux之Docker安装与配置</title>
+    <url>/2022/07/27/Docker-installation-and-configuration-for-Linux/</url>
+    <content><![CDATA[<p>第一步：检查系统是否已安装Docker，回车后未返回任何信息就可以进行手动安装。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum list installed | grep docker</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<p><img src="/10261485/%5Cimages%5Cdockercommon%5Cdockersetup-1.jpg"></p>
+<p>第二步：使用yum安装docker。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install docker</span><br></pre></td></tr></table></figure>
+
+<p><img src="/10261485/%5Cimages%5Cdockercommon%5Cdockersetup-2.jpg"></p>
+<p>第三步：检查安装项无误后，输入y开始安装。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">y</span><br></pre></td></tr></table></figure>
+
+<p><img src="/10261485/%5Cimages%5Cdockercommon%5Cdockersetup-3.jpg"></p>
+<p>第四步：安装完成（出现“Complete！”）后，启动Docker。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
+
+<p><img src="/10261485/%5Cimages%5Cdockercommon%5Cdockersetup-4.jpg"></p>
+<p>第五步：检查Docker运行状态，出现绿色active字样即正常运行。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl status docker</span><br></pre></td></tr></table></figure>
+
+<p><img src="/10261485/%5Cimages%5Cdockercommon%5Cdockersetup-5.jpg"></p>
+<p>第六步：将Docker设置为开机自启。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl enable docker.service</span><br></pre></td></tr></table></figure>
+
+<p><img src="/10261485/%5Cimages%5Cdockercommon%5Cdockersetup-6.jpg"></p>
+<p>至此已配置完毕</p>
+<p>关闭Docker开机自启指令。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl disable docker.service</span><br></pre></td></tr></table></figure>
+
+<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Unity相机抖动</title>
+    <url>/2022/08/19/Unity-Camera-Shake/</url>
+    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>ShakeCamera.cs</p>
+<span id="more"></span>
+
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class ShakeCamera : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    private Vector3 shakePos = Vector3.zero;</span><br><span class="line"></span><br><span class="line">    // Use this for initialization</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Update is called once per frame</span><br><span class="line">    /// &lt;summary&gt;</span><br><span class="line">    /// 按住空格键，画面会一直抖动；松开按键，抖动结束</span><br><span class="line">    /// &lt;/summary&gt;</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        if(Input.GetKey(KeyCode.Space))</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localPosition -= shakePos;</span><br><span class="line">            shakePos = Random.insideUnitSphere / 5.0f;</span><br><span class="line">            transform.localPosition += shakePos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Unity打包上传AppStore后显示语言为英文</title>
+    <url>/2022/08/22/AppStore-language/</url>
+    <content><![CDATA[<p>找了很久没一个想要的答案（在此痛斥某搜索引擎），于是结合其他类似问题和Apple官方文档，已得到解决。</p>
+<span id="more"></span>
+
+<p>怕再次遗忘，故做下此笔记。</p>
+<p>解决前</p>
+<p><img src="/10261485/%5Cimages%5Cappstorelang%5Cbefore.jpg"></p>
+<p>熟人的游戏，自己的解决前没截图，凑合下:)</p>
+<p>解决后</p>
+<p><img src="/10261485/%5Cimages%5Cappstorelang%5Cafter.jpg"></p>
+<p>解决步骤已在图中说明</p>
+<p><img src="/10261485/%5Cimages%5Cappstorelang%5Cafter.jpg"><br><img src="/10261485/%5Cimages%5Cappstorelang%5Cpic-1.jpg"><br><img src="/10261485/%5Cimages%5Cappstorelang%5Cpic-2.jpg"><br><img src="/10261485/%5Cimages%5Cappstorelang%5Cpic-3.jpg"><br><img src="/10261485/%5Cimages%5Cappstorelang%5Cpic-4.jpg"><br><img src="/10261485/%5Cimages%5Cappstorelang%5Cpic-5.jpg"><br><img src="/10261485/%5Cimages%5Cappstorelang%5Cpic-6.jpg"><br><img src="/10261485/%5Cimages%5Cappstorelang%5Cpic-7.jpg"><br><img src="/10261485/%5Cimages%5Cappstorelang%5Cpic-8.jpg"></p>
+<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Unity打包Xcode项目报错</title>
+    <url>/2022/08/23/Unity-packaging-Xcode-project-error/</url>
+    <content><![CDATA[<p>为了方便管理仓库，转移项目后发现打包Xcode项目报错了。<br>报错主要内容<br><code>tundra: error: Failed to open file “xxxx/Library/Il2cppBuidCache/…..”</code></p>
+<span id="more"></span>
+
+<p><img src="/10261485/%5Cimages%5Cunityxcodefix%5C1.jpg"></p>
+<p>解决步骤已在图中说明</p>
+<p><img src="/10261485/%5Cimages%5Cunityxcodefix%5C2jpg"><br><img src="/10261485/%5Cimages%5Cunityxcodefix%5C3.jpg"><br><img src="/10261485/%5Cimages%5Cunityxcodefix%5C4.jpg"><br><img src="/10261485/%5Cimages%5Cunityxcodefix%5C5.jpg"></p>
+<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Unity接入GameCenter</title>
+    <url>/2022/09/01/Unity-and-GameCenter/</url>
+    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>IOSManager.cs</p>
+<span id="more"></span>
+
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using UnityEngine;</span><br><span class="line">using System.Collections;</span><br><span class="line">using UnityEngine.SocialPlatforms;</span><br><span class="line">using UnityEngine.SocialPlatforms.GameCenter;</span><br><span class="line"></span><br><span class="line">public class IOSManager : MonoBehaviour &#123;</span><br><span class="line"></span><br><span class="line">	public bool   GameCenterState;</span><br><span class="line">	public string userInfo;</span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 初始化 GameCenter 登陆</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	void Start () &#123;</span><br><span class="line">		Social.localUser.Authenticate(HandleAuthenticated);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 初始化 GameCenter 结果回调函数</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;success&quot;&gt;If set to &lt;c&gt;true&lt;/c&gt; success.&lt;/param&gt;</span><br><span class="line">	private void HandleAuthenticated(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		GameCenterState = success;</span><br><span class="line">		Debug.Log(&quot;*** HandleAuthenticated: success = &quot; + success);</span><br><span class="line">		///初始化成功</span><br><span class="line">		if (success) &#123;</span><br><span class="line">			userInfo = &quot;Username: &quot; + Social.localUser.userName +</span><br><span class="line">				&quot;\nUser ID: &quot; + Social.localUser.id +</span><br><span class="line">				&quot;\nIsUnderage: &quot; + Social.localUser.underage;</span><br><span class="line">			Debug.Log (userInfo);</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">		///初始化失败</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	void OnGUI()&#123;</span><br><span class="line"></span><br><span class="line">		GUI.TextArea ( new Rect( Screen.width -200, 0, 200, 100), &quot;GameCenter:&quot;+GameCenterState  );</span><br><span class="line">		GUI.TextArea ( new Rect( Screen.width -200, 100, 200, 100), &quot;userInfo:&quot;+userInfo  );</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 0, 110, 75), &quot;打开成就&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ShowAchievementsUI();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 150, 110, 75), &quot;打开排行榜&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ShowLeaderboardUI();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 300, 110, 75), &quot;排行榜设置分数&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ReportScore(1000, &quot;XXXX&quot;, HandleScoreReported);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 300, 110, 75), &quot;设置成就&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ReportProgress(&quot;XXXX&quot;, 15, HandleProgressReported);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	//上传排行榜分数</span><br><span class="line">	public void HandleScoreReported(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleScoreReported: success = &quot; + success);</span><br><span class="line">	&#125;</span><br><span class="line">	//设置 成就</span><br><span class="line">	private void HandleProgressReported(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleProgressReported: success = &quot; + success);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 加载好友回调</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;success&quot;&gt;If set to &lt;c&gt;true&lt;/c&gt; success.&lt;/param&gt;</span><br><span class="line">	private void HandleFriendsLoaded(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleFriendsLoaded: success = &quot; + success);</span><br><span class="line">		foreach(IUserProfile friend in Social.localUser.friends)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* friend = &quot; + friend.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 加载成就回调</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;achievements&quot;&gt;Achievements.&lt;/param&gt;</span><br><span class="line">	private void HandleAchievementsLoaded(IAchievement[] achievements)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;* HandleAchievementsLoaded&quot;);</span><br><span class="line">		foreach(IAchievement achievement in achievements)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* achievement = &quot; + achievement.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	///</span><br><span class="line">	/// 成就回调描述</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;achievementDescriptions&quot;&gt;Achievement descriptions.&lt;/param&gt;</span><br><span class="line">	private void HandleAchievementDescriptionsLoaded(IAchievementDescription[] achievementDescriptions)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleAchievementDescriptionsLoaded&quot;);</span><br><span class="line">		foreach(IAchievementDescription achievementDescription in achievementDescriptions)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* achievementDescription = &quot; + achievementDescription.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Unity切换场景不销毁物体</title>
+    <url>/2022/10/18/UNITY-DO-NOT-DESTROY-MY-OBJECTS/</url>
+    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>IOSManager.cs<br>使用方法：创建一个空物体，挂上此脚本，将不销毁的物体拖入数组。</p>
+<span id="more"></span>
+
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 加载场景时不删除的物体</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">public class DontDestroyOnLoad : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //加载场景时不销毁的物体</span><br><span class="line">    public GameObject[] DontDestroyObjects;</span><br><span class="line"></span><br><span class="line">    //是否已经存在DontDestroy的物体</span><br><span class="line">    private static bool isExist;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">    void Awake()</span><br><span class="line">    &#123;</span><br><span class="line">        if (!isExist)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果第一次加载，将这些物体设为DontDestroy</span><br><span class="line">                DontDestroyOnLoad(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            isExist = true;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果已经存在，则删除重复的物体</span><br><span class="line">                Destroy(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Unity获取Windows启动参数</title>
+    <url>/2022/10/18/Unity-gets-Windows-startup-parameters/</url>
+    <content><![CDATA[<p>所有启动参数将存储在变量（数组）“arguments”中。</p>
+<span id="more"></span>
+
+<p><code>string[] arguments = Environment.GetCommandLineArgs();</code></p>
+<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Git报错汇总</title>
+    <url>/2023/01/30/Git-error-summary/</url>
+    <content><![CDATA[<p>错误内容：<br><code>Error: Failed to connect to github.com port 443 after xxx ms: Timed out</code></p>
+<span id="more"></span>
+
+
+<p>第一步：查询自己的proxy</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global -l</span><br></pre></td></tr></table></figure>
+<p>这个时候会显示你自己的proxy，例如：</p>
+<p>&#x2F;&#x2F;如果没有配置过，以下内容可能为空</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">user.name=SteveJobs</span><br><span class="line">user.email=hello@world.com</span><br><span class="line">http.proxy=127.0.0.1:25565</span><br><span class="line">https.proxy=127.0.0.1:25565</span><br></pre></td></tr></table></figure>
+
+<p>第二步：删除自己的proxy设置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+
+<p>第三步：重新设置自己的proxy<br>例如我这里使用Clash for Windows，默认端口号为7890。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy 127.0.0.1:7890</span><br><span class="line">git config --global https.proxy 127.0.0.1:7890</span><br></pre></td></tr></table></figure>
+
+<p>第四步：检查配置后的proxy</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global -l</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">user.name=SteveJobs</span><br><span class="line">user.email=hello@world.com</span><br><span class="line">http.proxy=127.0.0.1:7890</span><br><span class="line">https.proxy=127.0.0.1:7890</span><br></pre></td></tr></table></figure>
+
+<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>修复WordPress更换域名后资源URL失效</title>
+    <url>/2023/09/20/Fixed-Resource-URL-invalid-after-domain-name-change-in-WordPress/</url>
+    <content><![CDATA[<p>尝试直接换了新域名，后果是…网页、数据库和网页里关联的资源全挂了哈哈哈，不过总算修复好了嘎。</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE pb_posts SET post_content = REPLACE( post_content, &#x27;旧域名&#x27;, &#x27;新域名&#x27; );</span><br></pre></td></tr></table></figure>
+<p>还需要修改“x_posts”表中的“post_content”字段，和“x_postmeta”中的“meta_value”字段，都是这条指令。<br><code>虽然现在已经更换了hexo，但还是留个作死的纪念吧:p</code></p>
+<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>SpigotMC配置Proxy</title>
+    <url>/2024/02/08/SpigotMC-Configures-Proxy/</url>
+    <content><![CDATA[<p>在国内，编译Spigot下的BuildTools.jar文件时网络报错，需要配置Proxy才能顺利进行。</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -Dhttp.proxyHost=&#123;IP&#125; -Dhttp.proxyPort=&#123;PORT&#125; -Dhttps.proxyHost=&#123;IP&#125; -Dhttps.proxyPort=&#123;PORT&#125; -jar BuildTools.jar</span><br></pre></td></tr></table></figure>
+<p>例如</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=1234 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=1234 -jar BuildTools.jar --rev latest</span><br></pre></td></tr></table></figure>
+
+<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+      <categories>
+        <category>Minecraft</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>安装卡巴斯基后无权限修改hosts文件</title>
+    <url>/2024/02/15/Windows-does-not-have-permission-to-modify-hosts-after-Kaspersky-is-installed/</url>
+    <content><![CDATA[<p>由于本人使用“瓦特工具箱”对一些工具进行加速，需要修改hosts，于是遇到了权限问题。<br>虽然可以使用DNS模式，但考虑到自己还有一些IDE和一些工具需要用到hosts文件，还是得解决一下。</p>
+<span id="more"></span>
+
+<p>首先不得不吐槽一下，我找遍了各种论坛和客服支持的存档，没有一个有效的解决方案，全是复制粘贴的无效方案。<br>相信不少人跟我一样，网上搜到的所谓将文件放入“威胁和排除项”的“管理排除项”里，根本不起作用！</p>
+<p>以下是我经过反复摸索后，能够彻底解决问题的方案：</p>
+<p><img src="/10261485/%5Cimages%5Cwinkasperskyhost%5Ckbsj-1.jpg"><br><img src="/10261485/%5Cimages%5Cwinkasperskyhost%5Ckbsj-2.jpg"><br><img src="/10261485/%5Cimages%5Cwinkasperskyhost%5Ckbsj-3.jpg"><br><img src="/10261485/%5Cimages%5Cwinkasperskyhost%5Ckbsj-4.jpg"></p>
+<p>根据图示（点击图片可放大），将hosts文件的上锁状态取消，最后保存。</p>
+<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Github Desktop设置代理</title>
+    <url>/2024/05/20/Github-Desktop-Setup-proxy/</url>
+    <content><![CDATA[<p>打开C:\users\username.gitconfig文件，最后加上</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[http]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[https]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[git]</span><br><span class="line">    proxy = socks5://ip:port</span><br></pre></td></tr></table></figure>
+
+<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+  </entry>
+</search>
