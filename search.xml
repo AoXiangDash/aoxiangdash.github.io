@@ -58,7 +58,7 @@
 <p><img src="/../images/mcnvidia/mcnvidia6.jpg"></p>
 <p>第十一步：重启游戏，进入光影包选择界面，如果显示为”NVIDIA GeForce XXXX“则设置成功。</p>
 <p><img src="/../images/mcnvidia/mcnvidia7.jpg"></p>
-<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+]]></content>
       <categories>
         <category>Minecraft</category>
       </categories>
@@ -72,7 +72,7 @@
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>基本语法：rpm -ivh &lt;rpm包（路径）全称&gt;<br>参数说明：<br>i-install 安装<br>v-verbose 提示<br>h-hash 进度条</p>
 <h1 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h1><p>基本语法：rpm -e &lt;rpm包部全称&gt;<br>一般卸载步骤（举例java jdk）：<br>1、查询包是否存在（模糊搜索，无需全称）：rpm -qa | grep jdk<br>2、卸载：rpm -e &lt;rpm包部分名称或全称&gt;</p>
 <p>卸载注意事项<br>如果其它软件包正依赖于将要卸载的软件包，卸载时会产生错误信息。<br>如果要强制卸载，可以加入参数 -–nodeps（例如：rpm -e –nodeps jdk），不过一般不推荐这样做，可能导致正在依赖该包运行的程序出现问题。<br>站长不是专业人士，如果你和我一样只用于开Minecraft服务器，那么下一条注意事项可以忽略。<br>如果出现类似&lt;warning:XXX.rpm: Header V3 RSA&#x2F;SHA256 Signature, key ID XXX: NOKEY&gt;的警告，这可能是由于安装版本与系统中其它的库文件版本不一致导致的，也可能是未导入公匙导致的。对于业余人士如果最终程序运行正常，可以忽略，专业或商业人士请谨慎对待。</p>
-<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+]]></content>
       <categories>
         <category>Other</category>
       </categories>
@@ -108,8 +108,7 @@
 <p>至此已配置完毕</p>
 <p>关闭Docker开机自启指令。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl disable docker.service</span><br></pre></td></tr></table></figure>
-
-<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+]]></content>
       <categories>
         <category>Other</category>
       </categories>
@@ -121,8 +120,7 @@
 <span id="more"></span>
 
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class ShakeCamera : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    private Vector3 shakePos = Vector3.zero;</span><br><span class="line"></span><br><span class="line">    // Use this for initialization</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Update is called once per frame</span><br><span class="line">    /// &lt;summary&gt;</span><br><span class="line">    /// 按住空格键，画面会一直抖动；松开按键，抖动结束</span><br><span class="line">    /// &lt;/summary&gt;</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        if(Input.GetKey(KeyCode.Space))</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localPosition -= shakePos;</span><br><span class="line">            shakePos = Random.insideUnitSphere / 5.0f;</span><br><span class="line">            transform.localPosition += shakePos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+]]></content>
       <categories>
         <category>Unity</category>
       </categories>
@@ -141,7 +139,7 @@
 <p><img src="/../images/appstorelang/after.jpg"></p>
 <p>解决步骤已在图中说明</p>
 <p><img src="/../images/appstorelang/after.jpg"><br><img src="/../images/appstorelang/pic-1.jpg"><br><img src="/../images/appstorelang/pic-2.jpg"><br><img src="/../images/appstorelang/pic-3.jpg"><br><img src="/../images/appstorelang/pic-4.jpg"><br><img src="/../images/appstorelang/pic-5.jpg"><br><img src="/../images/appstorelang/pic-6.jpg"><br><img src="/../images/appstorelang/pic-7.jpg"><br><img src="/../images/appstorelang/pic-8.jpg"></p>
-<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+]]></content>
       <categories>
         <category>Unity</category>
       </categories>
@@ -155,7 +153,7 @@
 <p><img src="/../images/unityxcodefix/1.jpg"></p>
 <p>解决步骤已在图中说明</p>
 <p><img src="/../images/unityxcodefix/2jpg"><br><img src="/../images/unityxcodefix/3.jpg"><br><img src="/../images/unityxcodefix/4.jpg"><br><img src="/../images/unityxcodefix/5.jpg"></p>
-<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+]]></content>
       <categories>
         <category>Unity</category>
       </categories>
@@ -167,8 +165,7 @@
 <span id="more"></span>
 
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using UnityEngine;</span><br><span class="line">using System.Collections;</span><br><span class="line">using UnityEngine.SocialPlatforms;</span><br><span class="line">using UnityEngine.SocialPlatforms.GameCenter;</span><br><span class="line"></span><br><span class="line">public class IOSManager : MonoBehaviour &#123;</span><br><span class="line"></span><br><span class="line">	public bool   GameCenterState;</span><br><span class="line">	public string userInfo;</span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 初始化 GameCenter 登陆</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	void Start () &#123;</span><br><span class="line">		Social.localUser.Authenticate(HandleAuthenticated);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 初始化 GameCenter 结果回调函数</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;success&quot;&gt;If set to &lt;c&gt;true&lt;/c&gt; success.&lt;/param&gt;</span><br><span class="line">	private void HandleAuthenticated(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		GameCenterState = success;</span><br><span class="line">		Debug.Log(&quot;*** HandleAuthenticated: success = &quot; + success);</span><br><span class="line">		///初始化成功</span><br><span class="line">		if (success) &#123;</span><br><span class="line">			userInfo = &quot;Username: &quot; + Social.localUser.userName +</span><br><span class="line">				&quot;\nUser ID: &quot; + Social.localUser.id +</span><br><span class="line">				&quot;\nIsUnderage: &quot; + Social.localUser.underage;</span><br><span class="line">			Debug.Log (userInfo);</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">		///初始化失败</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	void OnGUI()&#123;</span><br><span class="line"></span><br><span class="line">		GUI.TextArea ( new Rect( Screen.width -200, 0, 200, 100), &quot;GameCenter:&quot;+GameCenterState  );</span><br><span class="line">		GUI.TextArea ( new Rect( Screen.width -200, 100, 200, 100), &quot;userInfo:&quot;+userInfo  );</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 0, 110, 75), &quot;打开成就&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ShowAchievementsUI();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 150, 110, 75), &quot;打开排行榜&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ShowLeaderboardUI();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 300, 110, 75), &quot;排行榜设置分数&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ReportScore(1000, &quot;XXXX&quot;, HandleScoreReported);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 300, 110, 75), &quot;设置成就&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ReportProgress(&quot;XXXX&quot;, 15, HandleProgressReported);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	//上传排行榜分数</span><br><span class="line">	public void HandleScoreReported(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleScoreReported: success = &quot; + success);</span><br><span class="line">	&#125;</span><br><span class="line">	//设置 成就</span><br><span class="line">	private void HandleProgressReported(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleProgressReported: success = &quot; + success);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 加载好友回调</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;success&quot;&gt;If set to &lt;c&gt;true&lt;/c&gt; success.&lt;/param&gt;</span><br><span class="line">	private void HandleFriendsLoaded(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleFriendsLoaded: success = &quot; + success);</span><br><span class="line">		foreach(IUserProfile friend in Social.localUser.friends)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* friend = &quot; + friend.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 加载成就回调</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;achievements&quot;&gt;Achievements.&lt;/param&gt;</span><br><span class="line">	private void HandleAchievementsLoaded(IAchievement[] achievements)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;* HandleAchievementsLoaded&quot;);</span><br><span class="line">		foreach(IAchievement achievement in achievements)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* achievement = &quot; + achievement.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	///</span><br><span class="line">	/// 成就回调描述</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;achievementDescriptions&quot;&gt;Achievement descriptions.&lt;/param&gt;</span><br><span class="line">	private void HandleAchievementDescriptionsLoaded(IAchievementDescription[] achievementDescriptions)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleAchievementDescriptionsLoaded&quot;);</span><br><span class="line">		foreach(IAchievementDescription achievementDescription in achievementDescriptions)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* achievementDescription = &quot; + achievementDescription.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+]]></content>
       <categories>
         <category>Unity</category>
       </categories>
@@ -180,8 +177,7 @@
 <span id="more"></span>
 
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 加载场景时不删除的物体</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">public class DontDestroyOnLoad : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //加载场景时不销毁的物体</span><br><span class="line">    public GameObject[] DontDestroyObjects;</span><br><span class="line"></span><br><span class="line">    //是否已经存在DontDestroy的物体</span><br><span class="line">    private static bool isExist;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">    void Awake()</span><br><span class="line">    &#123;</span><br><span class="line">        if (!isExist)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果第一次加载，将这些物体设为DontDestroy</span><br><span class="line">                DontDestroyOnLoad(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            isExist = true;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果已经存在，则删除重复的物体</span><br><span class="line">                Destroy(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+]]></content>
       <categories>
         <category>Unity</category>
       </categories>
@@ -193,7 +189,7 @@
 <span id="more"></span>
 
 <p><code>string[] arguments = Environment.GetCommandLineArgs();</code></p>
-<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+]]></content>
       <categories>
         <category>Unity</category>
       </categories>
@@ -222,8 +218,7 @@
 
 <p>结果：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">user.name=SteveJobs</span><br><span class="line">user.email=hello@world.com</span><br><span class="line">http.proxy=127.0.0.1:7890</span><br><span class="line">https.proxy=127.0.0.1:7890</span><br></pre></td></tr></table></figure>
-
-<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+]]></content>
       <categories>
         <category>Other</category>
       </categories>
@@ -236,7 +231,7 @@
 
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE pb_posts SET post_content = REPLACE( post_content, &#x27;旧域名&#x27;, &#x27;新域名&#x27; );</span><br></pre></td></tr></table></figure>
 <p>还需要修改“x_posts”表中的“post_content”字段，和“x_postmeta”中的“meta_value”字段，都是这条指令。<br><code>虽然现在已经更换了hexo，但还是留个作死的纪念吧:p</code></p>
-<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+]]></content>
       <categories>
         <category>Other</category>
       </categories>
@@ -250,8 +245,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -Dhttp.proxyHost=&#123;IP&#125; -Dhttp.proxyPort=&#123;PORT&#125; -Dhttps.proxyHost=&#123;IP&#125; -Dhttps.proxyPort=&#123;PORT&#125; -jar BuildTools.jar</span><br></pre></td></tr></table></figure>
 <p>例如</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=1234 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=1234 -jar BuildTools.jar --rev latest</span><br></pre></td></tr></table></figure>
-
-<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+]]></content>
       <categories>
         <category>Minecraft</category>
       </categories>
@@ -266,7 +260,7 @@
 <p>以下是我经过反复摸索后，能够彻底解决问题的方案：</p>
 <p><img src="/../images/winkasperskyhost/kbsj-1.jpg"><br><img src="/../images/winkasperskyhost/kbsj-2.jpg"><br><img src="/../images/winkasperskyhost/kbsj-3.jpg"><br><img src="/../images/winkasperskyhost/kbsj-4.jpg"></p>
 <p>根据图示（点击图片可放大），将hosts文件的上锁状态取消，最后保存。</p>
-<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+]]></content>
       <categories>
         <category>Other</category>
       </categories>
@@ -278,8 +272,7 @@
 <span id="more"></span>
 
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[http]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[https]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[git]</span><br><span class="line">    proxy = socks5://ip:port</span><br></pre></td></tr></table></figure>
-
-<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+]]></content>
       <categories>
         <category>Other</category>
       </categories>
@@ -302,7 +295,7 @@
 <p>Q2：连接Wifi后系统界面无法点击任何东西（偶发，疑似网络波动导致）<br>不要惊慌，不要进行任何操作，这是由于连不上Meta服务导致的假死机。<br>等待1分钟或暂时关掉路由器，Quest会恢复操作，此时赶紧关闭Quest系统的Wifi开关。<br>要想连接自家的WiFi，有两种方式：<br>①（推荐）Quest内安装魔法工具（安卓包通用，建议用V2r**NG）<br>②Quest内安装Virtual Hosts，填入的内容参考这部视频：Quest2&#x2F;3 VD 秒连电脑教程。<br>方式②本质上是通过修改hosts的方式连接上Meta服务器。<br>“hosts.txt”内容：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">157.240.11.49 graph.oculus.com</span><br><span class="line">157.240.11.49 www2.oculus.com</span><br><span class="line">157.240.8.49 scontent.oculuscdn.com</span><br><span class="line">157.240.8.49 securecdn.oculus.com</span><br><span class="line">127.0.0.1 america.vrdesktop.net</span><br><span class="line">127.0.0.1 europe.vrdesktop.net</span><br><span class="line">127.0.0.1 download.vrdesktop.net</span><br></pre></td></tr></table></figure>
 <p>后续连接Wifi时先开魔法，再连Wifi，不过单机游戏一般也无需连接网络。</p>
-<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+]]></content>
       <categories>
         <category>Other</category>
       </categories>
@@ -346,7 +339,7 @@
 </tbody></table>
 <h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><p>1、把“Kissing system xxx”（装的哪个着色器就用哪个）拖到你的“Avatar”中。<br><code>具体路径：Assets/Melting3D/kiss/Prefab</code><br><img src="/../images/VRChat-Kiss-blowing-System/1.png"><br>2、在“Hierarchy”中右键“Kissing system xxx”，Prefab –&gt; Unpack completely<br><img src="/../images/VRChat-Kiss-blowing-System/2.png"><br>3、将所有子物体拖到“Avatar”中（与“armature”同级）<br><img src="/../images/VRChat-Kiss-blowing-System/3.png"><br>4、将“Kissing system xxx”中的“MA Merge Animator”设置如下<br><img src="/../images/VRChat-Kiss-blowing-System/4.png"><br>5、完成</p>
 <p>不给文档还在那儿卖插件的作者是屑。</p>
-<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+]]></content>
       <categories>
         <category>VRChat Plugin</category>
       </categories>
@@ -417,9 +410,50 @@
 <td align="center"><a href="vcc://vpm/addRepo?url=https://kurotu.github.io/vpm-repos/vpm.json">VCC</a></td>
 </tr>
 </tbody></table>
-<h1 id="汇总不易，转载请注明”gamemode1-com”"><a href="#汇总不易，转载请注明”gamemode1-com”" class="headerlink" title="汇总不易，转载请注明”gamemode1.com”"></a>汇总不易，转载请注明”gamemode1.com”</h1>]]></content>
+]]></content>
       <categories>
         <category>VRChat Plugin</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>DNSPod解析不生效</title>
+    <url>/2024/12/25/Note-the-DNSPod-Settings/</url>
+    <content><![CDATA[<p>之前一直用的顶级域名，现在想给博客换成二级域名。结果今天设置Cloudflare后，域名和SSL验证等了一天没反应。</p>
+<span id="more"></span>
+
+<p>最后经过不断排查，最终想起来DNSPod的主机记录是默认会在后面加上一级域名的，例如我主机记录写的：<br><code>_cf-custom-hostname.blog.gamemode1.com</code><br>看似没问题对吧？但实际上解析的是：<br><code>_cf-custom-hostname.blog.gamemode1.com.gamemode1.com</code></p>
+<p>所以正确的填法应该是：<br><code>_cf-custom-hostname.blog</code></p>
+<p>这算是个低级错误，粗心大意了。<br>我设置好了就会很长时间不去动它，于是回头再来设置就给忘了这点，好记性不如烂笔头还是记录下吧2333。</p>
+]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hexo Next主题 自定义背景</title>
+    <url>/2024/12/25/Hexo-Next-Custom-background/</url>
+    <content><![CDATA[<p>修改Next默认的纯白背景。</p>
+<span id="more"></span>
+
+<h1 id="保存图片"><a href="#保存图片" class="headerlink" title="保存图片"></a>保存图片</h1><p>将自己的图片命名为background保存到以下路径：<br><code>\themes\next\source\images</code></p>
+<p>我使用的是默认配置，路径如下：<br><code>\node_modules\hexo-theme-next\source\images</code></p>
+<h1 id="修改样式"><a href="#修改样式" class="headerlink" title="修改样式"></a>修改样式</h1><p>进入以下路径：<br><code>\themes\next\source\css\_schemes</code></p>
+<p>我使用的是默认配置，路径如下：<br><code>\node_modules\hexo-theme-next\source\css\_schemes</code></p>
+<h2 id="选择当前使用的Hexo主题"><a href="#选择当前使用的Hexo主题" class="headerlink" title="选择当前使用的Hexo主题"></a>选择当前使用的Hexo主题</h2><p>进入上述路径后里面应该有四个文件夹（Gemini, Mist, Muse, Pisces），进入你现在用的这个主题的文件夹。</p>
+<h2 id="编辑index-styl文件"><a href="#编辑index-styl文件" class="headerlink" title="编辑index.styl文件"></a>编辑index.styl文件</h2><ol>
+<li><p>打开当前使用主题的“index.styl”文件，找到如下注释字段：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// ==================================================</span><br><span class="line">// Desktop layout styles.</span><br><span class="line">// ==================================================</span><br><span class="line">// Post blocks.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在下面新增一行，添加如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 整体背景设置</span><br><span class="line">body &#123;</span><br><span class="line">	background:url(/images/background.jpg);// 设定背景图片,注意修改图片后缀</span><br><span class="line">	background-repeat: no-repeat;// 设定背景图片非重复填充</span><br><span class="line">	background-attachment:fixed;// 设置背景图片不随页面滚动</span><br><span class="line">	background-position:50% 50%;// 设置背景图片位置</span><br><span class="line">	background-size: cover// 设置保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 设置透明度</span><br><span class="line">.main-inner&#123;</span><br><span class="line">	opacity: 0.9;</span><br><span class="line">&#125;</span><br><span class="line">.header-inner&#123;</span><br><span class="line">	opacity: 0.9;</span><br><span class="line">	z-index: 10;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><code>出处：https://splendidwave.github.io/2021/12/27/2021-12/Hexo-Next-自定义背景/</code></p>
+<ol start="3">
+<li>重启或编译Hexo服务。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Other</category>
       </categories>
   </entry>
 </search>
