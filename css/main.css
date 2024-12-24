@@ -1275,7 +1275,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #6eff0e;
+    background: #96ffff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2933,22 +2933,6 @@ body {
   text-shadow: 0 0 1px rgba(255,255,255,0.8), 0 0 5px rgba(255,255,255,0.8);
 }
 /* 雪花 END */
-/* 设置透明 */
-.sidebar {
-  opacity: 0.85;
-}
-.header,
-.main-inner {
-  background-color: rgba(255,255,255,0.8);
-}
-.menu-item a:hover,
-.menu-item a.menu-item-active {
-  background-color: rgba(150,150,150,0.1);
-}
-.site-brand-container {
-  background-color: rgba(0,0,0,0.75);
-}
-/* For DarkMode */
 @keyframes snowflakeFallRotate {
   0% {
     transform: translateY(0) translateX(0) rotate(0);
