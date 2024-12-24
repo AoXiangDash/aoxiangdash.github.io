@@ -307,4 +307,119 @@
         <category>Other</category>
       </categories>
   </entry>
+  <entry>
+    <title>VRChat插件之“Kiss blowing System”</title>
+    <url>/2024/12/24/VRChat-Kiss-blowing-System/</url>
+    <content><![CDATA[<p>这个插件的作者没有提供使用说明，于是自研之，以下是自己研究出的使用方法。</p>
+<span id="more"></span>
+
+<h1 id="安装-MA"><a href="#安装-MA" class="headerlink" title="安装 MA"></a>安装 MA</h1><table>
+<thead>
+<tr>
+<th align="center"><strong>Modular Avatar</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><a href="vcc://vpm/addRepo?url=https://vpm.nadena.dev/vpm.json">一键添加至VCC</a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://modular-avatar.nadena.dev/">官网</a></td>
+</tr>
+</tbody></table>
+<h1 id="安装-liltoon-或-Poi"><a href="#安装-liltoon-或-Poi" class="headerlink" title="安装 liltoon 或 Poi"></a>安装 liltoon 或 Poi</h1><center><span style="color: red;">二选一</span></center>
+
+<table>
+<thead>
+<tr>
+<th align="center"><strong>liltoon</strong></th>
+<th align="center"><strong>Poiyomi Shader</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><a href="vcc://vpm/addRepo?url=https://lilxyzw.github.io/vpm-repos/vpm.json">一键添加至VCC</a></td>
+<td align="center"><a href="vcc://vpm/addRepo?url=https%3A%2F%2Fpoiyomi.github.io/vpm/index.json">一键添加至VCC</a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://lilxyzw.github.io/lilToon/ja_JP/">官网</a></td>
+<td align="center"><a href="https://www.poiyomi.com/">官网</a></td>
+</tr>
+</tbody></table>
+<h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><p>1、把“Kissing system xxx”（装的哪个着色器就用哪个）拖到你的“Avatar”中。<br><code>具体路径：Assets/Melting3D/kiss/Prefab</code><br><img src="/../images/VRChat-Kiss-blowing-System/1.png"><br>2、在“Hierarchy”中右键“Kissing system xxx”，Prefab –&gt; Unpack completely<br><img src="/../images/VRChat-Kiss-blowing-System/2.png"><br>3、将所有子物体拖到“Avatar”中（与“armature”同级）<br><img src="/../images/VRChat-Kiss-blowing-System/3.png"><br>4、将“Kissing system xxx”中的“MA Merge Animator”设置如下<br><img src="/../images/VRChat-Kiss-blowing-System/4.png"><br>5、完成</p>
+<p>不给文档还在那儿卖插件的作者是屑。</p>
+<h1 id="解决问题不易，转载请注明”gamemode1-com”"><a href="#解决问题不易，转载请注明”gamemode1-com”" class="headerlink" title="解决问题不易，转载请注明”gamemode1.com”"></a>解决问题不易，转载请注明”gamemode1.com”</h1>]]></content>
+      <categories>
+        <category>VRChat Plugin</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>VCC常用仓库汇总</title>
+    <url>/2024/12/24/vcc-quickly-added/</url>
+    <content><![CDATA[<p>个人总是因为重装把VCC仓库搞掉了，于是写一个汇总，供自己和大家一键添加！</p>
+<span id="more"></span>
+<h1 id="VRChat-Creator-Companion"><a href="#VRChat-Creator-Companion" class="headerlink" title="VRChat Creator Companion"></a>VRChat Creator Companion</h1><p><a href="https://vrchat.com/home/download">VRChat Home - Download</a></p>
+<h1 id="着色器"><a href="#着色器" class="headerlink" title="着色器"></a>着色器</h1><table>
+<thead>
+<tr>
+<th align="center"><strong>名称</strong></th>
+<th align="center"><strong>来源</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Poiyomi</td>
+<td align="center"><a href="vcc://vpm/addRepo?url=https%3A%2F%2Fpoiyomi.github.io/vpm/index.json">VCC</a></td>
+</tr>
+<tr>
+<td align="center">lilToon</td>
+<td align="center"><a href="vcc://vpm/addRepo?url=https://lilxyzw.github.io/vpm-repos/vpm.json">VCC</a></td>
+</tr>
+<tr>
+<td align="center">UnlitWF Shader</td>
+<td align="center"><a href="vcc://vpm/addRepo?url=https://whiteflare.github.io/vpm-repos/vpm.json">VCC</a></td>
+</tr>
+<tr>
+<td align="center">UTS2</td>
+<td align="center"><a href="https://github.com/unity3d-jp/UnityChanToonShaderVer2_Project">Github</a></td>
+</tr>
+<tr>
+<td align="center">ARK</td>
+<td align="center"><a href="https://github.com/arktoon-archive/arktoon">Github</a></td>
+</tr>
+<tr>
+<td align="center">Crystal Shader</td>
+<td align="center"><a href="https://github.com/zVoyder/Crystal-Shader">Github</a></td>
+</tr>
+<tr>
+<td align="center">Mochies</td>
+<td align="center"><a href="https://github.com/MochiesCode/Mochies-Unity-Shaders">Github</a></td>
+</tr>
+<tr>
+<td align="center">SunaoShader</td>
+<td align="center"><a href="https://booth.pm/ja/items/1723985">BOOTH</a></td>
+</tr>
+</tbody></table>
+<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><table>
+<thead>
+<tr>
+<th align="center"><strong>名称</strong></th>
+<th align="center"><strong>来源</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Modular Avatar</td>
+<td align="center"><a href="vcc://vpm/addRepo?url=https://vpm.nadena.dev/vpm.json">VCC</a></td>
+</tr>
+<tr>
+<td align="center">VRCFury</td>
+<td align="center"><a href="vcc://vpm/addRepo?url=https%3A%2F%2Fvcc.vrcfury.com">VCC</a></td>
+</tr>
+<tr>
+<td align="center">VRCQuestTools</td>
+<td align="center"><a href="vcc://vpm/addRepo?url=https://kurotu.github.io/vpm-repos/vpm.json">VCC</a></td>
+</tr>
+</tbody></table>
+<h1 id="汇总不易，转载请注明”gamemode1-com”"><a href="#汇总不易，转载请注明”gamemode1-com”" class="headerlink" title="汇总不易，转载请注明”gamemode1.com”"></a>汇总不易，转载请注明”gamemode1.com”</h1>]]></content>
+      <categories>
+        <category>VRChat Plugin</category>
+      </categories>
+  </entry>
 </search>
