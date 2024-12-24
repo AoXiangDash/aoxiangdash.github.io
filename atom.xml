@@ -6,7 +6,7 @@
   <link href="https://blog.gamemode1.com/atom.xml" rel="self"/>
   
   <link href="https://blog.gamemode1.com/"/>
-  <updated>2024-12-24T21:42:42.237Z</updated>
+  <updated>2024-12-24T23:11:22.767Z</updated>
   <id>https://blog.gamemode1.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo Next主题添加网易云音乐</title>
+    <link href="https://blog.gamemode1.com/2024/12/25/Hexo-Next-theme-adds-NetEase-music/"/>
+    <id>https://blog.gamemode1.com/2024/12/25/Hexo-Next-theme-adds-NetEase-music/</id>
+    <published>2024-12-24T22:56:39.000Z</published>
+    <updated>2024-12-24T23:11:22.767Z</updated>
+    
+    <content type="html"><![CDATA[<p>版本：Hexo 7.3.0（Next 8.21.1）<br>前言：我使用的vscode，后面部分操作需用到全局搜索，具体路径太长，我实在懒得贴出来。</p><span id="more"></span><h1 id="获取网易云音乐外链"><a href="#获取网易云音乐外链" class="headerlink" title="获取网易云音乐外链"></a>获取网易云音乐外链</h1><ol><li>前往<a href="https://music.163.com/">网易云网页版</a>，搜索你喜欢的歌并生成外链（版权音乐无法生成）。</li><li>根据需要，设置框体大小和自动播放，复制生成的代码。</li><li>全局搜索<code>site-overview.njk</code>文件（这文件就一个，很快就能搜到）。</li><li>在文件头或文件尾新增一行粘贴外链。粘贴在文件头，播放器就会像我这样在头像上面，文件尾就在下面。</li><li>完成。</li></ol><h1 id="不间断播放（可选）"><a href="#不间断播放（可选）" class="headerlink" title="不间断播放（可选）"></a>不间断播放（可选）</h1><ol><li>找到你的<code>hexo-theme-next</code>文件夹，在文件夹上单击右键选择“在集成终端中打开”。</li><li>在命令行输入：</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-pjax source/lib/pjax</span><br></pre></td></tr></table></figure><ol start="3"><li>打开<code>Next主题</code>的<code>_config.yml</code>文件。</li><li>将属性<code>pjax</code>设置为<code>true</code>。</li></ol><h1 id="重新生成网页文件"><a href="#重新生成网页文件" class="headerlink" title="重新生成网页文件"></a>重新生成网页文件</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;版本：Hexo 7.3.0（Next 8.21.1）&lt;br&gt;前言：我使用的vscode，后面部分操作需用到全局搜索，具体路径太长，我实在懒得贴出来。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Other" scheme="https://blog.gamemode1.com/categories/Other/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Hexo Next主题 自定义背景</title>
