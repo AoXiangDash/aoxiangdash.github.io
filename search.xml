@@ -429,4 +429,31 @@
         <category>Other</category>
       </categories>
   </entry>
+  <entry>
+    <title>Hexo Next主题 自定义背景</title>
+    <url>/2024/12/25/Hexo-Next-Custom-background/</url>
+    <content><![CDATA[<p>修改Next默认的纯白背景。</p>
+<span id="more"></span>
+
+<h1 id="保存图片"><a href="#保存图片" class="headerlink" title="保存图片"></a>保存图片</h1><p>将自己的图片命名为background保存到以下路径：<br><code>\themes\next\source\images</code></p>
+<p>我使用的是默认配置，路径如下：<br><code>\node_modules\hexo-theme-next\source\images</code></p>
+<h1 id="修改样式"><a href="#修改样式" class="headerlink" title="修改样式"></a>修改样式</h1><p>进入以下路径：<br><code>\themes\next\source\css\_schemes</code></p>
+<p>我使用的是默认配置，路径如下：<br><code>\node_modules\hexo-theme-next\source\css\_schemes</code></p>
+<h2 id="选择当前使用的Hexo主题"><a href="#选择当前使用的Hexo主题" class="headerlink" title="选择当前使用的Hexo主题"></a>选择当前使用的Hexo主题</h2><p>进入上述路径后里面应该有四个文件夹（Gemini, Mist, Muse, Pisces），进入你现在用的这个主题的文件夹。</p>
+<h2 id="编辑index-styl文件"><a href="#编辑index-styl文件" class="headerlink" title="编辑index.styl文件"></a>编辑index.styl文件</h2><ol>
+<li><p>打开当前使用主题的“index.styl”文件，找到如下注释字段：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// ==================================================</span><br><span class="line">// Desktop layout styles.</span><br><span class="line">// ==================================================</span><br><span class="line">// Post blocks.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在下面新增一行，添加如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 整体背景设置</span><br><span class="line">body &#123;</span><br><span class="line">	background:url(/images/background.jpg);// 设定背景图片,注意修改图片后缀</span><br><span class="line">	background-repeat: no-repeat;// 设定背景图片非重复填充</span><br><span class="line">	background-attachment:fixed;// 设置背景图片不随页面滚动</span><br><span class="line">	background-position:50% 50%;// 设置背景图片位置</span><br><span class="line">	background-size: cover// 设置保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 设置透明度</span><br><span class="line">.main-inner&#123;</span><br><span class="line">	opacity: 0.95;</span><br><span class="line">&#125;</span><br><span class="line">.header-inner&#123;</span><br><span class="line">	opacity: 0.95;</span><br><span class="line">	z-index: 10;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><code>出处：https://splendidwave.github.io/2021/12/27/2021-12/Hexo-Next-自定义背景/</code></p>
+<ol start="3">
+<li>重启或编译Hexo服务。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+  </entry>
 </search>
