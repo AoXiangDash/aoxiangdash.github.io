@@ -98,27 +98,12 @@
       </categories>
   </entry>
   <entry>
-    <title>Hexo Next主题 自定义背景</title>
-    <url>/2024/12/25/Hexo-Next-Custom-background/</url>
-    <content><![CDATA[<p>修改Next默认的纯白背景。</p>
+    <title>Github Desktop设置代理</title>
+    <url>/2024/05/20/Github-Desktop-Setup-proxy/</url>
+    <content><![CDATA[<p>打开C:\users\username.gitconfig文件，最后加上</p>
 <span id="more"></span>
 
-<h1 id="保存图片"><a href="#保存图片" class="headerlink" title="保存图片"></a>保存图片</h1><p>将自己的图片命名为background保存到以下路径：<br><code>\themes\next\source\images</code></p>
-<p>我使用的是默认配置，路径如下：<br><code>\node_modules\hexo-theme-next\source\images</code></p>
-<h1 id="修改样式"><a href="#修改样式" class="headerlink" title="修改样式"></a>修改样式</h1><p>进入以下路径：<br><code>\themes\next\source\css\_schemes</code></p>
-<p>我使用的是默认配置，路径如下：<br><code>\node_modules\hexo-theme-next\source\css\_schemes</code></p>
-<h2 id="选择当前使用的Hexo主题"><a href="#选择当前使用的Hexo主题" class="headerlink" title="选择当前使用的Hexo主题"></a>选择当前使用的Hexo主题</h2><p>进入上述路径后里面应该有四个文件夹（Gemini, Mist, Muse, Pisces），进入你现在用的这个主题的文件夹。</p>
-<h2 id="编辑index-styl文件"><a href="#编辑index-styl文件" class="headerlink" title="编辑index.styl文件"></a>编辑index.styl文件</h2><ol>
-<li><p>打开当前使用主题的“index.styl”文件，找到如下注释字段：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// ==================================================</span><br><span class="line">// Desktop layout styles.</span><br><span class="line">// ==================================================</span><br><span class="line">// Post blocks.</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在下面新增一行，添加如下代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 整体背景设置</span><br><span class="line">body &#123;</span><br><span class="line">	background:url(/images/background.jpg);// 设定背景图片,注意修改图片后缀</span><br><span class="line">	background-repeat: no-repeat;// 设定背景图片非重复填充</span><br><span class="line">	background-attachment:fixed;// 设置背景图片不随页面滚动</span><br><span class="line">	background-position:50% 50%;// 设置背景图片位置</span><br><span class="line">	background-size: cover// 设置保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 设置透明度</span><br><span class="line">.main-inner&#123;</span><br><span class="line">	opacity: 0.95;</span><br><span class="line">&#125;</span><br><span class="line">.header-inner&#123;</span><br><span class="line">	opacity: 0.95;</span><br><span class="line">	z-index: 10;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p><code>出处：https://splendidwave.github.io/2021/12/27/2021-12/Hexo-Next-自定义背景/</code></p>
-<ol start="3">
-<li>重启或编译Hexo服务。</li>
-</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[http]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[https]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[git]</span><br><span class="line">    proxy = socks5://ip:port</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Other</category>
@@ -147,6 +132,33 @@
 <li>将属性<code>pjax</code>设置为<code>true</code>。</li>
 </ol>
 <h1 id="重新生成网页文件"><a href="#重新生成网页文件" class="headerlink" title="重新生成网页文件"></a>重新生成网页文件</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hexo Next主题 自定义背景</title>
+    <url>/2024/12/25/Hexo-Next-Custom-background/</url>
+    <content><![CDATA[<p>修改Next默认的纯白背景。</p>
+<span id="more"></span>
+
+<h1 id="保存图片"><a href="#保存图片" class="headerlink" title="保存图片"></a>保存图片</h1><p>将自己的图片命名为background保存到以下路径：<br><code>\themes\next\source\images</code></p>
+<p>我使用的是默认配置，路径如下：<br><code>\node_modules\hexo-theme-next\source\images</code></p>
+<h1 id="修改样式"><a href="#修改样式" class="headerlink" title="修改样式"></a>修改样式</h1><p>进入以下路径：<br><code>\themes\next\source\css\_schemes</code></p>
+<p>我使用的是默认配置，路径如下：<br><code>\node_modules\hexo-theme-next\source\css\_schemes</code></p>
+<h2 id="选择当前使用的Hexo主题"><a href="#选择当前使用的Hexo主题" class="headerlink" title="选择当前使用的Hexo主题"></a>选择当前使用的Hexo主题</h2><p>进入上述路径后里面应该有四个文件夹（Gemini, Mist, Muse, Pisces），进入你现在用的这个主题的文件夹。</p>
+<h2 id="编辑index-styl文件"><a href="#编辑index-styl文件" class="headerlink" title="编辑index.styl文件"></a>编辑index.styl文件</h2><ol>
+<li><p>打开当前使用主题的“index.styl”文件，找到如下注释字段：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// ==================================================</span><br><span class="line">// Desktop layout styles.</span><br><span class="line">// ==================================================</span><br><span class="line">// Post blocks.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在下面新增一行，添加如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 整体背景设置</span><br><span class="line">body &#123;</span><br><span class="line">	background:url(/images/background.jpg);// 设定背景图片,注意修改图片后缀</span><br><span class="line">	background-repeat: no-repeat;// 设定背景图片非重复填充</span><br><span class="line">	background-attachment:fixed;// 设置背景图片不随页面滚动</span><br><span class="line">	background-position:50% 50%;// 设置背景图片位置</span><br><span class="line">	background-size: cover// 设置保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 设置透明度</span><br><span class="line">.main-inner&#123;</span><br><span class="line">	opacity: 0.95;</span><br><span class="line">&#125;</span><br><span class="line">.header-inner&#123;</span><br><span class="line">	opacity: 0.95;</span><br><span class="line">	z-index: 10;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><code>出处：https://splendidwave.github.io/2021/12/27/2021-12/Hexo-Next-自定义背景/</code></p>
+<ol start="3">
+<li>重启或编译Hexo服务。</li>
+</ol>
 ]]></content>
       <categories>
         <category>Other</category>
@@ -196,18 +208,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Github Desktop设置代理</title>
-    <url>/2024/05/20/Github-Desktop-Setup-proxy/</url>
-    <content><![CDATA[<p>打开C:\users\username.gitconfig文件，最后加上</p>
-<span id="more"></span>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[http]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[https]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[git]</span><br><span class="line">    proxy = socks5://ip:port</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Other</category>
-      </categories>
-  </entry>
-  <entry>
     <title>像素宝可梦教程配套资源</title>
     <url>/2022/06/21/Pixel-Pokemon/</url>
     <content><![CDATA[<p>就决定是你了！</p>
@@ -219,6 +219,56 @@
 ]]></content>
       <categories>
         <category>Minecraft</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>SpigotMC配置Proxy</title>
+    <url>/2024/02/08/SpigotMC-Configures-Proxy/</url>
+    <content><![CDATA[<p>在国内，编译Spigot下的BuildTools.jar文件时网络报错，需要配置Proxy才能顺利进行。</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -Dhttp.proxyHost=&#123;IP&#125; -Dhttp.proxyPort=&#123;PORT&#125; -Dhttps.proxyHost=&#123;IP&#125; -Dhttps.proxyPort=&#123;PORT&#125; -jar BuildTools.jar</span><br></pre></td></tr></table></figure>
+<p>例如</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=1234 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=1234 -jar BuildTools.jar --rev latest</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Minecraft</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Unity切换场景不销毁物体</title>
+    <url>/2022/10/18/UNITY-DO-NOT-DESTROY-MY-OBJECTS/</url>
+    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>IOSManager.cs<br>使用方法：创建一个空物体，挂上此脚本，将不销毁的物体拖入数组。</p>
+<span id="more"></span>
+
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 加载场景时不删除的物体</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">public class DontDestroyOnLoad : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //加载场景时不销毁的物体</span><br><span class="line">    public GameObject[] DontDestroyObjects;</span><br><span class="line"></span><br><span class="line">    //是否已经存在DontDestroy的物体</span><br><span class="line">    private static bool isExist;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">    void Awake()</span><br><span class="line">    &#123;</span><br><span class="line">        if (!isExist)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果第一次加载，将这些物体设为DontDestroy</span><br><span class="line">                DontDestroyOnLoad(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            isExist = true;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果已经存在，则删除重复的物体</span><br><span class="line">                Destroy(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Unity相机抖动</title>
+    <url>/2022/08/19/Unity-Camera-Shake/</url>
+    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>ShakeCamera.cs</p>
+<span id="more"></span>
+
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class ShakeCamera : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    private Vector3 shakePos = Vector3.zero;</span><br><span class="line"></span><br><span class="line">    // Use this for initialization</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Update is called once per frame</span><br><span class="line">    /// &lt;summary&gt;</span><br><span class="line">    /// 按住空格键，画面会一直抖动；松开按键，抖动结束</span><br><span class="line">    /// &lt;/summary&gt;</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        if(Input.GetKey(KeyCode.Space))</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localPosition -= shakePos;</span><br><span class="line">            shakePos = Random.insideUnitSphere / 5.0f;</span><br><span class="line">            transform.localPosition += shakePos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Unity接入GameCenter</title>
+    <url>/2022/09/01/Unity-and-GameCenter/</url>
+    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>IOSManager.cs</p>
+<span id="more"></span>
+
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using UnityEngine;</span><br><span class="line">using System.Collections;</span><br><span class="line">using UnityEngine.SocialPlatforms;</span><br><span class="line">using UnityEngine.SocialPlatforms.GameCenter;</span><br><span class="line"></span><br><span class="line">public class IOSManager : MonoBehaviour &#123;</span><br><span class="line"></span><br><span class="line">	public bool   GameCenterState;</span><br><span class="line">	public string userInfo;</span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 初始化 GameCenter 登陆</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	void Start () &#123;</span><br><span class="line">		Social.localUser.Authenticate(HandleAuthenticated);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 初始化 GameCenter 结果回调函数</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;success&quot;&gt;If set to &lt;c&gt;true&lt;/c&gt; success.&lt;/param&gt;</span><br><span class="line">	private void HandleAuthenticated(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		GameCenterState = success;</span><br><span class="line">		Debug.Log(&quot;*** HandleAuthenticated: success = &quot; + success);</span><br><span class="line">		///初始化成功</span><br><span class="line">		if (success) &#123;</span><br><span class="line">			userInfo = &quot;Username: &quot; + Social.localUser.userName +</span><br><span class="line">				&quot;\nUser ID: &quot; + Social.localUser.id +</span><br><span class="line">				&quot;\nIsUnderage: &quot; + Social.localUser.underage;</span><br><span class="line">			Debug.Log (userInfo);</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">		///初始化失败</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	void OnGUI()&#123;</span><br><span class="line"></span><br><span class="line">		GUI.TextArea ( new Rect( Screen.width -200, 0, 200, 100), &quot;GameCenter:&quot;+GameCenterState  );</span><br><span class="line">		GUI.TextArea ( new Rect( Screen.width -200, 100, 200, 100), &quot;userInfo:&quot;+userInfo  );</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 0, 110, 75), &quot;打开成就&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ShowAchievementsUI();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 150, 110, 75), &quot;打开排行榜&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ShowLeaderboardUI();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 300, 110, 75), &quot;排行榜设置分数&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ReportScore(1000, &quot;XXXX&quot;, HandleScoreReported);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 300, 110, 75), &quot;设置成就&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ReportProgress(&quot;XXXX&quot;, 15, HandleProgressReported);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	//上传排行榜分数</span><br><span class="line">	public void HandleScoreReported(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleScoreReported: success = &quot; + success);</span><br><span class="line">	&#125;</span><br><span class="line">	//设置 成就</span><br><span class="line">	private void HandleProgressReported(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleProgressReported: success = &quot; + success);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 加载好友回调</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;success&quot;&gt;If set to &lt;c&gt;true&lt;/c&gt; success.&lt;/param&gt;</span><br><span class="line">	private void HandleFriendsLoaded(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleFriendsLoaded: success = &quot; + success);</span><br><span class="line">		foreach(IUserProfile friend in Social.localUser.friends)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* friend = &quot; + friend.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 加载成就回调</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;achievements&quot;&gt;Achievements.&lt;/param&gt;</span><br><span class="line">	private void HandleAchievementsLoaded(IAchievement[] achievements)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;* HandleAchievementsLoaded&quot;);</span><br><span class="line">		foreach(IAchievement achievement in achievements)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* achievement = &quot; + achievement.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	///</span><br><span class="line">	/// 成就回调描述</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;achievementDescriptions&quot;&gt;Achievement descriptions.&lt;/param&gt;</span><br><span class="line">	private void HandleAchievementDescriptionsLoaded(IAchievementDescription[] achievementDescriptions)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleAchievementDescriptionsLoaded&quot;);</span><br><span class="line">		foreach(IAchievementDescription achievementDescription in achievementDescriptions)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* achievementDescription = &quot; + achievementDescription.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Unity</category>
       </categories>
   </entry>
   <entry>
@@ -242,56 +292,6 @@
 ]]></content>
       <categories>
         <category>Other</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>SpigotMC配置Proxy</title>
-    <url>/2024/02/08/SpigotMC-Configures-Proxy/</url>
-    <content><![CDATA[<p>在国内，编译Spigot下的BuildTools.jar文件时网络报错，需要配置Proxy才能顺利进行。</p>
-<span id="more"></span>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -Dhttp.proxyHost=&#123;IP&#125; -Dhttp.proxyPort=&#123;PORT&#125; -Dhttps.proxyHost=&#123;IP&#125; -Dhttps.proxyPort=&#123;PORT&#125; -jar BuildTools.jar</span><br></pre></td></tr></table></figure>
-<p>例如</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=1234 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=1234 -jar BuildTools.jar --rev latest</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Minecraft</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Unity相机抖动</title>
-    <url>/2022/08/19/Unity-Camera-Shake/</url>
-    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>ShakeCamera.cs</p>
-<span id="more"></span>
-
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class ShakeCamera : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    private Vector3 shakePos = Vector3.zero;</span><br><span class="line"></span><br><span class="line">    // Use this for initialization</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Update is called once per frame</span><br><span class="line">    /// &lt;summary&gt;</span><br><span class="line">    /// 按住空格键，画面会一直抖动；松开按键，抖动结束</span><br><span class="line">    /// &lt;/summary&gt;</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        if(Input.GetKey(KeyCode.Space))</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localPosition -= shakePos;</span><br><span class="line">            shakePos = Random.insideUnitSphere / 5.0f;</span><br><span class="line">            transform.localPosition += shakePos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Unity切换场景不销毁物体</title>
-    <url>/2022/10/18/UNITY-DO-NOT-DESTROY-MY-OBJECTS/</url>
-    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>IOSManager.cs<br>使用方法：创建一个空物体，挂上此脚本，将不销毁的物体拖入数组。</p>
-<span id="more"></span>
-
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 加载场景时不删除的物体</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">public class DontDestroyOnLoad : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //加载场景时不销毁的物体</span><br><span class="line">    public GameObject[] DontDestroyObjects;</span><br><span class="line"></span><br><span class="line">    //是否已经存在DontDestroy的物体</span><br><span class="line">    private static bool isExist;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">    void Awake()</span><br><span class="line">    &#123;</span><br><span class="line">        if (!isExist)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果第一次加载，将这些物体设为DontDestroy</span><br><span class="line">                DontDestroyOnLoad(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            isExist = true;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果已经存在，则删除重复的物体</span><br><span class="line">                Destroy(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Unity接入GameCenter</title>
-    <url>/2022/09/01/Unity-and-GameCenter/</url>
-    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>IOSManager.cs</p>
-<span id="more"></span>
-
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using UnityEngine;</span><br><span class="line">using System.Collections;</span><br><span class="line">using UnityEngine.SocialPlatforms;</span><br><span class="line">using UnityEngine.SocialPlatforms.GameCenter;</span><br><span class="line"></span><br><span class="line">public class IOSManager : MonoBehaviour &#123;</span><br><span class="line"></span><br><span class="line">	public bool   GameCenterState;</span><br><span class="line">	public string userInfo;</span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 初始化 GameCenter 登陆</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	void Start () &#123;</span><br><span class="line">		Social.localUser.Authenticate(HandleAuthenticated);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 初始化 GameCenter 结果回调函数</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;success&quot;&gt;If set to &lt;c&gt;true&lt;/c&gt; success.&lt;/param&gt;</span><br><span class="line">	private void HandleAuthenticated(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		GameCenterState = success;</span><br><span class="line">		Debug.Log(&quot;*** HandleAuthenticated: success = &quot; + success);</span><br><span class="line">		///初始化成功</span><br><span class="line">		if (success) &#123;</span><br><span class="line">			userInfo = &quot;Username: &quot; + Social.localUser.userName +</span><br><span class="line">				&quot;\nUser ID: &quot; + Social.localUser.id +</span><br><span class="line">				&quot;\nIsUnderage: &quot; + Social.localUser.underage;</span><br><span class="line">			Debug.Log (userInfo);</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">		///初始化失败</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	void OnGUI()&#123;</span><br><span class="line"></span><br><span class="line">		GUI.TextArea ( new Rect( Screen.width -200, 0, 200, 100), &quot;GameCenter:&quot;+GameCenterState  );</span><br><span class="line">		GUI.TextArea ( new Rect( Screen.width -200, 100, 200, 100), &quot;userInfo:&quot;+userInfo  );</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 0, 110, 75), &quot;打开成就&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ShowAchievementsUI();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 150, 110, 75), &quot;打开排行榜&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ShowLeaderboardUI();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 300, 110, 75), &quot;排行榜设置分数&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ReportScore(1000, &quot;XXXX&quot;, HandleScoreReported);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 300, 110, 75), &quot;设置成就&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ReportProgress(&quot;XXXX&quot;, 15, HandleProgressReported);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	//上传排行榜分数</span><br><span class="line">	public void HandleScoreReported(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleScoreReported: success = &quot; + success);</span><br><span class="line">	&#125;</span><br><span class="line">	//设置 成就</span><br><span class="line">	private void HandleProgressReported(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleProgressReported: success = &quot; + success);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 加载好友回调</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;success&quot;&gt;If set to &lt;c&gt;true&lt;/c&gt; success.&lt;/param&gt;</span><br><span class="line">	private void HandleFriendsLoaded(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleFriendsLoaded: success = &quot; + success);</span><br><span class="line">		foreach(IUserProfile friend in Social.localUser.friends)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* friend = &quot; + friend.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 加载成就回调</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;achievements&quot;&gt;Achievements.&lt;/param&gt;</span><br><span class="line">	private void HandleAchievementsLoaded(IAchievement[] achievements)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;* HandleAchievementsLoaded&quot;);</span><br><span class="line">		foreach(IAchievement achievement in achievements)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* achievement = &quot; + achievement.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	///</span><br><span class="line">	/// 成就回调描述</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;achievementDescriptions&quot;&gt;Achievement descriptions.&lt;/param&gt;</span><br><span class="line">	private void HandleAchievementDescriptionsLoaded(IAchievementDescription[] achievementDescriptions)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleAchievementDescriptionsLoaded&quot;);</span><br><span class="line">		foreach(IAchievementDescription achievementDescription in achievementDescriptions)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* achievementDescription = &quot; + achievementDescription.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Unity</category>
       </categories>
   </entry>
   <entry>
@@ -365,21 +365,6 @@
       </categories>
   </entry>
   <entry>
-    <title>安装卡巴斯基后无权限修改hosts文件</title>
-    <url>/2024/02/15/Windows-does-not-have-permission-to-modify-hosts-after-Kaspersky-is-installed/</url>
-    <content><![CDATA[<p>由于本人使用“瓦特工具箱”对一些工具进行加速，需要修改hosts，于是遇到了权限问题。<br>虽然可以使用DNS模式，但考虑到自己还有一些IDE和一些工具需要用到hosts文件，还是得解决一下。</p>
-<span id="more"></span>
-
-<p>首先不得不吐槽一下，我找遍了各种论坛和客服支持的存档，没有一个有效的解决方案，全是复制粘贴的无效方案。<br>相信不少人跟我一样，网上搜到的所谓将文件放入“威胁和排除项”的“管理排除项”里，根本不起作用！</p>
-<p>以下是我经过反复摸索后，能够彻底解决问题的方案：</p>
-<p><img src="/../images/winkasperskyhost/kbsj-1.jpg"><br><img src="/../images/winkasperskyhost/kbsj-2.jpg"><br><img src="/../images/winkasperskyhost/kbsj-3.jpg"><br><img src="/../images/winkasperskyhost/kbsj-4.jpg"></p>
-<p>根据图示（点击图片可放大），将hosts文件的上锁状态取消，最后保存。</p>
-]]></content>
-      <categories>
-        <category>Other</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2011/10/05/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -398,6 +383,21 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>安装卡巴斯基后无权限修改hosts文件</title>
+    <url>/2024/02/15/Windows-does-not-have-permission-to-modify-hosts-after-Kaspersky-is-installed/</url>
+    <content><![CDATA[<p>由于本人使用“瓦特工具箱”对一些工具进行加速，需要修改hosts，于是遇到了权限问题。<br>虽然可以使用DNS模式，但考虑到自己还有一些IDE和一些工具需要用到hosts文件，还是得解决一下。</p>
+<span id="more"></span>
+
+<p>首先不得不吐槽一下，我找遍了各种论坛和客服支持的存档，没有一个有效的解决方案，全是复制粘贴的无效方案。<br>相信不少人跟我一样，网上搜到的所谓将文件放入“威胁和排除项”的“管理排除项”里，根本不起作用！</p>
+<p>以下是我经过反复摸索后，能够彻底解决问题的方案：</p>
+<p><img src="/../images/winkasperskyhost/kbsj-1.jpg"><br><img src="/../images/winkasperskyhost/kbsj-2.jpg"><br><img src="/../images/winkasperskyhost/kbsj-3.jpg"><br><img src="/../images/winkasperskyhost/kbsj-4.jpg"></p>
+<p>根据图示（点击图片可放大），将hosts文件的上锁状态取消，最后保存。</p>
+]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
   </entry>
   <entry>
     <title>Linux之rpm包安装与卸载</title>
