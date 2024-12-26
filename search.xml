@@ -69,35 +69,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Git报错汇总</title>
-    <url>/2023/01/30/Git-error-summary/</url>
-    <content><![CDATA[<p>错误内容：<br><code>Error: Failed to connect to github.com port 443 after xxx ms: Timed out</code></p>
-<span id="more"></span>
-
-
-<p>第一步：查询自己的proxy</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global -l</span><br></pre></td></tr></table></figure>
-<p>这个时候会显示你自己的proxy，例如：</p>
-<p>&#x2F;&#x2F;如果没有配置过，以下内容可能为空</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">user.name=SteveJobs</span><br><span class="line">user.email=hello@world.com</span><br><span class="line">http.proxy=127.0.0.1:25565</span><br><span class="line">https.proxy=127.0.0.1:25565</span><br></pre></td></tr></table></figure>
-
-<p>第二步：删除自己的proxy设置</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
-
-<p>第三步：重新设置自己的proxy<br>将<code>ip</code>和<code>port</code>修改成自己的端口号。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy ip:port</span><br><span class="line">git config --global https.proxy ip:port</span><br></pre></td></tr></table></figure>
-
-<p>第四步：检查配置后的proxy</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global -l</span><br></pre></td></tr></table></figure>
-
-<p>结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">user.name=SteveJobs</span><br><span class="line">user.email=hello@world.com</span><br><span class="line">http.proxy=127.0.0.1:7890</span><br><span class="line">https.proxy=127.0.0.1:7890</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Other</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Github Desktop设置Proxy</title>
     <url>/2024/05/20/Github-Desktop-Setup-proxy/</url>
     <content><![CDATA[<p>打开C:\users\username.gitconfig文件，最后加上</p>
@@ -135,6 +106,83 @@
       </categories>
   </entry>
   <entry>
+    <title>Hexo Next主题添加网易云音乐</title>
+    <url>/2024/12/25/Hexo-Next-theme-adds-NetEase-music/</url>
+    <content><![CDATA[<p>版本：Hexo 7.3.0（Next 8.21.1）<br>前言：我使用的vscode，后面部分操作需用到全局搜索，具体路径太长，我实在懒得贴出来。</p>
+<span id="more"></span>
+
+<h1 id="获取网易云音乐外链"><a href="#获取网易云音乐外链" class="headerlink" title="获取网易云音乐外链"></a>获取网易云音乐外链</h1><ol>
+<li>前往<a href="https://music.163.com/">网易云网页版</a>，搜索你喜欢的歌并生成外链（版权音乐无法生成）。</li>
+<li>根据需要，设置框体大小和自动播放，复制生成的代码。</li>
+<li>全局搜索<code>site-overview.njk</code>文件（这文件就一个，很快就能搜到）。</li>
+<li>在文件头或文件尾新增一行粘贴外链。粘贴在文件头，播放器就会像我这样在头像上面，文件尾就在下面。</li>
+<li>完成。</li>
+</ol>
+<h1 id="不间断播放（可选）"><a href="#不间断播放（可选）" class="headerlink" title="不间断播放（可选）"></a>不间断播放（可选）</h1><ol>
+<li>找到你的<code>hexo-theme-next</code>文件夹，在文件夹上单击右键选择“在集成终端中打开”。</li>
+<li>在命令行输入：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-pjax source/lib/pjax</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>打开<code>Next主题</code>的<code>_config.yml</code>文件。</li>
+<li>将属性<code>pjax</code>设置为<code>true</code>。</li>
+</ol>
+<h1 id="重新生成网页文件"><a href="#重新生成网页文件" class="headerlink" title="重新生成网页文件"></a>重新生成网页文件</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>移动Hexo主题文件夹</title>
+    <url>/2024/12/26/Hexo-Next-theme/</url>
+    <content><![CDATA[<p>最近我一直在折腾 Hexo 样式方面，小白一枚。</p>
+<span id="more"></span>
+
+<p>此前我的主题文件都默认装在了<code>node_modules</code>文件夹里，今天才发现根目录下的<code>themes</code>文件夹一直是空的，于是开始好奇这个文件夹的作用。</p>
+<p>在经过研究后发现有一点各大所谓的“Hexo小白教程”里只字未提的东西，那就是应该把主题文件复制到<code>themes</code>文件夹里再进行配置和使用，到这里我无语了一阵子。至于是如何发现的，且听我娓娓道来。毕竟有趣的经历值得记录下来。</p>
+<p>起初，有些教程可能教你<code>npm install hexo-theme-xxxxxx</code>，修改<code>_config.yml</code>文件中的<code>theme</code>属性，然后你就可以写博客，最后生成静态页面提交到Github Page里。我就是这么信了，直接把<code>_config.yml</code>属性的<code>theme</code>改成了<code>next</code>，一切都看起来运作良好。</p>
+<p>以前用的<code>Wordpress</code>，现在和Hexo度过了半年，但越研究越发觉不对劲，为什么大佬们的根目录总是在<code>themes</code>下面，很快就能完成样式的修改，而我却总要把<code>node_modules</code>文件夹打开，顶着又臭又长的路径，逐个找到主题的文件夹。我心想，可能新版本是这样的吧，如此欺骗着自己。</p>
+<p>直到最近我重装了下系统，忘记了备份Hexo的源文件，中间的恢复过程我就略过了。这次我长记性，创建了一个私人仓库用来备份源文件，于是我就发现<code>themes</code>文件夹居然是默认同步的，也就是说这个文件夹的分量很大，而之前一直被我忽略了，相反的，<code>node_modules</code>文件夹并没有默认同步，除非我手动编辑<code>gitignore</code>文件。</p>
+<p>后来我学习了一点<code>nodejs</code>的知识，原来<code>node_modules</code>是用来存放依赖库的，用<code>npm install</code>装的东西都会在这里面。合着我之前特喵一直是直接改的依赖库的东西，这居然没一个教程里提到，也可能是我眼光不好没找到好教程，至少我找到的每个都这样。</p>
+<p>经过研究，规范的做法应该是：通过克隆来的主题直接放在<code>themes</code>文件夹里，而像我这样使用<code>npm install</code>安装之后，应该把主题文件夹手动复制到<code>themes</code>文件夹下，并且把网站的<code>_config.yml</code>文件中的<code>theme</code>属性值修改为主题文件夹的名字，例如我这里用的next，就应该写作<code>theme: hexo-theme-next</code>。</p>
+<p>最后，在不乱动依赖库的情况下，主题文件和各种配置文件都能提交作为备份了，样式也能更方便的修改了，终于不用看那臭长的路径了。</p>
+<p>只能说，无良教程真是坑害新人！</p>
+]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Git报错汇总</title>
+    <url>/2023/01/30/Git-error-summary/</url>
+    <content><![CDATA[<p>错误内容：<br><code>Error: Failed to connect to github.com port 443 after xxx ms: Timed out</code></p>
+<span id="more"></span>
+
+
+<p>第一步：查询自己的proxy</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global -l</span><br></pre></td></tr></table></figure>
+<p>这个时候会显示你自己的proxy，例如：</p>
+<p>&#x2F;&#x2F;如果没有配置过，以下内容可能为空</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">user.name=SteveJobs</span><br><span class="line">user.email=hello@world.com</span><br><span class="line">http.proxy=127.0.0.1:25565</span><br><span class="line">https.proxy=127.0.0.1:25565</span><br></pre></td></tr></table></figure>
+
+<p>第二步：删除自己的proxy设置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+
+<p>第三步：重新设置自己的proxy<br>将<code>ip</code>和<code>port</code>修改成自己的端口号。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy ip:port</span><br><span class="line">git config --global https.proxy ip:port</span><br></pre></td></tr></table></figure>
+
+<p>第四步：检查配置后的proxy</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global -l</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">user.name=SteveJobs</span><br><span class="line">user.email=hello@world.com</span><br><span class="line">http.proxy=127.0.0.1:7890</span><br><span class="line">https.proxy=127.0.0.1:7890</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Minecraft独显运行</title>
     <url>/2022/07/09/Minecraft-Run-On-GPU/</url>
     <content><![CDATA[<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>适用显卡：英伟达（NVIDIA）<br>有疑问欢迎加QQ群：710218163</p>
@@ -164,34 +212,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Hexo Next主题添加网易云音乐</title>
-    <url>/2024/12/25/Hexo-Next-theme-adds-NetEase-music/</url>
-    <content><![CDATA[<p>版本：Hexo 7.3.0（Next 8.21.1）<br>前言：我使用的vscode，后面部分操作需用到全局搜索，具体路径太长，我实在懒得贴出来。</p>
-<span id="more"></span>
-
-<h1 id="获取网易云音乐外链"><a href="#获取网易云音乐外链" class="headerlink" title="获取网易云音乐外链"></a>获取网易云音乐外链</h1><ol>
-<li>前往<a href="https://music.163.com/">网易云网页版</a>，搜索你喜欢的歌并生成外链（版权音乐无法生成）。</li>
-<li>根据需要，设置框体大小和自动播放，复制生成的代码。</li>
-<li>全局搜索<code>site-overview.njk</code>文件（这文件就一个，很快就能搜到）。</li>
-<li>在文件头或文件尾新增一行粘贴外链。粘贴在文件头，播放器就会像我这样在头像上面，文件尾就在下面。</li>
-<li>完成。</li>
-</ol>
-<h1 id="不间断播放（可选）"><a href="#不间断播放（可选）" class="headerlink" title="不间断播放（可选）"></a>不间断播放（可选）</h1><ol>
-<li>找到你的<code>hexo-theme-next</code>文件夹，在文件夹上单击右键选择“在集成终端中打开”。</li>
-<li>在命令行输入：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-pjax source/lib/pjax</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>打开<code>Next主题</code>的<code>_config.yml</code>文件。</li>
-<li>将属性<code>pjax</code>设置为<code>true</code>。</li>
-</ol>
-<h1 id="重新生成网页文件"><a href="#重新生成网页文件" class="headerlink" title="重新生成网页文件"></a>重新生成网页文件</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Other</category>
-      </categories>
-  </entry>
-  <entry>
     <title>DNSPod解析不生效</title>
     <url>/2024/12/25/Note-the-DNSPod-Settings/</url>
     <content><![CDATA[<p>之前一直用的顶级域名，现在想给博客换成二级域名。结果今天设置Cloudflare后，域名和SSL验证等了一天没反应。</p>
@@ -200,26 +220,6 @@
 <p>最后经过不断排查，最终想起来DNSPod的主机记录是默认会在后面加上一级域名的，例如我主机记录写的：<br><code>_cf-custom-hostname.blog.gamemode1.com</code><br>看似没问题对吧？但实际上解析的是：<br><code>_cf-custom-hostname.blog.gamemode1.com.gamemode1.com</code></p>
 <p>所以正确的填法应该是：<br><code>_cf-custom-hostname.blog</code></p>
 <p>这算是个低级错误，粗心大意了。<br>我设置好了就会很长时间不去动它，于是回头再来设置就给忘了这点，好记性不如烂笔头还是记录下吧2333。</p>
-]]></content>
-      <categories>
-        <category>Other</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>移动Hexo主题文件夹</title>
-    <url>/2024/12/26/Hexo-Next-theme/</url>
-    <content><![CDATA[<p>最近我一直在折腾 Hexo 样式方面，小白一枚。</p>
-<span id="more"></span>
-
-<p>此前我的主题文件都默认装在了<code>node_modules</code>文件夹里，今天才发现根目录下的<code>themes</code>文件夹一直是空的，于是开始好奇这个文件夹的作用。</p>
-<p>在经过研究后发现有一点各大所谓的“Hexo小白教程”里只字未提的东西，那就是应该把主题文件复制到<code>themes</code>文件夹里再进行配置和使用，到这里我无语了一阵子。至于是如何发现的，且听我娓娓道来。毕竟有趣的经历值得记录下来。</p>
-<p>起初，有些教程可能教你<code>npm install hexo-theme-xxxxxx</code>，修改<code>_config.yml</code>文件中的<code>theme</code>属性，然后你就可以写博客，最后生成静态页面提交到Github Page里。我就是这么信了，直接把<code>_config.yml</code>属性的<code>theme</code>改成了<code>next</code>，一切都看起来运作良好。</p>
-<p>以前用的<code>Wordpress</code>，现在和Hexo度过了半年，但越研究越发觉不对劲，为什么大佬们的根目录总是在<code>themes</code>下面，很快就能完成样式的修改，而我却总要把<code>node_modules</code>文件夹打开，顶着又臭又长的路径，逐个找到主题的文件夹。我心想，可能新版本是这样的吧，如此欺骗着自己。</p>
-<p>直到最近我重装了下系统，忘记了备份Hexo的源文件，中间的恢复过程我就略过了。这次我长记性，创建了一个私人仓库用来备份源文件，于是我就发现<code>themes</code>文件夹居然是默认同步的，也就是说这个文件夹的分量很大，而之前一直被我忽略了，相反的，<code>node_modules</code>文件夹并没有默认同步，除非我手动编辑<code>gitignore</code>文件。</p>
-<p>后来我学习了一点<code>nodejs</code>的知识，原来<code>node_modules</code>是用来存放依赖库的，用<code>npm install</code>装的东西都会在这里面。合着我之前特喵一直是直接改的依赖库的东西，这居然没一个教程里提到，也可能是我眼光不好没找到好教程，至少我找到的每个都这样。</p>
-<p>经过研究，规范的做法应该是：通过克隆来的主题直接放在<code>themes</code>文件夹里，而像我这样使用<code>npm install</code>安装之后，应该把主题文件夹手动复制到<code>themes</code>文件夹下，并且把网站的<code>_config.yml</code>文件中的<code>theme</code>属性值修改为主题文件夹的名字，例如我这里用的next，就应该写作<code>theme: hexo-theme-next</code>。</p>
-<p>最后，在不乱动依赖库的情况下，主题文件和各种配置文件都能提交作为备份了，样式也能更方便的修改了，终于不用看那臭长的路径了。</p>
-<p>只能说，无良教程真是坑害新人！</p>
 ]]></content>
       <categories>
         <category>Other</category>
@@ -237,6 +237,32 @@
 ]]></content>
       <categories>
         <category>Minecraft</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>SpigotMC配置Proxy</title>
+    <url>/2024/02/08/SpigotMC-Configures-Proxy/</url>
+    <content><![CDATA[<p>在国内，编译Spigot下的BuildTools.jar文件时网络报错，需要配置Proxy才能顺利进行。</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -Dhttp.proxyHost=&#123;IP&#125; -Dhttp.proxyPort=&#123;PORT&#125; -Dhttps.proxyHost=&#123;IP&#125; -Dhttps.proxyPort=&#123;PORT&#125; -jar BuildTools.jar</span><br></pre></td></tr></table></figure>
+<p>例如</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=1234 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=1234 -jar BuildTools.jar --rev latest</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Minecraft</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Unity切换场景不销毁物体</title>
+    <url>/2022/10/18/UNITY-DO-NOT-DESTROY-MY-OBJECTS/</url>
+    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>IOSManager.cs<br>使用方法：创建一个空物体，挂上此脚本，将不销毁的物体拖入数组。</p>
+<span id="more"></span>
+
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 加载场景时不删除的物体</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">public class DontDestroyOnLoad : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //加载场景时不销毁的物体</span><br><span class="line">    public GameObject[] DontDestroyObjects;</span><br><span class="line"></span><br><span class="line">    //是否已经存在DontDestroy的物体</span><br><span class="line">    private static bool isExist;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">    void Awake()</span><br><span class="line">    &#123;</span><br><span class="line">        if (!isExist)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果第一次加载，将这些物体设为DontDestroy</span><br><span class="line">                DontDestroyOnLoad(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            isExist = true;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果已经存在，则删除重复的物体</span><br><span class="line">                Destroy(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Unity</category>
       </categories>
   </entry>
   <entry>
@@ -263,50 +289,12 @@
       </categories>
   </entry>
   <entry>
-    <title>SpigotMC配置Proxy</title>
-    <url>/2024/02/08/SpigotMC-Configures-Proxy/</url>
-    <content><![CDATA[<p>在国内，编译Spigot下的BuildTools.jar文件时网络报错，需要配置Proxy才能顺利进行。</p>
-<span id="more"></span>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -Dhttp.proxyHost=&#123;IP&#125; -Dhttp.proxyPort=&#123;PORT&#125; -Dhttps.proxyHost=&#123;IP&#125; -Dhttps.proxyPort=&#123;PORT&#125; -jar BuildTools.jar</span><br></pre></td></tr></table></figure>
-<p>例如</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=1234 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=1234 -jar BuildTools.jar --rev latest</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Minecraft</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Unity相机抖动</title>
     <url>/2022/08/19/Unity-Camera-Shake/</url>
     <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>ShakeCamera.cs</p>
 <span id="more"></span>
 
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class ShakeCamera : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    private Vector3 shakePos = Vector3.zero;</span><br><span class="line"></span><br><span class="line">    // Use this for initialization</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Update is called once per frame</span><br><span class="line">    /// &lt;summary&gt;</span><br><span class="line">    /// 按住空格键，画面会一直抖动；松开按键，抖动结束</span><br><span class="line">    /// &lt;/summary&gt;</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        if(Input.GetKey(KeyCode.Space))</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localPosition -= shakePos;</span><br><span class="line">            shakePos = Random.insideUnitSphere / 5.0f;</span><br><span class="line">            transform.localPosition += shakePos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Unity接入GameCenter</title>
-    <url>/2022/09/01/Unity-and-GameCenter/</url>
-    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>IOSManager.cs</p>
-<span id="more"></span>
-
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using UnityEngine;</span><br><span class="line">using System.Collections;</span><br><span class="line">using UnityEngine.SocialPlatforms;</span><br><span class="line">using UnityEngine.SocialPlatforms.GameCenter;</span><br><span class="line"></span><br><span class="line">public class IOSManager : MonoBehaviour &#123;</span><br><span class="line"></span><br><span class="line">	public bool   GameCenterState;</span><br><span class="line">	public string userInfo;</span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 初始化 GameCenter 登陆</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	void Start () &#123;</span><br><span class="line">		Social.localUser.Authenticate(HandleAuthenticated);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 初始化 GameCenter 结果回调函数</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;success&quot;&gt;If set to &lt;c&gt;true&lt;/c&gt; success.&lt;/param&gt;</span><br><span class="line">	private void HandleAuthenticated(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		GameCenterState = success;</span><br><span class="line">		Debug.Log(&quot;*** HandleAuthenticated: success = &quot; + success);</span><br><span class="line">		///初始化成功</span><br><span class="line">		if (success) &#123;</span><br><span class="line">			userInfo = &quot;Username: &quot; + Social.localUser.userName +</span><br><span class="line">				&quot;\nUser ID: &quot; + Social.localUser.id +</span><br><span class="line">				&quot;\nIsUnderage: &quot; + Social.localUser.underage;</span><br><span class="line">			Debug.Log (userInfo);</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">		///初始化失败</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	void OnGUI()&#123;</span><br><span class="line"></span><br><span class="line">		GUI.TextArea ( new Rect( Screen.width -200, 0, 200, 100), &quot;GameCenter:&quot;+GameCenterState  );</span><br><span class="line">		GUI.TextArea ( new Rect( Screen.width -200, 100, 200, 100), &quot;userInfo:&quot;+userInfo  );</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 0, 110, 75), &quot;打开成就&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ShowAchievementsUI();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 150, 110, 75), &quot;打开排行榜&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ShowLeaderboardUI();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 300, 110, 75), &quot;排行榜设置分数&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ReportScore(1000, &quot;XXXX&quot;, HandleScoreReported);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 300, 110, 75), &quot;设置成就&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ReportProgress(&quot;XXXX&quot;, 15, HandleProgressReported);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	//上传排行榜分数</span><br><span class="line">	public void HandleScoreReported(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleScoreReported: success = &quot; + success);</span><br><span class="line">	&#125;</span><br><span class="line">	//设置 成就</span><br><span class="line">	private void HandleProgressReported(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleProgressReported: success = &quot; + success);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 加载好友回调</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;success&quot;&gt;If set to &lt;c&gt;true&lt;/c&gt; success.&lt;/param&gt;</span><br><span class="line">	private void HandleFriendsLoaded(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleFriendsLoaded: success = &quot; + success);</span><br><span class="line">		foreach(IUserProfile friend in Social.localUser.friends)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* friend = &quot; + friend.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 加载成就回调</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;achievements&quot;&gt;Achievements.&lt;/param&gt;</span><br><span class="line">	private void HandleAchievementsLoaded(IAchievement[] achievements)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;* HandleAchievementsLoaded&quot;);</span><br><span class="line">		foreach(IAchievement achievement in achievements)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* achievement = &quot; + achievement.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	///</span><br><span class="line">	/// 成就回调描述</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;achievementDescriptions&quot;&gt;Achievement descriptions.&lt;/param&gt;</span><br><span class="line">	private void HandleAchievementDescriptionsLoaded(IAchievementDescription[] achievementDescriptions)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleAchievementDescriptionsLoaded&quot;);</span><br><span class="line">		foreach(IAchievementDescription achievementDescription in achievementDescriptions)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* achievementDescription = &quot; + achievementDescription.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Unity切换场景不销毁物体</title>
-    <url>/2022/10/18/UNITY-DO-NOT-DESTROY-MY-OBJECTS/</url>
-    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>IOSManager.cs<br>使用方法：创建一个空物体，挂上此脚本，将不销毁的物体拖入数组。</p>
-<span id="more"></span>
-
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 加载场景时不删除的物体</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">public class DontDestroyOnLoad : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //加载场景时不销毁的物体</span><br><span class="line">    public GameObject[] DontDestroyObjects;</span><br><span class="line"></span><br><span class="line">    //是否已经存在DontDestroy的物体</span><br><span class="line">    private static bool isExist;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">    void Awake()</span><br><span class="line">    &#123;</span><br><span class="line">        if (!isExist)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果第一次加载，将这些物体设为DontDestroy</span><br><span class="line">                DontDestroyOnLoad(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            isExist = true;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果已经存在，则删除重复的物体</span><br><span class="line">                Destroy(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Unity</category>
@@ -333,6 +321,18 @@
 <p><img src="/../images/unityxcodefix/1.jpg"></p>
 <p>解决步骤已在图中说明</p>
 <p><img src="/../images/unityxcodefix/2jpg"><br><img src="/../images/unityxcodefix/3.jpg"><br><img src="/../images/unityxcodefix/4.jpg"><br><img src="/../images/unityxcodefix/5.jpg"></p>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Unity接入GameCenter</title>
+    <url>/2022/09/01/Unity-and-GameCenter/</url>
+    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>IOSManager.cs</p>
+<span id="more"></span>
+
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using UnityEngine;</span><br><span class="line">using System.Collections;</span><br><span class="line">using UnityEngine.SocialPlatforms;</span><br><span class="line">using UnityEngine.SocialPlatforms.GameCenter;</span><br><span class="line"></span><br><span class="line">public class IOSManager : MonoBehaviour &#123;</span><br><span class="line"></span><br><span class="line">	public bool   GameCenterState;</span><br><span class="line">	public string userInfo;</span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 初始化 GameCenter 登陆</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	void Start () &#123;</span><br><span class="line">		Social.localUser.Authenticate(HandleAuthenticated);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 初始化 GameCenter 结果回调函数</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;success&quot;&gt;If set to &lt;c&gt;true&lt;/c&gt; success.&lt;/param&gt;</span><br><span class="line">	private void HandleAuthenticated(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		GameCenterState = success;</span><br><span class="line">		Debug.Log(&quot;*** HandleAuthenticated: success = &quot; + success);</span><br><span class="line">		///初始化成功</span><br><span class="line">		if (success) &#123;</span><br><span class="line">			userInfo = &quot;Username: &quot; + Social.localUser.userName +</span><br><span class="line">				&quot;\nUser ID: &quot; + Social.localUser.id +</span><br><span class="line">				&quot;\nIsUnderage: &quot; + Social.localUser.underage;</span><br><span class="line">			Debug.Log (userInfo);</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">		///初始化失败</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	void OnGUI()&#123;</span><br><span class="line"></span><br><span class="line">		GUI.TextArea ( new Rect( Screen.width -200, 0, 200, 100), &quot;GameCenter:&quot;+GameCenterState  );</span><br><span class="line">		GUI.TextArea ( new Rect( Screen.width -200, 100, 200, 100), &quot;userInfo:&quot;+userInfo  );</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 0, 110, 75), &quot;打开成就&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ShowAchievementsUI();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 150, 110, 75), &quot;打开排行榜&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ShowLeaderboardUI();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 300, 110, 75), &quot;排行榜设置分数&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ReportScore(1000, &quot;XXXX&quot;, HandleScoreReported);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 300, 110, 75), &quot;设置成就&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ReportProgress(&quot;XXXX&quot;, 15, HandleProgressReported);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	//上传排行榜分数</span><br><span class="line">	public void HandleScoreReported(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleScoreReported: success = &quot; + success);</span><br><span class="line">	&#125;</span><br><span class="line">	//设置 成就</span><br><span class="line">	private void HandleProgressReported(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleProgressReported: success = &quot; + success);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 加载好友回调</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;success&quot;&gt;If set to &lt;c&gt;true&lt;/c&gt; success.&lt;/param&gt;</span><br><span class="line">	private void HandleFriendsLoaded(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleFriendsLoaded: success = &quot; + success);</span><br><span class="line">		foreach(IUserProfile friend in Social.localUser.friends)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* friend = &quot; + friend.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 加载成就回调</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;achievements&quot;&gt;Achievements.&lt;/param&gt;</span><br><span class="line">	private void HandleAchievementsLoaded(IAchievement[] achievements)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;* HandleAchievementsLoaded&quot;);</span><br><span class="line">		foreach(IAchievement achievement in achievements)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* achievement = &quot; + achievement.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	///</span><br><span class="line">	/// 成就回调描述</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;achievementDescriptions&quot;&gt;Achievement descriptions.&lt;/param&gt;</span><br><span class="line">	private void HandleAchievementDescriptionsLoaded(IAchievementDescription[] achievementDescriptions)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleAchievementDescriptionsLoaded&quot;);</span><br><span class="line">		foreach(IAchievementDescription achievementDescription in achievementDescriptions)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* achievementDescription = &quot; + achievementDescription.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Unity</category>
