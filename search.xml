@@ -56,18 +56,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Github Desktop设置Proxy</title>
-    <url>/2024/05/20/Github-Desktop-Setup-proxy/</url>
-    <content><![CDATA[<p>打开C:\users\username.gitconfig文件，最后加上</p>
-<span id="more"></span>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[http]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[https]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[git]</span><br><span class="line">    proxy = socks5://ip:port</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Other</category>
-      </categories>
-  </entry>
-  <entry>
     <title>修复WordPress更换域名后资源URL失效</title>
     <url>/2023/09/20/Fixed-Resource-URL-invalid-after-domain-name-change-in-WordPress/</url>
     <content><![CDATA[<p>尝试直接换了新域名，后果是…网页、数据库和网页里关联的资源全挂了哈哈哈，不过总算修复好了嘎。</p>
@@ -110,25 +98,60 @@
       </categories>
   </entry>
   <entry>
-    <title>Hexo Next主题 自定义背景</title>
-    <url>/2024/12/25/Hexo-Next-Custom-background/</url>
-    <content><![CDATA[<p>修改Next默认的纯白背景。</p>
+    <title>Github Desktop设置Proxy</title>
+    <url>/2024/05/20/Github-Desktop-Setup-proxy/</url>
+    <content><![CDATA[<p>打开C:\users\username.gitconfig文件，最后加上</p>
 <span id="more"></span>
 
-<h1 id="保存图片"><a href="#保存图片" class="headerlink" title="保存图片"></a>保存图片</h1><p>将自己的图片命名为background保存到以下路径：<br><code>\themes\next\source\images</code></p>
-<h1 id="修改样式"><a href="#修改样式" class="headerlink" title="修改样式"></a>修改样式</h1><p>进入以下路径：<br><code>\themes\next\source\css\_schemes</code></p>
-<h2 id="选择当前使用的Hexo主题"><a href="#选择当前使用的Hexo主题" class="headerlink" title="选择当前使用的Hexo主题"></a>选择当前使用的Hexo主题</h2><p>进入上述路径后里面应该有四个文件夹（Gemini, Mist, Muse, Pisces），进入你现在用的这个主题的文件夹。</p>
-<h2 id="编辑index-styl文件"><a href="#编辑index-styl文件" class="headerlink" title="编辑index.styl文件"></a>编辑index.styl文件</h2><ol>
-<li><p>打开当前使用主题的“index.styl”文件，找到如下注释字段：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// ==================================================</span><br><span class="line">// Desktop layout styles.</span><br><span class="line">// ==================================================</span><br><span class="line">// Post blocks.</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在下面新增一行，添加如下代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 整体背景设置</span><br><span class="line">body &#123;</span><br><span class="line">	background:url(/images/background.jpg);// 设定背景图片,注意修改图片后缀</span><br><span class="line">	background-repeat: no-repeat;// 设定背景图片非重复填充</span><br><span class="line">	background-attachment:fixed;// 设置背景图片不随页面滚动</span><br><span class="line">	background-position:50% 50%;// 设置背景图片位置</span><br><span class="line">	background-size: cover// 设置保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 设置透明度</span><br><span class="line">.main-inner&#123;</span><br><span class="line">	opacity: 0.95;</span><br><span class="line">&#125;</span><br><span class="line">.header-inner&#123;</span><br><span class="line">	opacity: 0.95;</span><br><span class="line">	z-index: 10;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[http]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[https]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[git]</span><br><span class="line">    proxy = socks5://ip:port</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hexo Next主题添加网易云音乐</title>
+    <url>/2024/12/25/Hexo-Next-theme-adds-NetEase-music/</url>
+    <content><![CDATA[<p>版本：Hexo 7.3.0（Next 8.21.1）<br>前言：我使用的vscode，后面部分操作需用到全局搜索，具体路径太长，我实在懒得贴出来。</p>
+<span id="more"></span>
+
+<h1 id="获取网易云音乐外链"><a href="#获取网易云音乐外链" class="headerlink" title="获取网易云音乐外链"></a>获取网易云音乐外链</h1><ol>
+<li>前往<a href="https://music.163.com/">网易云网页版</a>，搜索你喜欢的歌并生成外链（版权音乐无法生成）。</li>
+<li>根据需要，设置框体大小和自动播放，复制生成的代码。</li>
+<li>全局搜索<code>site-overview.njk</code>文件（这文件就一个，很快就能搜到）。</li>
+<li>在文件头或文件尾新增一行粘贴外链。粘贴在文件头，播放器就会像我这样在头像上面，文件尾就在下面。</li>
+<li>完成。</li>
 </ol>
-<p><code>出处：https://splendidwave.github.io/2021/12/27/2021-12/Hexo-Next-自定义背景/</code></p>
+<h1 id="不间断播放（可选）"><a href="#不间断播放（可选）" class="headerlink" title="不间断播放（可选）"></a>不间断播放（可选）</h1><ol>
+<li>找到你的<code>hexo-theme-next</code>文件夹，在文件夹上单击右键选择“在集成终端中打开”。</li>
+<li>在命令行输入：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-pjax source/lib/pjax</span><br></pre></td></tr></table></figure>
 <ol start="3">
-<li>清理和编译。</li>
+<li>打开<code>Next主题</code>的<code>_config.yml</code>文件。</li>
+<li>将属性<code>pjax</code>设置为<code>true</code>。</li>
 </ol>
+<h1 id="重新生成网页文件"><a href="#重新生成网页文件" class="headerlink" title="重新生成网页文件"></a>重新生成网页文件</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>移动Hexo主题文件夹</title>
+    <url>/2024/12/26/Hexo-Next-theme/</url>
+    <content><![CDATA[<p>最近我一直在折腾 Hexo 样式方面，小白一枚。</p>
+<span id="more"></span>
+
+<p>此前我的主题文件都默认装在了<code>node_modules</code>文件夹里，今天才发现根目录下的<code>themes</code>文件夹一直是空的，于是开始好奇这个文件夹的作用。</p>
+<p>在经过研究后发现有一点各大所谓的“Hexo小白教程”里只字未提的东西，那就是应该把主题文件复制到<code>themes</code>文件夹里再进行配置和使用，到这里我无语了一阵子。至于是如何发现的，且听我娓娓道来。毕竟有趣的经历值得记录下来。</p>
+<p>起初，有些教程可能教你<code>npm install hexo-theme-xxxxxx</code>，修改<code>_config.yml</code>文件中的<code>theme</code>属性，然后你就可以写博客，最后生成静态页面提交到Github Page里。我就是这么信了，直接把<code>_config.yml</code>属性的<code>theme</code>改成了<code>next</code>，一切都看起来运作良好。</p>
+<p>以前用的<code>Wordpress</code>，现在和Hexo度过了半年，但越研究越发觉不对劲，为什么大佬们的根目录总是在<code>themes</code>下面，很快就能完成样式的修改，而我却总要把<code>node_modules</code>文件夹打开，顶着又臭又长的路径，逐个找到主题的文件夹。我心想，可能新版本是这样的吧，如此欺骗着自己。</p>
+<p>直到最近我重装了下系统，忘记了备份Hexo的源文件，中间的恢复过程我就略过了。这次我长记性，创建了一个私人仓库用来备份源文件，于是我就发现<code>themes</code>文件夹居然是默认同步的，也就是说这个文件夹的分量很大，而之前一直被我忽略了，相反的，<code>node_modules</code>文件夹并没有默认同步，除非我手动编辑<code>gitignore</code>文件。</p>
+<p>后来我学习了一点<code>nodejs</code>的知识，原来<code>node_modules</code>是用来存放依赖库的，用<code>npm install</code>装的东西都会在这里面。合着我之前特喵一直是直接改的依赖库的东西，这居然没一个教程里提到，也可能是我眼光不好没找到好教程，至少我找到的每个都这样。</p>
+<p>经过研究，规范的做法应该是：通过克隆来的主题直接放在<code>themes</code>文件夹里，而像我这样使用<code>npm install</code>安装之后，应该把主题文件夹手动复制到<code>themes</code>文件夹下，并且把网站的<code>_config.yml</code>文件中的<code>theme</code>属性值修改为主题文件夹的名字，例如我这里用的next，就应该写作<code>theme: hexo-theme-next</code>。</p>
+<p>最后，在不乱动依赖库的情况下，主题文件和各种配置文件都能提交作为备份了，样式也能更方便的修改了，终于不用看那臭长的路径了。</p>
+<p>只能说，无良教程真是坑害新人！</p>
 ]]></content>
       <categories>
         <category>Other</category>
@@ -164,20 +187,25 @@
       </categories>
   </entry>
   <entry>
-    <title>移动Hexo主题文件夹</title>
-    <url>/2024/12/26/Hexo-Next-theme/</url>
-    <content><![CDATA[<p>最近我一直在折腾 Hexo 样式方面，小白一枚。</p>
+    <title>Hexo Next主题 自定义背景</title>
+    <url>/2024/12/25/Hexo-Next-Custom-background/</url>
+    <content><![CDATA[<p>修改Next默认的纯白背景。</p>
 <span id="more"></span>
 
-<p>此前我的主题文件都默认装在了<code>node_modules</code>文件夹里，今天才发现根目录下的<code>themes</code>文件夹一直是空的，于是开始好奇这个文件夹的作用。</p>
-<p>在经过研究后发现有一点各大所谓的“Hexo小白教程”里只字未提的东西，那就是应该把主题文件复制到<code>themes</code>文件夹里再进行配置和使用，到这里我无语了一阵子。至于是如何发现的，且听我娓娓道来。毕竟有趣的经历值得记录下来。</p>
-<p>起初，有些教程可能教你<code>npm install hexo-theme-xxxxxx</code>，修改<code>_config.yml</code>文件中的<code>theme</code>属性，然后你就可以写博客，最后生成静态页面提交到Github Page里。我就是这么信了，直接把<code>_config.yml</code>属性的<code>theme</code>改成了<code>next</code>，一切都看起来运作良好。</p>
-<p>以前用的<code>Wordpress</code>，现在和Hexo度过了半年，但越研究越发觉不对劲，为什么大佬们的根目录总是在<code>themes</code>下面，很快就能完成样式的修改，而我却总要把<code>node_modules</code>文件夹打开，顶着又臭又长的路径，逐个找到主题的文件夹。我心想，可能新版本是这样的吧，如此欺骗着自己。</p>
-<p>直到最近我重装了下系统，忘记了备份Hexo的源文件，中间的恢复过程我就略过了。这次我长记性，创建了一个私人仓库用来备份源文件，于是我就发现<code>themes</code>文件夹居然是默认同步的，也就是说这个文件夹的分量很大，而之前一直被我忽略了，相反的，<code>node_modules</code>文件夹并没有默认同步，除非我手动编辑<code>gitignore</code>文件。</p>
-<p>后来我学习了一点<code>nodejs</code>的知识，原来<code>node_modules</code>是用来存放依赖库的，用<code>npm install</code>装的东西都会在这里面。合着我之前特喵一直是直接改的依赖库的东西，这居然没一个教程里提到，也可能是我眼光不好没找到好教程，至少我找到的每个都这样。</p>
-<p>经过研究，规范的做法应该是：通过克隆来的主题直接放在<code>themes</code>文件夹里，而像我这样使用<code>npm install</code>安装之后，应该把主题文件夹手动复制到<code>themes</code>文件夹下，并且把网站的<code>_config.yml</code>文件中的<code>theme</code>属性值修改为主题文件夹的名字，例如我这里用的next，就应该写作<code>theme: hexo-theme-next</code>。</p>
-<p>最后，在不乱动依赖库的情况下，主题文件和各种配置文件都能提交作为备份了，样式也能更方便的修改了，终于不用看那臭长的路径了。</p>
-<p>只能说，无良教程真是坑害新人！</p>
+<h1 id="保存图片"><a href="#保存图片" class="headerlink" title="保存图片"></a>保存图片</h1><p>将自己的图片命名为background保存到以下路径：<br><code>\themes\next\source\images</code></p>
+<h1 id="修改样式"><a href="#修改样式" class="headerlink" title="修改样式"></a>修改样式</h1><p>进入以下路径：<br><code>\themes\next\source\css\_schemes</code></p>
+<h2 id="选择当前使用的Hexo主题"><a href="#选择当前使用的Hexo主题" class="headerlink" title="选择当前使用的Hexo主题"></a>选择当前使用的Hexo主题</h2><p>进入上述路径后里面应该有四个文件夹（Gemini, Mist, Muse, Pisces），进入你现在用的这个主题的文件夹。</p>
+<h2 id="编辑index-styl文件"><a href="#编辑index-styl文件" class="headerlink" title="编辑index.styl文件"></a>编辑index.styl文件</h2><ol>
+<li><p>打开当前使用主题的“index.styl”文件，找到如下注释字段：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// ==================================================</span><br><span class="line">// Desktop layout styles.</span><br><span class="line">// ==================================================</span><br><span class="line">// Post blocks.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在下面新增一行，添加如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 整体背景设置</span><br><span class="line">body &#123;</span><br><span class="line">	background:url(/images/background.jpg);// 设定背景图片,注意修改图片后缀</span><br><span class="line">	background-repeat: no-repeat;// 设定背景图片非重复填充</span><br><span class="line">	background-attachment:fixed;// 设置背景图片不随页面滚动</span><br><span class="line">	background-position:50% 50%;// 设置背景图片位置</span><br><span class="line">	background-size: cover// 设置保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 设置透明度</span><br><span class="line">.main-inner&#123;</span><br><span class="line">	opacity: 0.95;</span><br><span class="line">&#125;</span><br><span class="line">.header-inner&#123;</span><br><span class="line">	opacity: 0.95;</span><br><span class="line">	z-index: 10;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><code>出处：https://splendidwave.github.io/2021/12/27/2021-12/Hexo-Next-自定义背景/</code></p>
+<ol start="3">
+<li>清理和编译。</li>
+</ol>
 ]]></content>
       <categories>
         <category>Other</category>
@@ -198,34 +226,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Hexo Next主题添加网易云音乐</title>
-    <url>/2024/12/25/Hexo-Next-theme-adds-NetEase-music/</url>
-    <content><![CDATA[<p>版本：Hexo 7.3.0（Next 8.21.1）<br>前言：我使用的vscode，后面部分操作需用到全局搜索，具体路径太长，我实在懒得贴出来。</p>
-<span id="more"></span>
-
-<h1 id="获取网易云音乐外链"><a href="#获取网易云音乐外链" class="headerlink" title="获取网易云音乐外链"></a>获取网易云音乐外链</h1><ol>
-<li>前往<a href="https://music.163.com/">网易云网页版</a>，搜索你喜欢的歌并生成外链（版权音乐无法生成）。</li>
-<li>根据需要，设置框体大小和自动播放，复制生成的代码。</li>
-<li>全局搜索<code>site-overview.njk</code>文件（这文件就一个，很快就能搜到）。</li>
-<li>在文件头或文件尾新增一行粘贴外链。粘贴在文件头，播放器就会像我这样在头像上面，文件尾就在下面。</li>
-<li>完成。</li>
-</ol>
-<h1 id="不间断播放（可选）"><a href="#不间断播放（可选）" class="headerlink" title="不间断播放（可选）"></a>不间断播放（可选）</h1><ol>
-<li>找到你的<code>hexo-theme-next</code>文件夹，在文件夹上单击右键选择“在集成终端中打开”。</li>
-<li>在命令行输入：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-pjax source/lib/pjax</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>打开<code>Next主题</code>的<code>_config.yml</code>文件。</li>
-<li>将属性<code>pjax</code>设置为<code>true</code>。</li>
-</ol>
-<h1 id="重新生成网页文件"><a href="#重新生成网页文件" class="headerlink" title="重新生成网页文件"></a>重新生成网页文件</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Other</category>
-      </categories>
-  </entry>
-  <entry>
     <title>像素宝可梦教程配套资源</title>
     <url>/2022/06/21/Pixel-Pokemon/</url>
     <content><![CDATA[<p>就决定是你了！</p>
@@ -234,20 +234,6 @@
 <p>适用MC版本：1.12.2<br>适用Forge版本：1.12.2 – 14.23.5.2860</p>
 <p>教程：<a href="https://www.bilibili.com/video/BV1wr4y1472C">哔哩哔哩</a></p>
 <p>资源：<a href="https://pan.baidu.com/s/16nHLeQgT8CqllzJQAzbItQ?pwd=1rnw">百度云</a><br>资源出处：<a href="https://www.planetminecraft.com/">Planet Minecraft Community</a></p>
-]]></content>
-      <categories>
-        <category>Minecraft</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>SpigotMC配置Proxy</title>
-    <url>/2024/02/08/SpigotMC-Configures-Proxy/</url>
-    <content><![CDATA[<p>在国内，编译Spigot下的BuildTools.jar文件时网络报错，需要配置Proxy才能顺利进行。</p>
-<span id="more"></span>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -Dhttp.proxyHost=&#123;IP&#125; -Dhttp.proxyPort=&#123;PORT&#125; -Dhttps.proxyHost=&#123;IP&#125; -Dhttps.proxyPort=&#123;PORT&#125; -jar BuildTools.jar</span><br></pre></td></tr></table></figure>
-<p>例如</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=1234 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=1234 -jar BuildTools.jar --rev latest</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Minecraft</category>
@@ -277,24 +263,24 @@
       </categories>
   </entry>
   <entry>
-    <title>Unity相机抖动</title>
-    <url>/2022/08/19/Unity-Camera-Shake/</url>
-    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>ShakeCamera.cs</p>
-<span id="more"></span>
-
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class ShakeCamera : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    private Vector3 shakePos = Vector3.zero;</span><br><span class="line"></span><br><span class="line">    // Use this for initialization</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Update is called once per frame</span><br><span class="line">    /// &lt;summary&gt;</span><br><span class="line">    /// 按住空格键，画面会一直抖动；松开按键，抖动结束</span><br><span class="line">    /// &lt;/summary&gt;</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        if(Input.GetKey(KeyCode.Space))</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localPosition -= shakePos;</span><br><span class="line">            shakePos = Random.insideUnitSphere / 5.0f;</span><br><span class="line">            transform.localPosition += shakePos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Unity切换场景不销毁物体</title>
     <url>/2022/10/18/UNITY-DO-NOT-DESTROY-MY-OBJECTS/</url>
     <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>IOSManager.cs<br>使用方法：创建一个空物体，挂上此脚本，将不销毁的物体拖入数组。</p>
 <span id="more"></span>
 
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 加载场景时不删除的物体</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">public class DontDestroyOnLoad : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //加载场景时不销毁的物体</span><br><span class="line">    public GameObject[] DontDestroyObjects;</span><br><span class="line"></span><br><span class="line">    //是否已经存在DontDestroy的物体</span><br><span class="line">    private static bool isExist;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">    void Awake()</span><br><span class="line">    &#123;</span><br><span class="line">        if (!isExist)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果第一次加载，将这些物体设为DontDestroy</span><br><span class="line">                DontDestroyOnLoad(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            isExist = true;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果已经存在，则删除重复的物体</span><br><span class="line">                Destroy(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Unity相机抖动</title>
+    <url>/2022/08/19/Unity-Camera-Shake/</url>
+    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>ShakeCamera.cs</p>
+<span id="more"></span>
+
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class ShakeCamera : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    private Vector3 shakePos = Vector3.zero;</span><br><span class="line"></span><br><span class="line">    // Use this for initialization</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Update is called once per frame</span><br><span class="line">    /// &lt;summary&gt;</span><br><span class="line">    /// 按住空格键，画面会一直抖动；松开按键，抖动结束</span><br><span class="line">    /// &lt;/summary&gt;</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        if(Input.GetKey(KeyCode.Space))</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localPosition -= shakePos;</span><br><span class="line">            shakePos = Random.insideUnitSphere / 5.0f;</span><br><span class="line">            transform.localPosition += shakePos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Unity</category>
@@ -310,6 +296,20 @@
 ]]></content>
       <categories>
         <category>Unity</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>SpigotMC配置Proxy</title>
+    <url>/2024/02/08/SpigotMC-Configures-Proxy/</url>
+    <content><![CDATA[<p>在国内，编译Spigot下的BuildTools.jar文件时网络报错，需要配置Proxy才能顺利进行。</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -Dhttp.proxyHost=&#123;IP&#125; -Dhttp.proxyPort=&#123;PORT&#125; -Dhttps.proxyHost=&#123;IP&#125; -Dhttps.proxyPort=&#123;PORT&#125; -jar BuildTools.jar</span><br></pre></td></tr></table></figure>
+<p>例如</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=1234 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=1234 -jar BuildTools.jar --rev latest</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Minecraft</category>
       </categories>
   </entry>
   <entry>
@@ -336,19 +336,6 @@
 ]]></content>
       <categories>
         <category>Unity</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>网站正式更名</title>
-    <url>/2024/12/25/Website-name-change/</url>
-    <content><![CDATA[<p>博客已装修。</p>
-<span id="more"></span>
-
-<p>由原网站“伽马Blog”变更为“GMBlog”，GM分别取自Game Mode。<br>域名由原来的：<br><code>gamemode1.com</code><br>变更为二级域名：<br><code>blog.gamemode1.com</code></p>
-<p>为了防止来自企鹅大帝的扫描，给网站开了盾，请理解。</p>
-]]></content>
-      <categories>
-        <category>Other</category>
       </categories>
   </entry>
   <entry>
@@ -429,6 +416,33 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Linux之rpm包安装与卸载</title>
+    <url>/2022/07/11/rpm-package-installation-and-uninstallation-for-Linux/</url>
+    <content><![CDATA[<p>*&lt;&gt;内为解释内容，无需输入</p>
+<span id="more"></span>
+
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>基本语法：rpm -ivh &lt;rpm包（路径）全称&gt;<br>参数说明：<br>i-install 安装<br>v-verbose 提示<br>h-hash 进度条</p>
+<h1 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h1><p>基本语法：rpm -e &lt;rpm包部全称&gt;<br>一般卸载步骤（举例java jdk）：<br>1、查询包是否存在（模糊搜索，无需全称）：rpm -qa | grep jdk<br>2、卸载：rpm -e &lt;rpm包部分名称或全称&gt;</p>
+<p>卸载注意事项<br>如果其它软件包正依赖于将要卸载的软件包，卸载时会产生错误信息。<br>如果要强制卸载，可以加入参数 -–nodeps（例如：rpm -e –nodeps jdk），不过一般不推荐这样做，可能导致正在依赖该包运行的程序出现问题。<br>站长不是专业人士，如果你和我一样只用于开Minecraft服务器，那么下一条注意事项可以忽略。<br>如果出现类似&lt;warning:XXX.rpm: Header V3 RSA&#x2F;SHA256 Signature, key ID XXX: NOKEY&gt;的警告，这可能是由于安装版本与系统中其它的库文件版本不一致导致的，也可能是未导入公匙导致的。对于业余人士如果最终程序运行正常，可以忽略，专业或商业人士请谨慎对待。</p>
+]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>网站正式更名</title>
+    <url>/2024/12/25/Website-name-change/</url>
+    <content><![CDATA[<p>博客已装修。</p>
+<span id="more"></span>
+
+<p>由原网站“伽马Blog”变更为“GMBlog”，GM分别取自Game Mode。<br>域名由原来的：<br><code>gamemode1.com</code><br>变更为二级域名：<br><code>blog.gamemode1.com</code></p>
+<p>为了防止来自企鹅大帝的扫描，给网站开了盾，请理解。</p>
+]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
   </entry>
   <entry>
     <title>VCC常用仓库汇总</title>
@@ -512,20 +526,6 @@
 ]]></content>
       <categories>
         <category>VRChat Plugin</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Linux之rpm包安装与卸载</title>
-    <url>/2022/07/11/rpm-package-installation-and-uninstallation-for-Linux/</url>
-    <content><![CDATA[<p>*&lt;&gt;内为解释内容，无需输入</p>
-<span id="more"></span>
-
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>基本语法：rpm -ivh &lt;rpm包（路径）全称&gt;<br>参数说明：<br>i-install 安装<br>v-verbose 提示<br>h-hash 进度条</p>
-<h1 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h1><p>基本语法：rpm -e &lt;rpm包部全称&gt;<br>一般卸载步骤（举例java jdk）：<br>1、查询包是否存在（模糊搜索，无需全称）：rpm -qa | grep jdk<br>2、卸载：rpm -e &lt;rpm包部分名称或全称&gt;</p>
-<p>卸载注意事项<br>如果其它软件包正依赖于将要卸载的软件包，卸载时会产生错误信息。<br>如果要强制卸载，可以加入参数 -–nodeps（例如：rpm -e –nodeps jdk），不过一般不推荐这样做，可能导致正在依赖该包运行的程序出现问题。<br>站长不是专业人士，如果你和我一样只用于开Minecraft服务器，那么下一条注意事项可以忽略。<br>如果出现类似&lt;warning:XXX.rpm: Header V3 RSA&#x2F;SHA256 Signature, key ID XXX: NOKEY&gt;的警告，这可能是由于安装版本与系统中其它的库文件版本不一致导致的，也可能是未导入公匙导致的。对于业余人士如果最终程序运行正常，可以忽略，专业或商业人士请谨慎对待。</p>
-]]></content>
-      <categories>
-        <category>Other</category>
       </categories>
   </entry>
 </search>
