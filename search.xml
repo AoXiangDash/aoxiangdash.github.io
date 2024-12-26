@@ -1,55 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Linux之Docker安装与配置</title>
-    <url>/2022/07/27/Docker-installation-and-configuration-for-Linux/</url>
-    <content><![CDATA[<p>第一步：检查系统是否已安装Docker，回车后未返回任何信息就可以进行手动安装。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum list installed | grep docker</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-
-<p><img src="/../images/dockercommon/dockersetup-1.jpg"></p>
-<p>第二步：使用yum安装docker。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install docker</span><br></pre></td></tr></table></figure>
-
-<p><img src="/../images/dockercommon/dockersetup-2.jpg"></p>
-<p>第三步：检查安装项无误后，输入y开始安装。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">y</span><br></pre></td></tr></table></figure>
-
-<p><img src="/../images/dockercommon/dockersetup-3.jpg"></p>
-<p>第四步：安装完成（出现“Complete！”）后，启动Docker。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
-
-<p><img src="/../images/dockercommon/dockersetup-4.jpg"></p>
-<p>第五步：检查Docker运行状态，出现绿色active字样即正常运行。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl status docker</span><br></pre></td></tr></table></figure>
-
-<p><img src="/../images/dockercommon/dockersetup-5.jpg"></p>
-<p>第六步：将Docker设置为开机自启。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl enable docker.service</span><br></pre></td></tr></table></figure>
-
-<p><img src="/../images/dockercommon/dockersetup-6.jpg"></p>
-<p>至此已配置完毕</p>
-<p>关闭Docker开机自启指令。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl disable docker.service</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Other</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>修复WordPress更换域名后资源URL失效</title>
-    <url>/2023/09/20/Fixed-Resource-URL-invalid-after-domain-name-change-in-WordPress/</url>
-    <content><![CDATA[<p>尝试直接换了新域名，后果是…网页、数据库和网页里关联的资源全挂了哈哈哈，不过总算修复好了嘎。</p>
-<span id="more"></span>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE pb_posts SET post_content = REPLACE( post_content, &#x27;旧域名&#x27;, &#x27;新域名&#x27; );</span><br></pre></td></tr></table></figure>
-<p>还需要修改“x_posts”表中的“post_content”字段，和“x_postmeta”中的“meta_value”字段，都是这条指令。<br><code>虽然现在已经更换了hexo，但还是留个作死的纪念吧:p</code></p>
-]]></content>
-      <categories>
-        <category>Other</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Unity打包上传AppStore后显示语言为英文</title>
     <url>/2022/08/22/AppStore-language/</url>
     <content><![CDATA[<p>找了很久没一个想要的答案（在此痛斥某搜索引擎），于是结合其他类似问题和Apple官方文档，已得到解决。</p>
@@ -66,6 +17,48 @@
 ]]></content>
       <categories>
         <category>Unity</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>修复WordPress更换域名后资源URL失效</title>
+    <url>/2023/09/20/Fixed-Resource-URL-invalid-after-domain-name-change-in-WordPress/</url>
+    <content><![CDATA[<p>尝试直接换了新域名，后果是…网页、数据库和网页里关联的资源全挂了哈哈哈，不过总算修复好了嘎。</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE pb_posts SET post_content = REPLACE( post_content, &#x27;旧域名&#x27;, &#x27;新域名&#x27; );</span><br></pre></td></tr></table></figure>
+<p>还需要修改“x_posts”表中的“post_content”字段，和“x_postmeta”中的“meta_value”字段，都是这条指令。<br><code>虽然现在已经更换了hexo，但还是留个作死的纪念吧:p</code></p>
+]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Git报错汇总</title>
+    <url>/2023/01/30/Git-error-summary/</url>
+    <content><![CDATA[<p>错误内容：<br><code>Error: Failed to connect to github.com port 443 after xxx ms: Timed out</code></p>
+<span id="more"></span>
+
+
+<p>第一步：查询自己的proxy</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global -l</span><br></pre></td></tr></table></figure>
+<p>这个时候会显示你自己的proxy，例如：</p>
+<p>&#x2F;&#x2F;如果没有配置过，以下内容可能为空</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">user.name=SteveJobs</span><br><span class="line">user.email=hello@world.com</span><br><span class="line">http.proxy=127.0.0.1:25565</span><br><span class="line">https.proxy=127.0.0.1:25565</span><br></pre></td></tr></table></figure>
+
+<p>第二步：删除自己的proxy设置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+
+<p>第三步：重新设置自己的proxy<br>将<code>ip</code>和<code>port</code>修改成自己的端口号。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy ip:port</span><br><span class="line">git config --global https.proxy ip:port</span><br></pre></td></tr></table></figure>
+
+<p>第四步：检查配置后的proxy</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global -l</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">user.name=SteveJobs</span><br><span class="line">user.email=hello@world.com</span><br><span class="line">http.proxy=127.0.0.1:7890</span><br><span class="line">https.proxy=127.0.0.1:7890</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Other</category>
       </categories>
   </entry>
   <entry>
@@ -134,29 +127,56 @@
       </categories>
   </entry>
   <entry>
-    <title>Git报错汇总</title>
-    <url>/2023/01/30/Git-error-summary/</url>
-    <content><![CDATA[<p>错误内容：<br><code>Error: Failed to connect to github.com port 443 after xxx ms: Timed out</code></p>
+    <title>Linux之Docker安装与配置</title>
+    <url>/2022/07/27/Docker-installation-and-configuration-for-Linux/</url>
+    <content><![CDATA[<p>第一步：检查系统是否已安装Docker，回车后未返回任何信息就可以进行手动安装。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum list installed | grep docker</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
 
+<p><img src="/../images/dockercommon/dockersetup-1.jpg"></p>
+<p>第二步：使用yum安装docker。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install docker</span><br></pre></td></tr></table></figure>
 
-<p>第一步：查询自己的proxy</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global -l</span><br></pre></td></tr></table></figure>
-<p>这个时候会显示你自己的proxy，例如：</p>
-<p>&#x2F;&#x2F;如果没有配置过，以下内容可能为空</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">user.name=SteveJobs</span><br><span class="line">user.email=hello@world.com</span><br><span class="line">http.proxy=127.0.0.1:25565</span><br><span class="line">https.proxy=127.0.0.1:25565</span><br></pre></td></tr></table></figure>
+<p><img src="/../images/dockercommon/dockersetup-2.jpg"></p>
+<p>第三步：检查安装项无误后，输入y开始安装。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">y</span><br></pre></td></tr></table></figure>
 
-<p>第二步：删除自己的proxy设置</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+<p><img src="/../images/dockercommon/dockersetup-3.jpg"></p>
+<p>第四步：安装完成（出现“Complete！”）后，启动Docker。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
 
-<p>第三步：重新设置自己的proxy<br>将<code>ip</code>和<code>port</code>修改成自己的端口号。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy ip:port</span><br><span class="line">git config --global https.proxy ip:port</span><br></pre></td></tr></table></figure>
+<p><img src="/../images/dockercommon/dockersetup-4.jpg"></p>
+<p>第五步：检查Docker运行状态，出现绿色active字样即正常运行。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl status docker</span><br></pre></td></tr></table></figure>
 
-<p>第四步：检查配置后的proxy</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global -l</span><br></pre></td></tr></table></figure>
+<p><img src="/../images/dockercommon/dockersetup-5.jpg"></p>
+<p>第六步：将Docker设置为开机自启。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl enable docker.service</span><br></pre></td></tr></table></figure>
 
-<p>结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">user.name=SteveJobs</span><br><span class="line">user.email=hello@world.com</span><br><span class="line">http.proxy=127.0.0.1:7890</span><br><span class="line">https.proxy=127.0.0.1:7890</span><br></pre></td></tr></table></figure>
+<p><img src="/../images/dockercommon/dockersetup-6.jpg"></p>
+<p>至此已配置完毕</p>
+<p>关闭Docker开机自启指令。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl disable docker.service</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>移动Hexo主题文件夹</title>
+    <url>/2024/12/26/Hexo-Next-theme/</url>
+    <content><![CDATA[<p>最近我一直在折腾 Hexo 样式方面，小白一枚。</p>
+<span id="more"></span>
+
+<p>此前我的主题文件都默认装在了<code>node_modules</code>文件夹里，今天才发现根目录下的<code>themes</code>文件夹一直是空的，于是开始好奇这个文件夹的作用。</p>
+<p>在经过研究后发现有一点各大所谓的“Hexo小白教程”里只字未提的东西，那就是应该把主题文件复制到<code>themes</code>文件夹里再进行配置和使用，到这里我无语了一阵子。至于是如何发现的，且听我娓娓道来。毕竟有趣的经历值得记录下来。</p>
+<p>起初，有些教程可能教你<code>npm install hexo-theme-xxxxxx</code>，修改<code>_config.yml</code>文件中的<code>theme</code>属性，然后你就可以写博客，最后生成静态页面提交到Github Page里。我就是这么信了，直接把<code>_config.yml</code>属性的<code>theme</code>改成了<code>next</code>，一切都看起来运作良好。</p>
+<p>以前用的<code>Wordpress</code>，现在和Hexo度过了半年，但越研究越发觉不对劲，为什么大佬们的根目录总是在<code>themes</code>下面，很快就能完成样式的修改，而我却总要把<code>node_modules</code>文件夹打开，顶着又臭又长的路径，逐个找到主题的文件夹。我心想，可能新版本是这样的吧，如此欺骗着自己。</p>
+<p>直到最近我重装了下系统，忘记了备份Hexo的源文件，中间的恢复过程我就略过了。这次我长记性，创建了一个私人仓库用来备份源文件，于是我就发现<code>themes</code>文件夹居然是默认同步的，也就是说这个文件夹的分量很大，而之前一直被我忽略了，相反的，<code>node_modules</code>文件夹并没有默认同步，除非我手动编辑<code>gitignore</code>文件。</p>
+<p>后来我学习了一点<code>nodejs</code>的知识，原来<code>node_modules</code>是用来存放依赖库的，用<code>npm install</code>装的东西都会在这里面。合着我之前特喵一直是直接改的依赖库的东西，这居然没一个教程里提到，也可能是我眼光不好没找到好教程，至少我找到的每个都这样。</p>
+<p>经过研究，规范的做法应该是：通过克隆来的主题直接放在<code>themes</code>文件夹里，而像我这样使用<code>npm install</code>安装之后，应该把主题文件夹手动复制到<code>themes</code>文件夹下，并且把网站的<code>_config.yml</code>文件中的<code>theme</code>属性值修改为主题文件夹的名字，例如我这里用的next，就应该写作<code>theme: hexo-theme-next</code>。</p>
+<p>最后，在不乱动依赖库的情况下，主题文件和各种配置文件都能提交作为备份了，样式也能更方便的修改了，终于不用看那臭长的路径了。</p>
+<p>只能说，无良教程真是坑害新人！</p>
 ]]></content>
       <categories>
         <category>Other</category>
@@ -189,26 +209,6 @@
 ]]></content>
       <categories>
         <category>Minecraft</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>移动Hexo主题文件夹</title>
-    <url>/2024/12/26/Hexo-Next-theme/</url>
-    <content><![CDATA[<p>最近我一直在折腾 Hexo 样式方面，小白一枚。</p>
-<span id="more"></span>
-
-<p>此前我的主题文件都默认装在了<code>node_modules</code>文件夹里，今天才发现根目录下的<code>themes</code>文件夹一直是空的，于是开始好奇这个文件夹的作用。</p>
-<p>在经过研究后发现有一点各大所谓的“Hexo小白教程”里只字未提的东西，那就是应该把主题文件复制到<code>themes</code>文件夹里再进行配置和使用，到这里我无语了一阵子。至于是如何发现的，且听我娓娓道来。毕竟有趣的经历值得记录下来。</p>
-<p>起初，有些教程可能教你<code>npm install hexo-theme-xxxxxx</code>，修改<code>_config.yml</code>文件中的<code>theme</code>属性，然后你就可以写博客，最后生成静态页面提交到Github Page里。我就是这么信了，直接把<code>_config.yml</code>属性的<code>theme</code>改成了<code>next</code>，一切都看起来运作良好。</p>
-<p>以前用的<code>Wordpress</code>，现在和Hexo度过了半年，但越研究越发觉不对劲，为什么大佬们的根目录总是在<code>themes</code>下面，很快就能完成样式的修改，而我却总要把<code>node_modules</code>文件夹打开，顶着又臭又长的路径，逐个找到主题的文件夹。我心想，可能新版本是这样的吧，如此欺骗着自己。</p>
-<p>直到最近我重装了下系统，忘记了备份Hexo的源文件，中间的恢复过程我就略过了。这次我长记性，创建了一个私人仓库用来备份源文件，于是我就发现<code>themes</code>文件夹居然是默认同步的，也就是说这个文件夹的分量很大，而之前一直被我忽略了，相反的，<code>node_modules</code>文件夹并没有默认同步，除非我手动编辑<code>gitignore</code>文件。</p>
-<p>后来我学习了一点<code>nodejs</code>的知识，原来<code>node_modules</code>是用来存放依赖库的，用<code>npm install</code>装的东西都会在这里面。合着我之前特喵一直是直接改的依赖库的东西，这居然没一个教程里提到，也可能是我眼光不好没找到好教程，至少我找到的每个都这样。</p>
-<p>经过研究，规范的做法应该是：通过克隆来的主题直接放在<code>themes</code>文件夹里，而像我这样使用<code>npm install</code>安装之后，应该把主题文件夹手动复制到<code>themes</code>文件夹下，并且把网站的<code>_config.yml</code>文件中的<code>theme</code>属性值修改为主题文件夹的名字，例如我这里用的next，就应该写作<code>theme: hexo-theme-next</code>。</p>
-<p>最后，在不乱动依赖库的情况下，主题文件和各种配置文件都能提交作为备份了，样式也能更方便的修改了，终于不用看那臭长的路径了。</p>
-<p>只能说，无良教程真是坑害新人！</p>
-]]></content>
-      <categories>
-        <category>Other</category>
       </categories>
   </entry>
   <entry>
@@ -301,18 +301,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Unity接入GameCenter</title>
-    <url>/2022/09/01/Unity-and-GameCenter/</url>
-    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>IOSManager.cs</p>
-<span id="more"></span>
-
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using UnityEngine;</span><br><span class="line">using System.Collections;</span><br><span class="line">using UnityEngine.SocialPlatforms;</span><br><span class="line">using UnityEngine.SocialPlatforms.GameCenter;</span><br><span class="line"></span><br><span class="line">public class IOSManager : MonoBehaviour &#123;</span><br><span class="line"></span><br><span class="line">	public bool   GameCenterState;</span><br><span class="line">	public string userInfo;</span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 初始化 GameCenter 登陆</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	void Start () &#123;</span><br><span class="line">		Social.localUser.Authenticate(HandleAuthenticated);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 初始化 GameCenter 结果回调函数</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;success&quot;&gt;If set to &lt;c&gt;true&lt;/c&gt; success.&lt;/param&gt;</span><br><span class="line">	private void HandleAuthenticated(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		GameCenterState = success;</span><br><span class="line">		Debug.Log(&quot;*** HandleAuthenticated: success = &quot; + success);</span><br><span class="line">		///初始化成功</span><br><span class="line">		if (success) &#123;</span><br><span class="line">			userInfo = &quot;Username: &quot; + Social.localUser.userName +</span><br><span class="line">				&quot;\nUser ID: &quot; + Social.localUser.id +</span><br><span class="line">				&quot;\nIsUnderage: &quot; + Social.localUser.underage;</span><br><span class="line">			Debug.Log (userInfo);</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">		///初始化失败</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	void OnGUI()&#123;</span><br><span class="line"></span><br><span class="line">		GUI.TextArea ( new Rect( Screen.width -200, 0, 200, 100), &quot;GameCenter:&quot;+GameCenterState  );</span><br><span class="line">		GUI.TextArea ( new Rect( Screen.width -200, 100, 200, 100), &quot;userInfo:&quot;+userInfo  );</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 0, 110, 75), &quot;打开成就&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ShowAchievementsUI();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 150, 110, 75), &quot;打开排行榜&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ShowLeaderboardUI();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 300, 110, 75), &quot;排行榜设置分数&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ReportScore(1000, &quot;XXXX&quot;, HandleScoreReported);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 300, 110, 75), &quot;设置成就&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ReportProgress(&quot;XXXX&quot;, 15, HandleProgressReported);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	//上传排行榜分数</span><br><span class="line">	public void HandleScoreReported(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleScoreReported: success = &quot; + success);</span><br><span class="line">	&#125;</span><br><span class="line">	//设置 成就</span><br><span class="line">	private void HandleProgressReported(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleProgressReported: success = &quot; + success);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 加载好友回调</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;success&quot;&gt;If set to &lt;c&gt;true&lt;/c&gt; success.&lt;/param&gt;</span><br><span class="line">	private void HandleFriendsLoaded(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleFriendsLoaded: success = &quot; + success);</span><br><span class="line">		foreach(IUserProfile friend in Social.localUser.friends)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* friend = &quot; + friend.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 加载成就回调</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;achievements&quot;&gt;Achievements.&lt;/param&gt;</span><br><span class="line">	private void HandleAchievementsLoaded(IAchievement[] achievements)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;* HandleAchievementsLoaded&quot;);</span><br><span class="line">		foreach(IAchievement achievement in achievements)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* achievement = &quot; + achievement.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	///</span><br><span class="line">	/// 成就回调描述</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;achievementDescriptions&quot;&gt;Achievement descriptions.&lt;/param&gt;</span><br><span class="line">	private void HandleAchievementDescriptionsLoaded(IAchievementDescription[] achievementDescriptions)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleAchievementDescriptionsLoaded&quot;);</span><br><span class="line">		foreach(IAchievementDescription achievementDescription in achievementDescriptions)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* achievementDescription = &quot; + achievementDescription.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Unity获取Windows启动参数</title>
     <url>/2022/10/18/Unity-gets-Windows-startup-parameters/</url>
     <content><![CDATA[<p>所有启动参数将存储在变量（数组）“arguments”中。</p>
@@ -339,16 +327,15 @@
       </categories>
   </entry>
   <entry>
-    <title>网站正式更名</title>
-    <url>/2024/12/25/Website-name-change/</url>
-    <content><![CDATA[<p>博客已装修。</p>
+    <title>Unity接入GameCenter</title>
+    <url>/2022/09/01/Unity-and-GameCenter/</url>
+    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>IOSManager.cs</p>
 <span id="more"></span>
 
-<p>由原网站“伽马Blog”变更为“GMBlog”，GM分别取自Game Mode。<br>域名由原来的：<br><code>gamemode1.com</code><br>变更为二级域名：<br><code>blog.gamemode1.com</code></p>
-<p>为了防止来自企鹅大帝的扫描，给网站开了盾，请理解。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using UnityEngine;</span><br><span class="line">using System.Collections;</span><br><span class="line">using UnityEngine.SocialPlatforms;</span><br><span class="line">using UnityEngine.SocialPlatforms.GameCenter;</span><br><span class="line"></span><br><span class="line">public class IOSManager : MonoBehaviour &#123;</span><br><span class="line"></span><br><span class="line">	public bool   GameCenterState;</span><br><span class="line">	public string userInfo;</span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 初始化 GameCenter 登陆</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	void Start () &#123;</span><br><span class="line">		Social.localUser.Authenticate(HandleAuthenticated);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 初始化 GameCenter 结果回调函数</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;success&quot;&gt;If set to &lt;c&gt;true&lt;/c&gt; success.&lt;/param&gt;</span><br><span class="line">	private void HandleAuthenticated(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		GameCenterState = success;</span><br><span class="line">		Debug.Log(&quot;*** HandleAuthenticated: success = &quot; + success);</span><br><span class="line">		///初始化成功</span><br><span class="line">		if (success) &#123;</span><br><span class="line">			userInfo = &quot;Username: &quot; + Social.localUser.userName +</span><br><span class="line">				&quot;\nUser ID: &quot; + Social.localUser.id +</span><br><span class="line">				&quot;\nIsUnderage: &quot; + Social.localUser.underage;</span><br><span class="line">			Debug.Log (userInfo);</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">		///初始化失败</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	void OnGUI()&#123;</span><br><span class="line"></span><br><span class="line">		GUI.TextArea ( new Rect( Screen.width -200, 0, 200, 100), &quot;GameCenter:&quot;+GameCenterState  );</span><br><span class="line">		GUI.TextArea ( new Rect( Screen.width -200, 100, 200, 100), &quot;userInfo:&quot;+userInfo  );</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 0, 110, 75), &quot;打开成就&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ShowAchievementsUI();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 150, 110, 75), &quot;打开排行榜&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ShowLeaderboardUI();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 300, 110, 75), &quot;排行榜设置分数&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ReportScore(1000, &quot;XXXX&quot;, HandleScoreReported);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (GUI.Button (new Rect (0, 300, 110, 75), &quot;设置成就&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">			if (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ReportProgress(&quot;XXXX&quot;, 15, HandleProgressReported);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	//上传排行榜分数</span><br><span class="line">	public void HandleScoreReported(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleScoreReported: success = &quot; + success);</span><br><span class="line">	&#125;</span><br><span class="line">	//设置 成就</span><br><span class="line">	private void HandleProgressReported(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleProgressReported: success = &quot; + success);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 加载好友回调</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;success&quot;&gt;If set to &lt;c&gt;true&lt;/c&gt; success.&lt;/param&gt;</span><br><span class="line">	private void HandleFriendsLoaded(bool success)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleFriendsLoaded: success = &quot; + success);</span><br><span class="line">		foreach(IUserProfile friend in Social.localUser.friends)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* friend = &quot; + friend.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	/// 加载成就回调</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;achievements&quot;&gt;Achievements.&lt;/param&gt;</span><br><span class="line">	private void HandleAchievementsLoaded(IAchievement[] achievements)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;* HandleAchievementsLoaded&quot;);</span><br><span class="line">		foreach(IAchievement achievement in achievements)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* achievement = &quot; + achievement.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/// &lt;summary&gt;</span><br><span class="line">	///</span><br><span class="line">	/// 成就回调描述</span><br><span class="line">	/// &lt;/summary&gt;</span><br><span class="line">	/// &lt;param name=&quot;achievementDescriptions&quot;&gt;Achievement descriptions.&lt;/param&gt;</span><br><span class="line">	private void HandleAchievementDescriptionsLoaded(IAchievementDescription[] achievementDescriptions)</span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(&quot;*** HandleAchievementDescriptionsLoaded&quot;);</span><br><span class="line">		foreach(IAchievementDescription achievementDescription in achievementDescriptions)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(&quot;* achievementDescription = &quot; + achievementDescription.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Other</category>
+        <category>Unity</category>
       </categories>
   </entry>
   <entry>
@@ -396,15 +383,13 @@
       </categories>
   </entry>
   <entry>
-    <title>安装卡巴斯基后无权限修改hosts文件</title>
-    <url>/2024/02/15/Windows-does-not-have-permission-to-modify-hosts-after-Kaspersky-is-installed/</url>
-    <content><![CDATA[<p>由于本人使用“瓦特工具箱”对一些工具进行加速，需要修改hosts，于是遇到了权限问题。<br>虽然可以使用DNS模式，但考虑到自己还有一些IDE和一些工具需要用到hosts文件，还是得解决一下。</p>
+    <title>网站正式更名</title>
+    <url>/2024/12/25/Website-name-change/</url>
+    <content><![CDATA[<p>博客已装修。</p>
 <span id="more"></span>
 
-<p>首先不得不吐槽一下，我找遍了各种论坛和客服支持的存档，没有一个有效的解决方案，全是复制粘贴的无效方案。<br>相信不少人跟我一样，网上搜到的所谓将文件放入“威胁和排除项”的“管理排除项”里，根本不起作用！</p>
-<p>以下是我经过反复摸索后，能够彻底解决问题的方案：</p>
-<p><img src="/../images/winkasperskyhost/kbsj-1.jpg"><br><img src="/../images/winkasperskyhost/kbsj-2.jpg"><br><img src="/../images/winkasperskyhost/kbsj-3.jpg"><br><img src="/../images/winkasperskyhost/kbsj-4.jpg"></p>
-<p>根据图示（点击图片可放大），将hosts文件的上锁状态取消，最后保存。</p>
+<p>由原网站“伽马Blog”变更为“GMBlog”，GM分别取自Game Mode。<br>域名由原来的：<br><code>gamemode1.com</code><br>变更为二级域名：<br><code>blog.gamemode1.com</code></p>
+<p>为了防止来自企鹅大帝的扫描，给网站开了盾，请理解。</p>
 ]]></content>
       <categories>
         <category>Other</category>
@@ -429,6 +414,21 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>安装卡巴斯基后无权限修改hosts文件</title>
+    <url>/2024/02/15/Windows-does-not-have-permission-to-modify-hosts-after-Kaspersky-is-installed/</url>
+    <content><![CDATA[<p>由于本人使用“瓦特工具箱”对一些工具进行加速，需要修改hosts，于是遇到了权限问题。<br>虽然可以使用DNS模式，但考虑到自己还有一些IDE和一些工具需要用到hosts文件，还是得解决一下。</p>
+<span id="more"></span>
+
+<p>首先不得不吐槽一下，我找遍了各种论坛和客服支持的存档，没有一个有效的解决方案，全是复制粘贴的无效方案。<br>相信不少人跟我一样，网上搜到的所谓将文件放入“威胁和排除项”的“管理排除项”里，根本不起作用！</p>
+<p>以下是我经过反复摸索后，能够彻底解决问题的方案：</p>
+<p><img src="/../images/winkasperskyhost/kbsj-1.jpg"><br><img src="/../images/winkasperskyhost/kbsj-2.jpg"><br><img src="/../images/winkasperskyhost/kbsj-3.jpg"><br><img src="/../images/winkasperskyhost/kbsj-4.jpg"></p>
+<p>根据图示（点击图片可放大），将hosts文件的上锁状态取消，最后保存。</p>
+]]></content>
+      <categories>
+        <category>Other</category>
+      </categories>
   </entry>
   <entry>
     <title>Linux之rpm包安装与卸载</title>
