@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>GMBlog</title>
+  
+  <subtitle>Finding Paradise</subtitle>
+  <link href="https://blog.gamemode1.com/atom.xml" rel="self"/>
+  
+  <link href="https://blog.gamemode1.com/"/>
+  <updated>2024-12-25T19:27:58.610Z</updated>
+  <id>https://blog.gamemode1.com/</id>
+  
+  <author>
+    <name>翱翔大使</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>移动Hexo主题文件夹</title>
+    <link href="https://blog.gamemode1.com/2024/12/26/Hexo-Next-theme/"/>
+    <id>https://blog.gamemode1.com/2024/12/26/Hexo-Next-theme/</id>
+    <published>2024-12-25T18:05:24.000Z</published>
+    <updated>2024-12-25T19:27:58.610Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近我一直在折腾 Hexo 样式方面，小白一枚。</p><span id="more"></span><p>此前我的主题文件都默认装在了<code>node_modules</code>文件夹里，今天才发现根目录下的<code>themes</code>文件夹一直是空的，于是开始好奇这个文件夹的作用。</p><p>在经过研究后发现有一点各大所谓的“Hexo小白教程”里只字未提的东西，那就是应该把主题文件复制到<code>themes</code>文件夹里再进行配置和使用，到这里我无语了一阵子。至于是如何发现的，且听我娓娓道来。毕竟有趣的经历值得记录下来。</p><p>起初，有些教程可能教你<code>npm install hexo-theme-xxxxxx</code>，修改<code>_config.yml</code>文件中的<code>theme</code>属性，然后你就可以写博客，最后生成静态页面提交到Github Page里。我就是这么信了，直接把<code>_config.yml</code>属性的<code>theme</code>改成了<code>next</code>，一切都看起来运作良好。</p><p>以前用的<code>Wordpress</code>，现在和Hexo度过了半年，但越研究越发觉不对劲，为什么大佬们的根目录总是在<code>themes</code>下面，很快就能完成样式的修改，而我却总要把<code>node_modules</code>文件夹打开，顶着又臭又长的路径，逐个找到主题的文件夹。我心想，可能新版本是这样的吧，如此欺骗着自己。</p><p>直到最近我重装了下系统，忘记了备份Hexo的源文件，中间的恢复过程我就略过了。这次我长记性，创建了一个私人仓库用来备份源文件，于是我就发现<code>themes</code>文件夹居然是默认同步的，也就是说这个文件夹的分量很大，而之前一直被我忽略了，相反的，<code>node_modules</code>文件夹并没有默认同步，除非我手动编辑<code>gitignore</code>文件。</p><p>后来我学习了一点<code>nodejs</code>的知识，原来<code>node_modules</code>是用来存放依赖库的，用<code>npm install</code>装的东西都会在这里面。合着我之前特喵一直是直接改的依赖库的东西，这居然没一个教程里提到，也可能是我眼光不好没找到好教程，至少我找到的每个都这样。</p><p>经过研究，规范的做法应该是：通过克隆来的主题直接放在<code>themes</code>文件夹里，而像我这样使用<code>npm install</code>安装之后，应该把主题文件夹手动复制到<code>themes</code>文件夹下，并且把网站的<code>_config.yml</code>文件中的<code>theme</code>属性值修改为主题文件夹的名字，例如我这里用的next，就应该写作<code>theme: hexo-theme-next</code>。</p><p>最后，在不乱动依赖库的情况下，主题文件和各种配置文件都能提交作为备份了，样式也能更方便的修改了，终于不用看那臭长的路径了。</p><p>只能说，无良教程真是坑害新人！</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;最近我一直在折腾 Hexo 样式方面，小白一枚。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Other" scheme="https://blog.gamemode1.com/categories/Other/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>网站正式更名</title>
+    <link href="https://blog.gamemode1.com/2024/12/25/Website-name-change/"/>
+    <id>https://blog.gamemode1.com/2024/12/25/Website-name-change/</id>
+    <published>2024-12-25T05:29:13.000Z</published>
+    <updated>2024-12-25T06:08:28.441Z</updated>
+    
+    <content type="html"><![CDATA[<p>博客已装修。</p><span id="more"></span><p>由原网站“伽马Blog”变更为“GMBlog”，GM分别取自Game Mode。<br>域名由原来的：<br><code>gamemode1.com</code><br>变更为二级域名：<br><code>blog.gamemode1.com</code></p><p>为了防止来自企鹅大帝的扫描，给网站开了盾，请理解。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;博客已装修。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Other" scheme="https://blog.gamemode1.com/categories/Other/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo Next主题添加网易云音乐</title>
+    <link href="https://blog.gamemode1.com/2024/12/25/Hexo-Next-theme-adds-NetEase-music/"/>
+    <id>https://blog.gamemode1.com/2024/12/25/Hexo-Next-theme-adds-NetEase-music/</id>
+    <published>2024-12-24T22:56:39.000Z</published>
+    <updated>2024-12-24T23:11:22.767Z</updated>
+    
+    <content type="html"><![CDATA[<p>版本：Hexo 7.3.0（Next 8.21.1）<br>前言：我使用的vscode，后面部分操作需用到全局搜索，具体路径太长，我实在懒得贴出来。</p><span id="more"></span><h1 id="获取网易云音乐外链"><a href="#获取网易云音乐外链" class="headerlink" title="获取网易云音乐外链"></a>获取网易云音乐外链</h1><ol><li>前往<a href="https://music.163.com/">网易云网页版</a>，搜索你喜欢的歌并生成外链（版权音乐无法生成）。</li><li>根据需要，设置框体大小和自动播放，复制生成的代码。</li><li>全局搜索<code>site-overview.njk</code>文件（这文件就一个，很快就能搜到）。</li><li>在文件头或文件尾新增一行粘贴外链。粘贴在文件头，播放器就会像我这样在头像上面，文件尾就在下面。</li><li>完成。</li></ol><h1 id="不间断播放（可选）"><a href="#不间断播放（可选）" class="headerlink" title="不间断播放（可选）"></a>不间断播放（可选）</h1><ol><li>找到你的<code>hexo-theme-next</code>文件夹，在文件夹上单击右键选择“在集成终端中打开”。</li><li>在命令行输入：</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-pjax source/lib/pjax</span><br></pre></td></tr></table></figure><ol start="3"><li>打开<code>Next主题</code>的<code>_config.yml</code>文件。</li><li>将属性<code>pjax</code>设置为<code>true</code>。</li></ol><h1 id="重新生成网页文件"><a href="#重新生成网页文件" class="headerlink" title="重新生成网页文件"></a>重新生成网页文件</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;版本：Hexo 7.3.0（Next 8.21.1）&lt;br&gt;前言：我使用的vscode，后面部分操作需用到全局搜索，具体路径太长，我实在懒得贴出来。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Other" scheme="https://blog.gamemode1.com/categories/Other/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo Next主题 自定义背景</title>
+    <link href="https://blog.gamemode1.com/2024/12/25/Hexo-Next-Custom-background/"/>
+    <id>https://blog.gamemode1.com/2024/12/25/Hexo-Next-Custom-background/</id>
+    <published>2024-12-24T19:38:25.000Z</published>
+    <updated>2024-12-25T13:22:18.338Z</updated>
+    
+    <content type="html"><![CDATA[<p>修改Next默认的纯白背景。</p><span id="more"></span><h1 id="保存图片"><a href="#保存图片" class="headerlink" title="保存图片"></a>保存图片</h1><p>将自己的图片命名为background保存到以下路径：<br><code>\themes\next\source\images</code></p><h1 id="修改样式"><a href="#修改样式" class="headerlink" title="修改样式"></a>修改样式</h1><p>进入以下路径：<br><code>\themes\next\source\css\_schemes</code></p><h2 id="选择当前使用的Hexo主题"><a href="#选择当前使用的Hexo主题" class="headerlink" title="选择当前使用的Hexo主题"></a>选择当前使用的Hexo主题</h2><p>进入上述路径后里面应该有四个文件夹（Gemini, Mist, Muse, Pisces），进入你现在用的这个主题的文件夹。</p><h2 id="编辑index-styl文件"><a href="#编辑index-styl文件" class="headerlink" title="编辑index.styl文件"></a>编辑index.styl文件</h2><ol><li><p>打开当前使用主题的“index.styl”文件，找到如下注释字段：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// ==================================================</span><br><span class="line">// Desktop layout styles.</span><br><span class="line">// ==================================================</span><br><span class="line">// Post blocks.</span><br></pre></td></tr></table></figure></li><li><p>在下面新增一行，添加如下代码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 整体背景设置</span><br><span class="line">body &#123;</span><br><span class="line">background:url(/images/background.jpg);// 设定背景图片,注意修改图片后缀</span><br><span class="line">background-repeat: no-repeat;// 设定背景图片非重复填充</span><br><span class="line">background-attachment:fixed;// 设置背景图片不随页面滚动</span><br><span class="line">background-position:50% 50%;// 设置背景图片位置</span><br><span class="line">background-size: cover// 设置保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 设置透明度</span><br><span class="line">.main-inner&#123;</span><br><span class="line">opacity: 0.95;</span><br><span class="line">&#125;</span><br><span class="line">.header-inner&#123;</span><br><span class="line">opacity: 0.95;</span><br><span class="line">z-index: 10;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol><p><code>出处：https://splendidwave.github.io/2021/12/27/2021-12/Hexo-Next-自定义背景/</code></p><ol start="3"><li>清理和编译。</li></ol>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;修改Next默认的纯白背景。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Other" scheme="https://blog.gamemode1.com/categories/Other/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DNSPod解析不生效</title>
+    <link href="https://blog.gamemode1.com/2024/12/25/Note-the-DNSPod-Settings/"/>
+    <id>https://blog.gamemode1.com/2024/12/25/Note-the-DNSPod-Settings/</id>
+    <published>2024-12-24T19:00:08.000Z</published>
+    <updated>2024-12-24T21:42:48.257Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前一直用的顶级域名，现在想给博客换成二级域名。结果今天设置Cloudflare后，域名和SSL验证等了一天没反应。</p><span id="more"></span><p>最后经过不断排查，最终想起来DNSPod的主机记录是默认会在后面加上一级域名的，例如我主机记录写的：<br><code>_cf-custom-hostname.blog.gamemode1.com</code><br>看似没问题对吧？但实际上解析的是：<br><code>_cf-custom-hostname.blog.gamemode1.com.gamemode1.com</code></p><p>所以正确的填法应该是：<br><code>_cf-custom-hostname.blog</code></p><p>这算是个低级错误，粗心大意了。<br>我设置好了就会很长时间不去动它，于是回头再来设置就给忘了这点，好记性不如烂笔头还是记录下吧2333。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;之前一直用的顶级域名，现在想给博客换成二级域名。结果今天设置Cloudflare后，域名和SSL验证等了一天没反应。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Other" scheme="https://blog.gamemode1.com/categories/Other/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>VRChat插件之“Kiss blowing System”</title>
+    <link href="https://blog.gamemode1.com/2024/12/24/VRChat-Kiss-blowing-System/"/>
+    <id>https://blog.gamemode1.com/2024/12/24/VRChat-Kiss-blowing-System/</id>
+    <published>2024-12-24T07:05:56.000Z</published>
+    <updated>2024-12-24T21:43:26.484Z</updated>
+    
+    <content type="html"><![CDATA[<p>这个插件的作者没有提供使用说明，于是自研之，以下是自己研究出的使用方法。</p><span id="more"></span><h1 id="安装-MA"><a href="#安装-MA" class="headerlink" title="安装 MA"></a>安装 MA</h1><table><thead><tr><th align="center"><strong>Modular Avatar</strong></th></tr></thead><tbody><tr><td align="center"><a href="vcc://vpm/addRepo?url=https://vpm.nadena.dev/vpm.json">一键添加至VCC</a></td></tr><tr><td align="center"><a href="https://modular-avatar.nadena.dev/">官网</a></td></tr></tbody></table><h1 id="安装-liltoon-或-Poi"><a href="#安装-liltoon-或-Poi" class="headerlink" title="安装 liltoon 或 Poi"></a>安装 liltoon 或 Poi</h1><center><span style="color: red;">二选一</span></center><table><thead><tr><th align="center"><strong>liltoon</strong></th><th align="center"><strong>Poiyomi Shader</strong></th></tr></thead><tbody><tr><td align="center"><a href="vcc://vpm/addRepo?url=https://lilxyzw.github.io/vpm-repos/vpm.json">一键添加至VCC</a></td><td align="center"><a href="vcc://vpm/addRepo?url=https%3A%2F%2Fpoiyomi.github.io/vpm/index.json">一键添加至VCC</a></td></tr><tr><td align="center"><a href="https://lilxyzw.github.io/lilToon/ja_JP/">官网</a></td><td align="center"><a href="https://www.poiyomi.com/">官网</a></td></tr></tbody></table><h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><p>1、把“Kissing system xxx”（装的哪个着色器就用哪个）拖到你的“Avatar”中。<br><code>具体路径：Assets/Melting3D/kiss/Prefab</code><br><img src="/../images/VRChat-Kiss-blowing-System/1.png"><br>2、在“Hierarchy”中右键“Kissing system xxx”，Prefab –&gt; Unpack completely<br><img src="/../images/VRChat-Kiss-blowing-System/2.png"><br>3、将所有子物体拖到“Avatar”中（与“armature”同级）<br><img src="/../images/VRChat-Kiss-blowing-System/3.png"><br>4、将“Kissing system xxx”中的“MA Merge Animator”设置如下<br><img src="/../images/VRChat-Kiss-blowing-System/4.png"><br>5、完成</p><p>不给文档还在那儿卖插件的作者是屑。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;这个插件的作者没有提供使用说明，于是自研之，以下是自己研究出的使用方法。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="VRChat Plugin" scheme="https://blog.gamemode1.com/categories/VRChat-Plugin/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>VCC常用仓库汇总</title>
+    <link href="https://blog.gamemode1.com/2024/12/24/vcc-quickly-added/"/>
+    <id>https://blog.gamemode1.com/2024/12/24/vcc-quickly-added/</id>
+    <published>2024-12-24T06:54:54.000Z</published>
+    <updated>2024-12-26T06:49:50.684Z</updated>
+    
+    <content type="html"><![CDATA[<p>个人总是因为重装把VCC仓库搞掉了，于是写一个汇总，供自己和大家一键添加！</p><span id="more"></span><h1 id="安装VCC"><a href="#安装VCC" class="headerlink" title="安装VCC"></a>安装VCC</h1><table><thead><tr><th align="center"><strong>VRChat Creator Companion</strong></th></tr></thead><tbody><tr><td align="center"><a href="https://vrchat.com/home/download">VRChat Home - Download</a></td></tr></tbody></table><h1 id="着色器"><a href="#着色器" class="headerlink" title="着色器"></a>着色器</h1><table><thead><tr><th align="center"><strong>名称</strong></th><th align="center"><strong>来源</strong></th></tr></thead><tbody><tr><td align="center">Poiyomi</td><td align="center"><a href="vcc://vpm/addRepo?url=https%3A%2F%2Fpoiyomi.github.io/vpm/index.json">VCC</a></td></tr><tr><td align="center">lilToon</td><td align="center"><a href="vcc://vpm/addRepo?url=https://lilxyzw.github.io/vpm-repos/vpm.json">VCC</a></td></tr><tr><td align="center">UnlitWF Shader</td><td align="center"><a href="vcc://vpm/addRepo?url=https://whiteflare.github.io/vpm-repos/vpm.json">VCC</a></td></tr><tr><td align="center">UTS2</td><td align="center"><a href="https://github.com/unity3d-jp/UnityChanToonShaderVer2_Project">Github</a></td></tr><tr><td align="center">ARK</td><td align="center"><a href="https://github.com/arktoon-archive/arktoon">Github</a></td></tr><tr><td align="center">Crystal Shader</td><td align="center"><a href="https://github.com/zVoyder/Crystal-Shader">Github</a></td></tr><tr><td align="center">Mochies</td><td align="center"><a href="https://github.com/MochiesCode/Mochies-Unity-Shaders">Github</a></td></tr><tr><td align="center">UniVRM v0.99.1</td><td align="center"><a href="https://github.com/vrm-c/UniVRM/releases/tag/v0.99.1">Github</a></td></tr><tr><td align="center">SunaoShader</td><td align="center"><a href="https://booth.pm/ja/items/1723985">BOOTH</a></td></tr></tbody></table><h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><table><thead><tr><th align="center"><strong>名称</strong></th><th align="center"><strong>来源</strong></th></tr></thead><tbody><tr><td align="center">Modular Avatar</td><td align="center"><a href="vcc://vpm/addRepo?url=https://vpm.nadena.dev/vpm.json">VCC</a></td></tr><tr><td align="center">VRCFury</td><td align="center"><a href="vcc://vpm/addRepo?url=https%3A%2F%2Fvcc.vrcfury.com">VCC</a></td></tr><tr><td align="center">VRCQuestTools</td><td align="center"><a href="vcc://vpm/addRepo?url=https://kurotu.github.io/vpm-repos/vpm.json">VCC</a></td></tr></tbody></table>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;个人总是因为重装把VCC仓库搞掉了，于是写一个汇总，供自己和大家一键添加！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="VRChat Plugin" scheme="https://blog.gamemode1.com/categories/VRChat-Plugin/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>国内激活Meta Quest</title>
+    <link href="https://blog.gamemode1.com/2024/08/20/QuestChinaActivate/"/>
+    <id>https://blog.gamemode1.com/2024/08/20/QuestChinaActivate/</id>
+    <published>2024-08-20T14:56:14.000Z</published>
+    <updated>2024-12-24T21:42:55.524Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="注册Quest账号"><a href="#注册Quest账号" class="headerlink" title="注册Quest账号"></a>注册Quest账号</h1><p>注意：所有步骤都需要在魔法环境进行。用电脑下载安装游戏除外。</p><span id="more"></span><h2 id="注册方式-邮箱注册"><a href="#注册方式-邮箱注册" class="headerlink" title="注册方式-邮箱注册"></a>注册方式-邮箱注册</h2><p><a href="https://auth.meta.com/">Meta网页版（推荐）</a><br><a href="https://apps.apple.com/gb/app/meta-horizon/id1366478176?uo=2">Meta苹果版应用</a><br><a href="https://play.google.com/store/apps/details?id=com.oculus.twilight">Meta安卓版应用</a><br>*苹果版需要外区商店。<br>*安卓版如果没有谷歌商店，可使用“<a href="https://www.chujingapp.com/">出境易</a>”</p><h2 id="开启Meta账号两步验证-必须"><a href="#开启Meta账号两步验证-必须" class="headerlink" title="开启Meta账号两步验证-必须"></a>开启Meta账号两步验证-必须</h2><p>下载两步验证器（2fas-authenticator）<br><a href="https://apps.apple.com/cn/app/2fa-authenticator-2fas/id1217793794">苹果版</a><br><a href="https://play.google.com/store/apps/details?id=com.twofasapp">安卓版</a></p><h2 id="开启两步验证"><a href="#开启两步验证" class="headerlink" title="开启两步验证"></a>开启两步验证</h2><p>大致步骤：<br>1、前往Meta个人中心（<a href="https://accountscenter.meta.com/">点击直达</a>）<br>2、选择“Password and security -&gt; Two-factor authentication -&gt; 你的账号 -&gt; Authentication app”，选择后它会给你一个二维码，不要关闭窗口<br><img src="/../images/metaaccount/twofactor.jpg"><br>3、打开刚才下载的手机软件（两步验证器），点击“+”号，扫描二维码。<br>当有6位数在你手机软件上生成后回到网页，填写备注保存提交。<br>4、此时“Authentication app”这里应该显示为“Recommended”，大功告成（暂时）。<br><img src="/../images/metaaccount/two-recommended.jpg"></p><h1 id="激活Meta-Quest"><a href="#激活Meta-Quest" class="headerlink" title="激活Meta Quest"></a>激活Meta Quest</h1><p>必须使用手机软件激活，并给予必要权限（蓝牙，定位，发现本地&#x2F;附近设备等权限）</p><h2 id="下载Meta-Horizon应用"><a href="#下载Meta-Horizon应用" class="headerlink" title="下载Meta Horizon应用"></a>下载Meta Horizon应用</h2><p><a href="https://apps.apple.com/gb/app/meta-horizon/id1366478176?uo=2">Meta苹果版应用</a><br><a href="https://play.google.com/store/apps/details?id=com.oculus.twilight">Meta安卓版应用</a><br>*苹果版需要外区商店。<br>*安卓版如果没有谷歌商店，可使用“<a href="https://www.chujingapp.com/">出境易</a>”</p><h2 id="开启Meta-Quest专用热点"><a href="#开启Meta-Quest专用热点" class="headerlink" title="开启Meta Quest专用热点"></a>开启Meta Quest专用热点</h2><p>1、需要有网卡并搭载Windows系统的电脑（人话：可以连Wifi的Windows电脑）。<br>2、下载oculus助手。需要暂时关闭杀软，部分杀软会误报毒，实测安装后没有病毒。<br>安装完后根据软件提示完成Quest热点开启，并在进入到Quest系统之前不要关闭软件。<br><img src="/../images/metaaccount/ochelper.jpg"><br>3、首次激活建议充值流量包，最低档就够了，实测免费流量包完全不够用。<br>4、在Quest上连接“oculus助手”上显示的热点，开始自动激活和更新。<br>5、更新期间它会让你摘下头显在手机上进行其他操作。<br>建议不要听它的，因为它还会重启一遍，导致白白设置，建议等它全部更新完毕再设置其他的。</p><h2 id="手机上继续进行操作"><a href="#手机上继续进行操作" class="headerlink" title="手机上继续进行操作"></a>手机上继续进行操作</h2><p>注意：需要魔法<br>1、Quest更新完后打开Meta手机应用。如果正确给予了应用权限，稍等一会就会自动出现配对的提示框。<br>如果没有出现配对框，尝试重启应用。<br>2、激活步骤中关于“分享数据”的选项，选择不分享。其他的按照自己的喜好选择。<br>3、完成所有选项后，头显中的激活框便会自动消失，正式进入Quest系统。<br>4、第一时间在Quest设置中关闭系统自动更新。<br>5、至此，Quest激活和更新已完成，可以等待系统里的原厂App更新完毕后再关闭“oculus助手”。</p><h1 id="启用开发者畅玩游戏"><a href="#启用开发者畅玩游戏" class="headerlink" title="启用开发者畅玩游戏"></a>启用开发者畅玩游戏</h1><p>注意：一定要首先开启上方提到的“两步验证器”，否则会永久失去账号。<br>视频教程：绑定手机号<br>1、前往Meta网页版个人中心。<br>选择“Password and security -&gt; Two-factor authentication -&gt; 你的账号 -&gt; Text message”。<br>2、先尝试绑定你自己的手机号，注意区号是否为“China(+86)”。<br>3、如果收不到短信，说明Meta服务器或运营商有问题，就需要用到虚拟号了。<br>4、我用的是5sim，注册账号后充值1美元（支持国内支付方式）。<br>充完后选择Facebook服务，再选择香港，等他下发虚拟号。<br>5、下发后回到Meta个人中心并保持刚才的选项，区号应选择+852，填入虚拟号852后面的数字。<br>然后发送验证码，等待虚拟号返回验证码并提交。<br>6、绑定成功后，后续登录选择“两步验证器”进行验证，因为你无法再用这个虚拟号接收后续短信。<br>7、前往开发者中心，创建一个组织（Create Organization）随便填写内容并提交，即可成为开发者。<br>8、打开手机App，选择“个人头像 -&gt; 右上角打开菜单 -&gt; 设备 -&gt; 选择设备 -&gt; 头戴设备管理 -&gt; 开发者模式 -&gt; 开启开发者模式”。<br>9、完成。</p><h1 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h1><p>Q1：下载安装游戏<br>1、需要Windows系统。<br>2、下载“Quest助手”。<br>3、确保已启用开发者，下载完后使用数据线连接头显和电脑，并在头显内完成权限授权（建议勾上“一律允许”）。<br>4、后续所有游戏和安卓（APK）安装包，都可以通过“Quest助手”安装。<br>其他工具：VR魔趣网 87VR游戏大厅</p><p>Q2：连接Wifi后系统界面无法点击任何东西（偶发，疑似网络波动导致）<br>不要惊慌，不要进行任何操作，这是由于连不上Meta服务导致的假死机。<br>等待1分钟或暂时关掉路由器，Quest会恢复操作，此时赶紧关闭Quest系统的Wifi开关。<br>要想连接自家的WiFi，有两种方式：<br>①（推荐）Quest内安装魔法工具（安卓包通用，建议用V2r**NG）<br>②Quest内安装Virtual Hosts，填入的内容参考这部视频：Quest2&#x2F;3 VD 秒连电脑教程。<br>方式②本质上是通过修改hosts的方式连接上Meta服务器。<br>“hosts.txt”内容：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">157.240.11.49 graph.oculus.com</span><br><span class="line">157.240.11.49 www2.oculus.com</span><br><span class="line">157.240.8.49 scontent.oculuscdn.com</span><br><span class="line">157.240.8.49 securecdn.oculus.com</span><br><span class="line">127.0.0.1 america.vrdesktop.net</span><br><span class="line">127.0.0.1 europe.vrdesktop.net</span><br><span class="line">127.0.0.1 download.vrdesktop.net</span><br></pre></td></tr></table></figure><p>后续连接Wifi时先开魔法，再连Wifi，不过单机游戏一般也无需连接网络。</p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;注册Quest账号&quot;&gt;&lt;a href=&quot;#注册Quest账号&quot; class=&quot;headerlink&quot; title=&quot;注册Quest账号&quot;&gt;&lt;/a&gt;注册Quest账号&lt;/h1&gt;&lt;p&gt;注意：所有步骤都需要在魔法环境进行。用电脑下载安装游戏除外。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Other" scheme="https://blog.gamemode1.com/categories/Other/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Github Desktop设置Proxy</title>
+    <link href="https://blog.gamemode1.com/2024/05/20/Github-Desktop-Setup-proxy/"/>
+    <id>https://blog.gamemode1.com/2024/05/20/Github-Desktop-Setup-proxy/</id>
+    <published>2024-05-20T11:42:26.000Z</published>
+    <updated>2024-12-25T06:03:14.490Z</updated>
+    
+    <content type="html"><![CDATA[<p>打开C:\users\username.gitconfig文件，最后加上</p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[http]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[https]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[git]</span><br><span class="line">    proxy = socks5://ip:port</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;打开C:&#92;users&#92;username.gitconfig文件，最后加上&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Other" scheme="https://blog.gamemode1.com/categories/Other/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>安装卡巴斯基后无权限修改hosts文件</title>
+    <link href="https://blog.gamemode1.com/2024/02/15/Windows-does-not-have-permission-to-modify-hosts-after-Kaspersky-is-installed/"/>
+    <id>https://blog.gamemode1.com/2024/02/15/Windows-does-not-have-permission-to-modify-hosts-after-Kaspersky-is-installed/</id>
+    <published>2024-02-15T11:39:18.000Z</published>
+    <updated>2024-12-24T21:43:29.197Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于本人使用“瓦特工具箱”对一些工具进行加速，需要修改hosts，于是遇到了权限问题。<br>虽然可以使用DNS模式，但考虑到自己还有一些IDE和一些工具需要用到hosts文件，还是得解决一下。</p><span id="more"></span><p>首先不得不吐槽一下，我找遍了各种论坛和客服支持的存档，没有一个有效的解决方案，全是复制粘贴的无效方案。<br>相信不少人跟我一样，网上搜到的所谓将文件放入“威胁和排除项”的“管理排除项”里，根本不起作用！</p><p>以下是我经过反复摸索后，能够彻底解决问题的方案：</p><p><img src="/../images/winkasperskyhost/kbsj-1.jpg"><br><img src="/../images/winkasperskyhost/kbsj-2.jpg"><br><img src="/../images/winkasperskyhost/kbsj-3.jpg"><br><img src="/../images/winkasperskyhost/kbsj-4.jpg"></p><p>根据图示（点击图片可放大），将hosts文件的上锁状态取消，最后保存。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;由于本人使用“瓦特工具箱”对一些工具进行加速，需要修改hosts，于是遇到了权限问题。&lt;br&gt;虽然可以使用DNS模式，但考虑到自己还有一些IDE和一些工具需要用到hosts文件，还是得解决一下。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Other" scheme="https://blog.gamemode1.com/categories/Other/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SpigotMC配置Proxy</title>
+    <link href="https://blog.gamemode1.com/2024/02/08/SpigotMC-Configures-Proxy/"/>
+    <id>https://blog.gamemode1.com/2024/02/08/SpigotMC-Configures-Proxy/</id>
+    <published>2024-02-08T11:37:28.000Z</published>
+    <updated>2024-12-24T21:43:03.097Z</updated>
+    
+    <content type="html"><![CDATA[<p>在国内，编译Spigot下的BuildTools.jar文件时网络报错，需要配置Proxy才能顺利进行。</p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Dhttp.proxyHost=&#123;IP&#125; -Dhttp.proxyPort=&#123;PORT&#125; -Dhttps.proxyHost=&#123;IP&#125; -Dhttps.proxyPort=&#123;PORT&#125; -jar BuildTools.jar</span><br></pre></td></tr></table></figure><p>例如</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=1234 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=1234 -jar BuildTools.jar --rev latest</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;在国内，编译Spigot下的BuildTools.jar文件时网络报错，需要配置Proxy才能顺利进行。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Minecraft" scheme="https://blog.gamemode1.com/categories/Minecraft/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>修复WordPress更换域名后资源URL失效</title>
+    <link href="https://blog.gamemode1.com/2023/09/20/Fixed-Resource-URL-invalid-after-domain-name-change-in-WordPress/"/>
+    <id>https://blog.gamemode1.com/2023/09/20/Fixed-Resource-URL-invalid-after-domain-name-change-in-WordPress/</id>
+    <published>2023-09-20T11:34:11.000Z</published>
+    <updated>2024-12-24T21:42:24.948Z</updated>
+    
+    <content type="html"><![CDATA[<p>尝试直接换了新域名，后果是…网页、数据库和网页里关联的资源全挂了哈哈哈，不过总算修复好了嘎。</p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE pb_posts SET post_content = REPLACE( post_content, &#x27;旧域名&#x27;, &#x27;新域名&#x27; );</span><br></pre></td></tr></table></figure><p>还需要修改“x_posts”表中的“post_content”字段，和“x_postmeta”中的“meta_value”字段，都是这条指令。<br><code>虽然现在已经更换了hexo，但还是留个作死的纪念吧:p</code></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;尝试直接换了新域名，后果是…网页、数据库和网页里关联的资源全挂了哈哈哈，不过总算修复好了嘎。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Other" scheme="https://blog.gamemode1.com/categories/Other/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Git报错汇总</title>
+    <link href="https://blog.gamemode1.com/2023/01/30/Git-error-summary/"/>
+    <id>https://blog.gamemode1.com/2023/01/30/Git-error-summary/</id>
+    <published>2023-01-30T11:31:05.000Z</published>
+    <updated>2024-12-25T06:05:41.141Z</updated>
+    
+    <content type="html"><![CDATA[<p>错误内容：<br><code>Error: Failed to connect to github.com port 443 after xxx ms: Timed out</code></p><span id="more"></span><p>第一步：查询自己的proxy</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global -l</span><br></pre></td></tr></table></figure><p>这个时候会显示你自己的proxy，例如：</p><p>&#x2F;&#x2F;如果没有配置过，以下内容可能为空</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">user.name=SteveJobs</span><br><span class="line">user.email=hello@world.com</span><br><span class="line">http.proxy=127.0.0.1:25565</span><br><span class="line">https.proxy=127.0.0.1:25565</span><br></pre></td></tr></table></figure><p>第二步：删除自己的proxy设置</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure><p>第三步：重新设置自己的proxy<br>将<code>ip</code>和<code>port</code>修改成自己的端口号。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy ip:port</span><br><span class="line">git config --global https.proxy ip:port</span><br></pre></td></tr></table></figure><p>第四步：检查配置后的proxy</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global -l</span><br></pre></td></tr></table></figure><p>结果：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">user.name=SteveJobs</span><br><span class="line">user.email=hello@world.com</span><br><span class="line">http.proxy=127.0.0.1:7890</span><br><span class="line">https.proxy=127.0.0.1:7890</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;错误内容：&lt;br&gt;&lt;code&gt;Error: Failed to connect to github.com port 443 after xxx ms: Timed out&lt;/code&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Other" scheme="https://blog.gamemode1.com/categories/Other/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Unity获取Windows启动参数</title>
+    <link href="https://blog.gamemode1.com/2022/10/18/Unity-gets-Windows-startup-parameters/"/>
+    <id>https://blog.gamemode1.com/2022/10/18/Unity-gets-Windows-startup-parameters/</id>
+    <published>2022-10-18T11:29:08.000Z</published>
+    <updated>2024-12-24T21:43:17.676Z</updated>
+    
+    <content type="html"><![CDATA[<p>所有启动参数将存储在变量（数组）“arguments”中。</p><span id="more"></span><p><code>string[] arguments = Environment.GetCommandLineArgs();</code></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;所有启动参数将存储在变量（数组）“arguments”中。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Unity" scheme="https://blog.gamemode1.com/categories/Unity/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Unity切换场景不销毁物体</title>
+    <link href="https://blog.gamemode1.com/2022/10/18/UNITY-DO-NOT-DESTROY-MY-OBJECTS/"/>
+    <id>https://blog.gamemode1.com/2022/10/18/UNITY-DO-NOT-DESTROY-MY-OBJECTS/</id>
+    <published>2022-10-18T11:26:31.000Z</published>
+    <updated>2024-12-24T21:43:14.561Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>IOSManager.cs<br>使用方法：创建一个空物体，挂上此脚本，将不销毁的物体拖入数组。</p><span id="more"></span><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 加载场景时不删除的物体</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">public class DontDestroyOnLoad : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //加载场景时不销毁的物体</span><br><span class="line">    public GameObject[] DontDestroyObjects;</span><br><span class="line"></span><br><span class="line">    //是否已经存在DontDestroy的物体</span><br><span class="line">    private static bool isExist;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">    void Awake()</span><br><span class="line">    &#123;</span><br><span class="line">        if (!isExist)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果第一次加载，将这些物体设为DontDestroy</span><br><span class="line">                DontDestroyOnLoad(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            isExist = true;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果已经存在，则删除重复的物体</span><br><span class="line">                Destroy(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;脚本名称&quot;&gt;&lt;a href=&quot;#脚本名称&quot; class=&quot;headerlink&quot; title=&quot;脚本名称&quot;&gt;&lt;/a&gt;脚本名称&lt;/h1&gt;&lt;p&gt;IOSManager.cs&lt;br&gt;使用方法：创建一个空物体，挂上此脚本，将不销毁的物体拖入数组。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Unity" scheme="https://blog.gamemode1.com/categories/Unity/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Unity接入GameCenter</title>
+    <link href="https://blog.gamemode1.com/2022/09/01/Unity-and-GameCenter/"/>
+    <id>https://blog.gamemode1.com/2022/09/01/Unity-and-GameCenter/</id>
+    <published>2022-09-01T11:23:31.000Z</published>
+    <updated>2024-12-24T21:43:07.486Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>IOSManager.cs</p><span id="more"></span><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine;</span><br><span class="line">using System.Collections;</span><br><span class="line">using UnityEngine.SocialPlatforms;</span><br><span class="line">using UnityEngine.SocialPlatforms.GameCenter;</span><br><span class="line"></span><br><span class="line">public class IOSManager : MonoBehaviour &#123;</span><br><span class="line"></span><br><span class="line">public bool   GameCenterState;</span><br><span class="line">public string userInfo;</span><br><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 初始化 GameCenter 登陆</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">void Start () &#123;</span><br><span class="line">Social.localUser.Authenticate(HandleAuthenticated);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 初始化 GameCenter 结果回调函数</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">/// &lt;param name=&quot;success&quot;&gt;If set to &lt;c&gt;true&lt;/c&gt; success.&lt;/param&gt;</span><br><span class="line">private void HandleAuthenticated(bool success)</span><br><span class="line">&#123;</span><br><span class="line">GameCenterState = success;</span><br><span class="line">Debug.Log(&quot;*** HandleAuthenticated: success = &quot; + success);</span><br><span class="line">///初始化成功</span><br><span class="line">if (success) &#123;</span><br><span class="line">userInfo = &quot;Username: &quot; + Social.localUser.userName +</span><br><span class="line">&quot;\nUser ID: &quot; + Social.localUser.id +</span><br><span class="line">&quot;\nIsUnderage: &quot; + Social.localUser.underage;</span><br><span class="line">Debug.Log (userInfo);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">///初始化失败</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void OnGUI()&#123;</span><br><span class="line"></span><br><span class="line">GUI.TextArea ( new Rect( Screen.width -200, 0, 200, 100), &quot;GameCenter:&quot;+GameCenterState  );</span><br><span class="line">GUI.TextArea ( new Rect( Screen.width -200, 100, 200, 100), &quot;userInfo:&quot;+userInfo  );</span><br><span class="line"></span><br><span class="line">if (GUI.Button (new Rect (0, 0, 110, 75), &quot;打开成就&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">if (Social.localUser.authenticated) &#123;</span><br><span class="line">Social.ShowAchievementsUI();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if (GUI.Button (new Rect (0, 150, 110, 75), &quot;打开排行榜&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">if (Social.localUser.authenticated) &#123;</span><br><span class="line">Social.ShowLeaderboardUI();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if (GUI.Button (new Rect (0, 300, 110, 75), &quot;排行榜设置分数&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">if (Social.localUser.authenticated) &#123;</span><br><span class="line">Social.ReportScore(1000, &quot;XXXX&quot;, HandleScoreReported);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if (GUI.Button (new Rect (0, 300, 110, 75), &quot;设置成就&quot;)) &#123;</span><br><span class="line"></span><br><span class="line">if (Social.localUser.authenticated) &#123;</span><br><span class="line">Social.ReportProgress(&quot;XXXX&quot;, 15, HandleProgressReported);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//上传排行榜分数</span><br><span class="line">public void HandleScoreReported(bool success)</span><br><span class="line">&#123;</span><br><span class="line">Debug.Log(&quot;*** HandleScoreReported: success = &quot; + success);</span><br><span class="line">&#125;</span><br><span class="line">//设置 成就</span><br><span class="line">private void HandleProgressReported(bool success)</span><br><span class="line">&#123;</span><br><span class="line">Debug.Log(&quot;*** HandleProgressReported: success = &quot; + success);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 加载好友回调</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">/// &lt;param name=&quot;success&quot;&gt;If set to &lt;c&gt;true&lt;/c&gt; success.&lt;/param&gt;</span><br><span class="line">private void HandleFriendsLoaded(bool success)</span><br><span class="line">&#123;</span><br><span class="line">Debug.Log(&quot;*** HandleFriendsLoaded: success = &quot; + success);</span><br><span class="line">foreach(IUserProfile friend in Social.localUser.friends)</span><br><span class="line">&#123;</span><br><span class="line">Debug.Log(&quot;* friend = &quot; + friend.ToString());</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 加载成就回调</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">/// &lt;param name=&quot;achievements&quot;&gt;Achievements.&lt;/param&gt;</span><br><span class="line">private void HandleAchievementsLoaded(IAchievement[] achievements)</span><br><span class="line">&#123;</span><br><span class="line">Debug.Log(&quot;* HandleAchievementsLoaded&quot;);</span><br><span class="line">foreach(IAchievement achievement in achievements)</span><br><span class="line">&#123;</span><br><span class="line">Debug.Log(&quot;* achievement = &quot; + achievement.ToString());</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/// &lt;summary&gt;</span><br><span class="line">///</span><br><span class="line">/// 成就回调描述</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">/// &lt;param name=&quot;achievementDescriptions&quot;&gt;Achievement descriptions.&lt;/param&gt;</span><br><span class="line">private void HandleAchievementDescriptionsLoaded(IAchievementDescription[] achievementDescriptions)</span><br><span class="line">&#123;</span><br><span class="line">Debug.Log(&quot;*** HandleAchievementDescriptionsLoaded&quot;);</span><br><span class="line">foreach(IAchievementDescription achievementDescription in achievementDescriptions)</span><br><span class="line">&#123;</span><br><span class="line">Debug.Log(&quot;* achievementDescription = &quot; + achievementDescription.ToString());</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;脚本名称&quot;&gt;&lt;a href=&quot;#脚本名称&quot; class=&quot;headerlink&quot; title=&quot;脚本名称&quot;&gt;&lt;/a&gt;脚本名称&lt;/h1&gt;&lt;p&gt;IOSManager.cs&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Unity" scheme="https://blog.gamemode1.com/categories/Unity/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Unity打包Xcode项目报错</title>
+    <link href="https://blog.gamemode1.com/2022/08/23/Unity-packaging-Xcode-project-error/"/>
+    <id>https://blog.gamemode1.com/2022/08/23/Unity-packaging-Xcode-project-error/</id>
+    <published>2022-08-23T11:19:10.000Z</published>
+    <updated>2024-12-24T21:43:20.288Z</updated>
+    
+    <content type="html"><![CDATA[<p>为了方便管理仓库，转移项目后发现打包Xcode项目报错了。<br>报错主要内容<br><code>tundra: error: Failed to open file “xxxx/Library/Il2cppBuidCache/…..”</code></p><span id="more"></span><p><img src="/../images/unityxcodefix/1.jpg"></p><p>解决步骤已在图中说明</p><p><img src="/../images/unityxcodefix/2jpg"><br><img src="/../images/unityxcodefix/3.jpg"><br><img src="/../images/unityxcodefix/4.jpg"><br><img src="/../images/unityxcodefix/5.jpg"></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;为了方便管理仓库，转移项目后发现打包Xcode项目报错了。&lt;br&gt;报错主要内容&lt;br&gt;&lt;code&gt;tundra: error: Failed to open file “xxxx/Library/Il2cppBuidCache/…..”&lt;/code&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Unity" scheme="https://blog.gamemode1.com/categories/Unity/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Unity打包上传AppStore后显示语言为英文</title>
+    <link href="https://blog.gamemode1.com/2022/08/22/AppStore-language/"/>
+    <id>https://blog.gamemode1.com/2022/08/22/AppStore-language/</id>
+    <published>2022-08-22T11:15:47.000Z</published>
+    <updated>2024-12-24T21:41:44.293Z</updated>
+    
+    <content type="html"><![CDATA[<p>找了很久没一个想要的答案（在此痛斥某搜索引擎），于是结合其他类似问题和Apple官方文档，已得到解决。</p><span id="more"></span><p>怕再次遗忘，故做下此笔记。</p><p>解决前</p><p><img src="/../images/appstorelang/before.jpg"></p><p>熟人的游戏，自己的解决前没截图，凑合下:)</p><p>解决后</p><p><img src="/../images/appstorelang/after.jpg"></p><p>解决步骤已在图中说明</p><p><img src="/../images/appstorelang/after.jpg"><br><img src="/../images/appstorelang/pic-1.jpg"><br><img src="/../images/appstorelang/pic-2.jpg"><br><img src="/../images/appstorelang/pic-3.jpg"><br><img src="/../images/appstorelang/pic-4.jpg"><br><img src="/../images/appstorelang/pic-5.jpg"><br><img src="/../images/appstorelang/pic-6.jpg"><br><img src="/../images/appstorelang/pic-7.jpg"><br><img src="/../images/appstorelang/pic-8.jpg"></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;找了很久没一个想要的答案（在此痛斥某搜索引擎），于是结合其他类似问题和Apple官方文档，已得到解决。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Unity" scheme="https://blog.gamemode1.com/categories/Unity/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Unity相机抖动</title>
+    <link href="https://blog.gamemode1.com/2022/08/19/Unity-Camera-Shake/"/>
+    <id>https://blog.gamemode1.com/2022/08/19/Unity-Camera-Shake/</id>
+    <published>2022-08-19T11:13:04.000Z</published>
+    <updated>2024-12-24T21:43:11.100Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>ShakeCamera.cs</p><span id="more"></span><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class ShakeCamera : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    private Vector3 shakePos = Vector3.zero;</span><br><span class="line"></span><br><span class="line">    // Use this for initialization</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Update is called once per frame</span><br><span class="line">    /// &lt;summary&gt;</span><br><span class="line">    /// 按住空格键，画面会一直抖动；松开按键，抖动结束</span><br><span class="line">    /// &lt;/summary&gt;</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        if(Input.GetKey(KeyCode.Space))</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localPosition -= shakePos;</span><br><span class="line">            shakePos = Random.insideUnitSphere / 5.0f;</span><br><span class="line">            transform.localPosition += shakePos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;脚本名称&quot;&gt;&lt;a href=&quot;#脚本名称&quot; class=&quot;headerlink&quot; title=&quot;脚本名称&quot;&gt;&lt;/a&gt;脚本名称&lt;/h1&gt;&lt;p&gt;ShakeCamera.cs&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Unity" scheme="https://blog.gamemode1.com/categories/Unity/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux之Docker安装与配置</title>
+    <link href="https://blog.gamemode1.com/2022/07/27/Docker-installation-and-configuration-for-Linux/"/>
+    <id>https://blog.gamemode1.com/2022/07/27/Docker-installation-and-configuration-for-Linux/</id>
+    <published>2022-07-27T11:10:07.000Z</published>
+    <updated>2024-12-24T21:42:22.016Z</updated>
+    
+    <content type="html"><![CDATA[<p>第一步：检查系统是否已安装Docker，回车后未返回任何信息就可以进行手动安装。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list installed | grep docker</span><br></pre></td></tr></table></figure><span id="more"></span><p><img src="/../images/dockercommon/dockersetup-1.jpg"></p><p>第二步：使用yum安装docker。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install docker</span><br></pre></td></tr></table></figure><p><img src="/../images/dockercommon/dockersetup-2.jpg"></p><p>第三步：检查安装项无误后，输入y开始安装。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y</span><br></pre></td></tr></table></figure><p><img src="/../images/dockercommon/dockersetup-3.jpg"></p><p>第四步：安装完成（出现“Complete！”）后，启动Docker。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure><p><img src="/../images/dockercommon/dockersetup-4.jpg"></p><p>第五步：检查Docker运行状态，出现绿色active字样即正常运行。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status docker</span><br></pre></td></tr></table></figure><p><img src="/../images/dockercommon/dockersetup-5.jpg"></p><p>第六步：将Docker设置为开机自启。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker.service</span><br></pre></td></tr></table></figure><p><img src="/../images/dockercommon/dockersetup-6.jpg"></p><p>至此已配置完毕</p><p>关闭Docker开机自启指令。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl disable docker.service</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;第一步：检查系统是否已安装Docker，回车后未返回任何信息就可以进行手动安装。&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum list installed | grep docker&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="Other" scheme="https://blog.gamemode1.com/categories/Other/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux之rpm包安装与卸载</title>
+    <link href="https://blog.gamemode1.com/2022/07/11/rpm-package-installation-and-uninstallation-for-Linux/"/>
+    <id>https://blog.gamemode1.com/2022/07/11/rpm-package-installation-and-uninstallation-for-Linux/</id>
+    <published>2022-07-11T11:08:35.000Z</published>
+    <updated>2024-12-24T21:43:00.288Z</updated>
+    
+    <content type="html"><![CDATA[<p>*&lt;&gt;内为解释内容，无需输入</p><span id="more"></span><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>基本语法：rpm -ivh &lt;rpm包（路径）全称&gt;<br>参数说明：<br>i-install 安装<br>v-verbose 提示<br>h-hash 进度条</p><h1 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h1><p>基本语法：rpm -e &lt;rpm包部全称&gt;<br>一般卸载步骤（举例java jdk）：<br>1、查询包是否存在（模糊搜索，无需全称）：rpm -qa | grep jdk<br>2、卸载：rpm -e &lt;rpm包部分名称或全称&gt;</p><p>卸载注意事项<br>如果其它软件包正依赖于将要卸载的软件包，卸载时会产生错误信息。<br>如果要强制卸载，可以加入参数 -–nodeps（例如：rpm -e –nodeps jdk），不过一般不推荐这样做，可能导致正在依赖该包运行的程序出现问题。<br>站长不是专业人士，如果你和我一样只用于开Minecraft服务器，那么下一条注意事项可以忽略。<br>如果出现类似&lt;warning:XXX.rpm: Header V3 RSA&#x2F;SHA256 Signature, key ID XXX: NOKEY&gt;的警告，这可能是由于安装版本与系统中其它的库文件版本不一致导致的，也可能是未导入公匙导致的。对于业余人士如果最终程序运行正常，可以忽略，专业或商业人士请谨慎对待。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;*&amp;lt;&amp;gt;内为解释内容，无需输入&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Other" scheme="https://blog.gamemode1.com/categories/Other/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Minecraft独显运行</title>
+    <link href="https://blog.gamemode1.com/2022/07/09/Minecraft-Run-On-GPU/"/>
+    <id>https://blog.gamemode1.com/2022/07/09/Minecraft-Run-On-GPU/</id>
+    <published>2022-07-09T10:54:11.000Z</published>
+    <updated>2024-12-24T21:42:45.375Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>适用显卡：英伟达（NVIDIA）<br>有疑问欢迎加QQ群：710218163</p><span id="more"></span><h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><p>确保已安装英伟达显卡驱动：官网</p><h1 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h1><p>第一步：启动Minecraft（任意版本）。</p><p>第二步：最小化Minecraft窗口，或使用“Alt+Tab”键切换至其他窗口（不要关闭游戏）。</p><p>第三步：打开任务管理器（快捷键“Ctrl+Alt+Delete”）。</p><p>第四步：找到”Java(TM) xxxxx”进程，单击右键，选择“打开文件所在的位置”。</p><p><img src="/../images/mcnvidia/mcnvidia1.jpg"><br><img src="/../images/mcnvidia/mcnvidia2.jpg"></p><p>第五步：此时会自动打开一个文件夹，并自动选中一个文件（并非人为选中），记住自动选中的这个文件名（可能是“java.exe”，也可能是“javaw.exe”，以它自动选中的为主），演示中为“javaw.exe”。</p><p><img src="/../images/mcnvidia/mcnvidia3.jpg"></p><p>第六步：左键单击上方路径，复制完整路径。</p><p><img src="/../images/mcnvidia/mcnvidia4.jpg"></p><p>第七步：打开“英伟达控制面板”（安装了驱动才有）。</p><p>第八步：点击“英伟达控制面板”左侧中的“管理3D设置”，再点击右侧“程序设置”。</p><p>第九步：点击添加，再点击“浏览”，在弹出的窗口中，单击路径，将复制的路径粘贴进去并回车，打开|第六步|中记下的文件名。</p><p><img src="/../images/mcnvidia/mcnvidia5.jpg"></p><p>第十步：将“为此程序选择首选图形处理器”，更改为“高性能NVIDIA处理器”，最后点击应用。</p><p><img src="/../images/mcnvidia/mcnvidia6.jpg"></p><p>第十一步：重启游戏，进入光影包选择界面，如果显示为”NVIDIA GeForce XXXX“则设置成功。</p><p><img src="/../images/mcnvidia/mcnvidia7.jpg"></p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;注意事项&quot;&gt;&lt;a href=&quot;#注意事项&quot; class=&quot;headerlink&quot; title=&quot;注意事项&quot;&gt;&lt;/a&gt;注意事项&lt;/h1&gt;&lt;p&gt;适用显卡：英伟达（NVIDIA）&lt;br&gt;有疑问欢迎加QQ群：710218163&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Minecraft" scheme="https://blog.gamemode1.com/categories/Minecraft/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>像素宝可梦教程配套资源</title>
+    <link href="https://blog.gamemode1.com/2022/06/21/Pixel-Pokemon/"/>
+    <id>https://blog.gamemode1.com/2022/06/21/Pixel-Pokemon/</id>
+    <published>2022-06-21T10:44:38.000Z</published>
+    <updated>2024-12-24T21:42:50.841Z</updated>
+    
+    <content type="html"><![CDATA[<p>就决定是你了！</p><span id="more"></span><p>适用MC版本：1.12.2<br>适用Forge版本：1.12.2 – 14.23.5.2860</p><p>教程：<a href="https://www.bilibili.com/video/BV1wr4y1472C">哔哩哔哩</a></p><p>资源：<a href="https://pan.baidu.com/s/16nHLeQgT8CqllzJQAzbItQ?pwd=1rnw">百度云</a><br>资源出处：<a href="https://www.planetminecraft.com/">Planet Minecraft Community</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;就决定是你了！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Minecraft" scheme="https://blog.gamemode1.com/categories/Minecraft/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://blog.gamemode1.com/2011/10/05/hello-world/"/>
+    <id>https://blog.gamemode1.com/2011/10/05/hello-world/</id>
+    <published>2011-10-05T12:07:19.000Z</published>
+    <updated>2024-12-24T21:42:38.536Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><span id="more"></span><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+</feed>
