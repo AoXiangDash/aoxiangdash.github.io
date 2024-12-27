@@ -18,15 +18,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.gamemode1.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="之前一直用的顶级域名，现在想给博客换成二级域名。结果今天设置Cloudflare后，域名和SSL验证等了一天没反应。">
+    <meta name="description" content="DNSPod解析设置注意事项之一。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DNSPod解析不生效">
 <meta property="og:url" content="https://blog.gamemode1.com/2024/12/25/Note-the-DNSPod-Settings/index.html">
 <meta property="og:site_name" content="GMBlog">
-<meta property="og:description" content="之前一直用的顶级域名，现在想给博客换成二级域名。结果今天设置Cloudflare后，域名和SSL验证等了一天没反应。">
+<meta property="og:description" content="DNSPod解析设置注意事项之一。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-12-24T19:00:08.000Z">
-<meta property="article:modified_time" content="2024-12-24T21:42:48.257Z">
+<meta property="article:modified_time" content="2024-12-27T10:30:13.000Z">
 <meta property="article:author" content="翱翔大使">
 <meta name="twitter:card" content="summary">
 
@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -213,7 +213,7 @@
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="DNSPod解析不生效 | GMBlog">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="DNSPod解析设置注意事项之一。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -234,6 +234,7 @@
   
 </div>
 
+            <div class="post-description">DNSPod解析设置注意事项之一。</div>
         </div>
       </header>
 
@@ -241,8 +242,6 @@
     
     
     <div class="post-body" itemprop="articleBody"><p>之前一直用的顶级域名，现在想给博客换成二级域名。结果今天设置Cloudflare后，域名和SSL验证等了一天没反应。</p>
-<span id="more"></span>
-
 <p>最后经过不断排查，最终想起来DNSPod的主机记录是默认会在后面加上一级域名的，例如我主机记录写的：<br><code>_cf-custom-hostname.blog.gamemode1.com</code><br>看似没问题对吧？但实际上解析的是：<br><code>_cf-custom-hostname.blog.gamemode1.com.gamemode1.com</code></p>
 <p>所以正确的填法应该是：<br><code>_cf-custom-hostname.blog</code></p>
 <p>这算是个低级错误，粗心大意了。<br>我设置好了就会很长时间不去动它，于是回头再来设置就给忘了这点，好记性不如烂笔头还是记录下吧2333。</p>
