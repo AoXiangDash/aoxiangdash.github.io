@@ -6,7 +6,7 @@
   <link href="https://blog.gamemode1.com/atom.xml" rel="self"/>
   
   <link href="https://blog.gamemode1.com/"/>
-  <updated>2024-12-25T19:27:58.610Z</updated>
+  <updated>2024-12-27T10:03:39.708Z</updated>
   <id>https://blog.gamemode1.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VRChat Avatar 座位数量上限</title>
+    <link href="https://blog.gamemode1.com/2024/12/27/VRChat-Avatar-Number-of-stations/"/>
+    <id>https://blog.gamemode1.com/2024/12/27/VRChat-Avatar-Number-of-stations/</id>
+    <published>2024-12-27T09:31:42.000Z</published>
+    <updated>2024-12-27T10:03:39.708Z</updated>
+    
+    <content type="html"><![CDATA[<p>站点（也称为“座位”）允许其他玩家坐在<code>Avatar</code>的某些位置并与您一起移动。通常需要<code>Box Colliders</code>作为点击的区域。如果不存在碰撞器<code>Box Colliders</code>，<code>VRChat</code>将自动添加一个盒子碰撞器。</p><p>一旦其他玩家坐在您的座位中，您就可以使用带着他们的<code>Avatar</code>一起移动。默认情况下，<code>VRChat</code>在坐在座位时会播放默认的坐姿。玩家可以通过在座位内移动来离开座位。</p><blockquote><p>站点限制：</p><ol><li>入口点和出口点之间的距离必须在<code>2</code>米以内。</li><li>一个<code>Avatar</code>上只能有<code>6</code>个站点，多了就会被禁用。</li></ol></blockquote><blockquote><p>已知冲突：</p><ol><li><code>ABT菜单</code>上有6个站点，可能会影响其他带座位的插件使用，需要删除部分<code>InteractPoint</code>对象。</li></ol><p>更多请看评论区。</p></blockquote><table><thead><tr><th align="center">参数</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">Player Mobility</td><td align="center">玩家在座位内是否可以走动<br>注意：对于<code>Avatar</code>，任何操作都会离开座位</td></tr><tr><td align="center">Can Use Station From Station</td><td align="center">是否允许玩家坐在本站点时进入其他站点</td></tr><tr><td align="center">Animator Controller</td><td align="center">用于替换座位上的<code>Avatar</code>的动作</td></tr><tr><td align="center">Disable Station Exit</td><td align="center">允许玩家步行而无需离开座位。在<code>VR</code>中扣动扳机即可退出站点<br>注意：这将在<code>Avatar</code>站点上设置为<code>false</code>，这些站点始终可以步行退出</td></tr><tr><td align="center">Seated</td><td align="center">角色的可玩图层的<code>Seated</code>布尔值是否设置为 True</td></tr><tr><td align="center">Player Enter Location</td><td align="center">玩家入座后将被传送到的位置</td></tr><tr><td align="center">Player Exit Location</td><td align="center">玩家离开座位时将离开的位置</td></tr><tr><td align="center">API Object</td><td align="center">对<code>Avatar</code>无用，可以忽略</td></tr></tbody></table><p>相关文档：<a href="https://vrc.school/docs/Other/Stations/">VRC School</a></p>]]></content>
+    
+    
+    <summary type="html">本文章介绍VRChat Avatar中可使用的座位数量上限。</summary>
+    
+    
+    
+    <category term="Other" scheme="https://blog.gamemode1.com/categories/Other/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>移动Hexo主题文件夹</title>
