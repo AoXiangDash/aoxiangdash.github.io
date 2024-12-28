@@ -6,7 +6,7 @@
   <link href="https://blog.gamemode1.com/atom.xml" rel="self"/>
   
   <link href="https://blog.gamemode1.com/"/>
-  <updated>2024-12-27T10:03:39.708Z</updated>
+  <updated>2024-12-28T13:24:23.517Z</updated>
   <id>https://blog.gamemode1.com/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>答案之书？</title>
+    <link href="https://blog.gamemode1.com/2024/12/28/diary/"/>
+    <id>https://blog.gamemode1.com/2024/12/28/diary/</id>
+    <published>2024-12-28T13:12:32.000Z</published>
+    <updated>2024-12-28T13:24:23.517Z</updated>
+    
+    <content type="html"><![CDATA[<p>感觉自己有些懒惰了，打算新开一个分类写一些日常的碎碎念。（这些内容并没有干货）<br>如果想要带点干货的文章，就看看旁边分类里的其他文章吧 :)</p><p>接下来，我要开始剪辑一部时长长达6小时的视频。这也是我首次剪一部这么长的视频，希望达芬奇不会崩溃。<br>而这一切的动力，都源自于高瞰老师的作品。<br>总之，一鼓作气！</p><p>Ctrl+S，Ctrl+S，Ctrl+S…牢记在心。</p>]]></content>
+    
+    
+    <summary type="html">随机抽一条博主的碎碎念。</summary>
+    
+    
+    
+    <category term="Diary" scheme="https://blog.gamemode1.com/categories/Diary/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>VRChat Avatar 座位数量上限</title>
     <link href="https://blog.gamemode1.com/2024/12/27/VRChat-Avatar-Number-of-stations/"/>
     <id>https://blog.gamemode1.com/2024/12/27/VRChat-Avatar-Number-of-stations/</id>
     <published>2024-12-27T09:31:42.000Z</published>
-    <updated>2024-12-27T10:03:39.708Z</updated>
+    <updated>2024-12-28T13:12:47.986Z</updated>
     
     <content type="html"><![CDATA[<p>站点（也称为“座位”）允许其他玩家坐在<code>Avatar</code>的某些位置并与您一起移动。通常需要<code>Box Colliders</code>作为点击的区域。如果不存在碰撞器<code>Box Colliders</code>，<code>VRChat</code>将自动添加一个盒子碰撞器。</p><p>一旦其他玩家坐在您的座位中，您就可以使用带着他们的<code>Avatar</code>一起移动。默认情况下，<code>VRChat</code>在坐在座位时会播放默认的坐姿。玩家可以通过在座位内移动来离开座位。</p><blockquote><p>站点限制：</p><ol><li>入口点和出口点之间的距离必须在<code>2</code>米以内。</li><li>一个<code>Avatar</code>上只能有<code>6</code>个站点，多了就会被禁用。</li></ol></blockquote><blockquote><p>已知冲突：</p><ol><li><code>ABT菜单</code>上有6个站点，可能会影响其他带座位的插件使用，需要删除部分<code>InteractPoint</code>对象。</li></ol><p>更多请看评论区。</p></blockquote><table><thead><tr><th align="center">参数</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">Player Mobility</td><td align="center">玩家在座位内是否可以走动<br>注意：对于<code>Avatar</code>，任何操作都会离开座位</td></tr><tr><td align="center">Can Use Station From Station</td><td align="center">是否允许玩家坐在本站点时进入其他站点</td></tr><tr><td align="center">Animator Controller</td><td align="center">用于替换座位上的<code>Avatar</code>的动作</td></tr><tr><td align="center">Disable Station Exit</td><td align="center">允许玩家步行而无需离开座位。在<code>VR</code>中扣动扳机即可退出站点<br>注意：这将在<code>Avatar</code>站点上设置为<code>false</code>，这些站点始终可以步行退出</td></tr><tr><td align="center">Seated</td><td align="center">角色的可玩图层的<code>Seated</code>布尔值是否设置为 True</td></tr><tr><td align="center">Player Enter Location</td><td align="center">玩家入座后将被传送到的位置</td></tr><tr><td align="center">Player Exit Location</td><td align="center">玩家离开座位时将离开的位置</td></tr><tr><td align="center">API Object</td><td align="center">对<code>Avatar</code>无用，可以忽略</td></tr></tbody></table><p>相关文档：<a href="https://vrc.school/docs/Other/Stations/">VRC School</a></p>]]></content>
     
@@ -30,7 +49,7 @@
     
     
     
-    <category term="Other" scheme="https://blog.gamemode1.com/categories/Other/"/>
+    <category term="VRChat" scheme="https://blog.gamemode1.com/categories/VRChat/"/>
     
     
   </entry>
@@ -135,7 +154,7 @@
     <link href="https://blog.gamemode1.com/2024/12/24/VRChat-Kiss-blowing-System/"/>
     <id>https://blog.gamemode1.com/2024/12/24/VRChat-Kiss-blowing-System/</id>
     <published>2024-12-24T07:05:56.000Z</published>
-    <updated>2024-12-27T10:37:49.277Z</updated>
+    <updated>2024-12-28T13:12:52.930Z</updated>
     
     <content type="html"><![CDATA[<h1 id="安装-MA"><a href="#安装-MA" class="headerlink" title="安装 MA"></a>安装 MA</h1><table><thead><tr><th align="center"><strong>Modular Avatar</strong></th></tr></thead><tbody><tr><td align="center"><a href="vcc://vpm/addRepo?url=https://vpm.nadena.dev/vpm.json">一键添加至VCC</a></td></tr><tr><td align="center"><a href="https://modular-avatar.nadena.dev/">官网</a></td></tr></tbody></table><h1 id="安装-liltoon-或-Poi"><a href="#安装-liltoon-或-Poi" class="headerlink" title="安装 liltoon 或 Poi"></a>安装 liltoon 或 Poi</h1><center><span style="color: red;">二选一</span></center><table><thead><tr><th align="center"><strong>liltoon</strong></th><th align="center"><strong>Poiyomi Shader</strong></th></tr></thead><tbody><tr><td align="center"><a href="vcc://vpm/addRepo?url=https://lilxyzw.github.io/vpm-repos/vpm.json">一键添加至VCC</a></td><td align="center"><a href="vcc://vpm/addRepo?url=https%3A%2F%2Fpoiyomi.github.io/vpm/index.json">一键添加至VCC</a></td></tr><tr><td align="center"><a href="https://lilxyzw.github.io/lilToon/ja_JP/">官网</a></td><td align="center"><a href="https://www.poiyomi.com/">官网</a></td></tr></tbody></table><h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><p>1、把“Kissing system xxx”（装的哪个着色器就用哪个）拖到你的“Avatar”中。<br><code>具体路径：Assets/Melting3D/kiss/Prefab</code><br><img src="/../images/VRChat-Kiss-blowing-System/1.png"><br>2、在“Hierarchy”中右键“Kissing system xxx”，Prefab –&gt; Unpack completely<br><img src="/../images/VRChat-Kiss-blowing-System/2.png"><br>3、将所有子物体拖到“Avatar”中（与“armature”同级）<br><img src="/../images/VRChat-Kiss-blowing-System/3.png"><br>4、将“Kissing system xxx”中的“MA Merge Animator”设置如下<br><img src="/../images/VRChat-Kiss-blowing-System/4.png"><br>5、完成</p><p>不给文档还在那儿卖插件的作者是屑。</p>]]></content>
     
@@ -144,7 +163,7 @@
     
     
     
-    <category term="VRChat Plugin" scheme="https://blog.gamemode1.com/categories/VRChat-Plugin/"/>
+    <category term="VRChat" scheme="https://blog.gamemode1.com/categories/VRChat/"/>
     
     
   </entry>
@@ -154,7 +173,7 @@
     <link href="https://blog.gamemode1.com/2024/12/24/vcc-quickly-added/"/>
     <id>https://blog.gamemode1.com/2024/12/24/vcc-quickly-added/</id>
     <published>2024-12-24T06:54:54.000Z</published>
-    <updated>2024-12-27T10:37:02.437Z</updated>
+    <updated>2024-12-28T13:13:00.106Z</updated>
     
     <content type="html"><![CDATA[<h1 id="安装VCC"><a href="#安装VCC" class="headerlink" title="安装VCC"></a>安装VCC</h1><table><thead><tr><th align="center"><strong>VRChat Creator Companion</strong></th></tr></thead><tbody><tr><td align="center"><a href="https://vrchat.com/home/download">VRChat Home - Download</a></td></tr></tbody></table><h1 id="着色器"><a href="#着色器" class="headerlink" title="着色器"></a>着色器</h1><table><thead><tr><th align="center"><strong>名称</strong></th><th align="center"><strong>来源</strong></th></tr></thead><tbody><tr><td align="center">Poiyomi</td><td align="center"><a href="vcc://vpm/addRepo?url=https%3A%2F%2Fpoiyomi.github.io/vpm/index.json">VCC</a></td></tr><tr><td align="center">lilToon</td><td align="center"><a href="vcc://vpm/addRepo?url=https://lilxyzw.github.io/vpm-repos/vpm.json">VCC</a></td></tr><tr><td align="center">UnlitWF Shader</td><td align="center"><a href="vcc://vpm/addRepo?url=https://whiteflare.github.io/vpm-repos/vpm.json">VCC</a></td></tr><tr><td align="center">UTS2</td><td align="center"><a href="https://github.com/unity3d-jp/UnityChanToonShaderVer2_Project">Github</a></td></tr><tr><td align="center">ARK</td><td align="center"><a href="https://github.com/arktoon-archive/arktoon">Github</a></td></tr><tr><td align="center">Crystal Shader</td><td align="center"><a href="https://github.com/zVoyder/Crystal-Shader">Github</a></td></tr><tr><td align="center">Mochies</td><td align="center"><a href="https://github.com/MochiesCode/Mochies-Unity-Shaders">Github</a></td></tr><tr><td align="center">UniVRM v0.99.1</td><td align="center"><a href="https://github.com/vrm-c/UniVRM/releases/tag/v0.99.1">Github</a></td></tr><tr><td align="center">SunaoShader</td><td align="center"><a href="https://booth.pm/ja/items/1723985">BOOTH</a></td></tr></tbody></table><h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><table><thead><tr><th align="center"><strong>名称</strong></th><th align="center"><strong>来源</strong></th></tr></thead><tbody><tr><td align="center">Modular Avatar</td><td align="center"><a href="vcc://vpm/addRepo?url=https://vpm.nadena.dev/vpm.json">VCC</a></td></tr><tr><td align="center">VRCFury</td><td align="center"><a href="vcc://vpm/addRepo?url=https%3A%2F%2Fvcc.vrcfury.com">VCC</a></td></tr><tr><td align="center">VRCQuestTools</td><td align="center"><a href="vcc://vpm/addRepo?url=https://kurotu.github.io/vpm-repos/vpm.json">VCC</a></td></tr></tbody></table>]]></content>
     
@@ -163,7 +182,7 @@
     
     
     
-    <category term="VRChat Plugin" scheme="https://blog.gamemode1.com/categories/VRChat-Plugin/"/>
+    <category term="VRChat" scheme="https://blog.gamemode1.com/categories/VRChat/"/>
     
     
   </entry>
