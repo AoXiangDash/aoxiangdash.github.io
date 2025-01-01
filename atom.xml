@@ -6,7 +6,7 @@
   <link href="https://blog.gamemode1.com/atom.xml" rel="self"/>
   
   <link href="https://blog.gamemode1.com/"/>
-  <updated>2024-12-31T13:26:28.368Z</updated>
+  <updated>2025-01-01T07:44:36.616Z</updated>
   <id>https://blog.gamemode1.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>修改Hexo Next主题页脚备案</title>
+    <link href="https://blog.gamemode1.com/2025/01/01/newicp/"/>
+    <id>https://blog.gamemode1.com/2025/01/01/newicp/</id>
+    <published>2025-01-01T07:25:53.000Z</published>
+    <updated>2025-01-01T07:44:36.616Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="修改footer-njk"><a href="#修改footer-njk" class="headerlink" title="修改footer.njk"></a>修改<code>footer.njk</code></h1><p>将代码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- if theme.footer.beian.enable %&#125;</span><br><span class="line">  &lt;div class=&quot;beian&quot;&gt;</span><br><span class="line">    &#123;&#123;- next_url(&#x27;https://beian.miit.gov.cn&#x27;, theme.footer.beian.icp + &#x27; &#x27;) &#125;&#125;</span><br><span class="line">    &#123;%- if theme.footer.beian.gongan_icon_url %&#125;</span><br><span class="line">      &lt;img src=&quot;&#123;&#123; url_for(theme.footer.beian.gongan_icon_url) &#125;&#125;&quot; alt=&quot;&quot;&gt;</span><br><span class="line">    &#123;%- endif %&#125;</span><br><span class="line">    &#123;%- if theme.footer.beian.gongan_id and theme.footer.beian.gongan_num %&#125;</span><br><span class="line">      &#123;&#123;- next_url(&#x27;https://beian.mps.gov.cn/#/query/webSearch?code=&#x27; + theme.footer.beian.gongan_id, theme.footer.beian.gongan_num + &#x27; &#x27;) &#125;&#125;</span><br><span class="line">    &#123;%- endif %&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure><p>修改为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- if theme.footer.beian.enable %&#125;</span><br><span class="line">  &lt;div class=&quot;beian&quot;&gt;</span><br><span class="line">    &#123;%- if theme.footer.beian.gongan_icon_url %&#125;</span><br><span class="line">      &lt;img src=&quot;&#123;&#123; url_for(theme.footer.beian.gongan_icon_url) &#125;&#125;&quot; alt=&quot;&quot;&gt;</span><br><span class="line">    &#123;%- endif %&#125;</span><br><span class="line">    &#123;%- if theme.footer.beian.gongan_id and theme.footer.beian.gongan_num %&#125;</span><br><span class="line">      &#123;&#123;- next_url(&#x27;https://icp.gov.moe/?keyword=&#x27; + theme.footer.beian.gongan_id, theme.footer.beian.gongan_num + &#x27; &#x27;) &#125;&#125;</span><br><span class="line">    &#123;%- endif %&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure><h1 id="修改Next主题的-config-yml"><a href="#修改Next主题的-config-yml" class="headerlink" title="修改Next主题的_config.yml"></a>修改<code>Next</code>主题的<code>_config.yml</code></h1><p>将属性：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">beian:</span><br><span class="line">  enable: false</span><br><span class="line">  icp: </span><br><span class="line">  gongan_id: </span><br><span class="line">  gongan_num: </span><br><span class="line">  gongan_icon_url: </span><br></pre></td></tr></table></figure><p>修改为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">beian:</span><br><span class="line">  enable: true</span><br><span class="line">  # icp: </span><br><span class="line">  gongan_id: XXXXXXXX</span><br><span class="line">  gongan_num: 萌ICP备XXXXXXXX号</span><br><span class="line">  gongan_icon_url: </span><br></pre></td></tr></table></figure><h1 id="添加萌备案的图标（可选）"><a href="#添加萌备案的图标（可选）" class="headerlink" title="添加萌备案的图标（可选）"></a>添加萌备案的图标（可选）</h1><ol><li>下载<a href="https://icp.gov.moe/moe-icon.zip">图标包</a>，将<code>moe-icon</code>文件夹解压到<code>source</code>文件夹下。</li><li>打开<code>Next</code>主题footer的样式文件，修改页脚icon大小，参考路径：<blockquote><p>themes\hexo-theme-next\layout_partials\footer.njk</p></blockquote></li><li>搜索<code>if (hexo-config(&#39;footer.beian.enable&#39;) and hexo-config(&#39;footer.beian.gongan_icon_url&#39;))</code>。</li><li>将这段代码修改成以下这样，其实只是设定了下图标大小：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if (hexo-config(&#x27;footer.beian.enable&#x27;) and hexo-config(&#x27;footer.beian.gongan_icon_url&#x27;)) &#123;</span><br><span class="line">  .beian img &#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    margin: 0 3px;</span><br><span class="line">    vertical-align: middle;</span><br><span class="line">    width: 20px;</span><br><span class="line">    height: 20px;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li>在上一步中的属性<code>gongan_icon_url</code>中添加<code>./moe-icon/icon120.png</code>。</li><li>完成。</li></ol>]]></content>
+    
+    
+    <summary type="html">萌备案。</summary>
+    
+    
+    
+    <category term="其他" scheme="https://blog.gamemode1.com/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>不过如此的碎碎念</title>
