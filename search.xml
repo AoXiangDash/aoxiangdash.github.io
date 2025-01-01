@@ -17,6 +17,17 @@
       </categories>
   </entry>
   <entry>
+    <title>修复WordPress更换域名后资源URL失效</title>
+    <url>/2023/09/20/Fixed-Resource-URL-invalid-after-domain-name-change-in-WordPress/</url>
+    <content><![CDATA[<p>尝试直接换了新域名，后果是…网页、数据库和网页里关联的资源全挂了哈哈哈，不过总算修复好了嘎。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE pb_posts SET post_content = REPLACE( post_content, &#x27;旧域名&#x27;, &#x27;新域名&#x27; );</span><br></pre></td></tr></table></figure>
+<p>还需要修改“x_posts”表中的“post_content”字段，和“x_postmeta”中的“meta_value”字段，都是这条指令。<br><code>虽然现在已经更换了hexo，但还是留个作死的纪念吧:p</code></p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Linux之Docker安装与配置</title>
     <url>/2022/07/27/Docker-installation-and-configuration-for-Linux/</url>
     <content><![CDATA[<p>第一步：检查系统是否已安装Docker，回车后未返回任何信息就可以进行手动安装。</p>
@@ -52,27 +63,6 @@
       </categories>
   </entry>
   <entry>
-    <title>修复WordPress更换域名后资源URL失效</title>
-    <url>/2023/09/20/Fixed-Resource-URL-invalid-after-domain-name-change-in-WordPress/</url>
-    <content><![CDATA[<p>尝试直接换了新域名，后果是…网页、数据库和网页里关联的资源全挂了哈哈哈，不过总算修复好了嘎。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE pb_posts SET post_content = REPLACE( post_content, &#x27;旧域名&#x27;, &#x27;新域名&#x27; );</span><br></pre></td></tr></table></figure>
-<p>还需要修改“x_posts”表中的“post_content”字段，和“x_postmeta”中的“meta_value”字段，都是这条指令。<br><code>虽然现在已经更换了hexo，但还是留个作死的纪念吧:p</code></p>
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Github Desktop设置Proxy</title>
-    <url>/2024/05/20/Github-Desktop-Setup-proxy/</url>
-    <content><![CDATA[<p>打开C:\users\username.gitconfig文件，最后加上</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[http]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[https]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[git]</span><br><span class="line">    proxy = socks5://ip:port</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Git报错汇总</title>
     <url>/2023/01/30/Git-error-summary/</url>
     <content><![CDATA[<p>错误内容：<br><code>Error: Failed to connect to github.com port 443 after xxx ms: Timed out</code></p>
@@ -99,6 +89,16 @@
       </categories>
   </entry>
   <entry>
+    <title>Github Desktop设置Proxy</title>
+    <url>/2024/05/20/Github-Desktop-Setup-proxy/</url>
+    <content><![CDATA[<p>打开C:\users\username.gitconfig文件，最后加上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[http]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[https]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[git]</span><br><span class="line">    proxy = socks5://ip:port</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Hexo Next主题 自定义背景</title>
     <url>/2024/12/25/Hexo-Next-Custom-background/</url>
     <content><![CDATA[<h1 id="保存图片"><a href="#保存图片" class="headerlink" title="保存图片"></a>保存图片</h1><p>将自己的图片命名为background保存到以下路径：<br><code>\themes\next\source\images</code></p>
@@ -115,32 +115,6 @@
 <ol start="3">
 <li>清理和编译。</li>
 </ol>
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hexo Next主题添加网易云音乐</title>
-    <url>/2024/12/25/Hexo-Next-theme-adds-NetEase-music/</url>
-    <content><![CDATA[<p>前言：我使用的vscode，后面部分操作需用到全局搜索，具体路径太长，我实在懒得贴出来。</p>
-<h1 id="获取网易云音乐外链"><a href="#获取网易云音乐外链" class="headerlink" title="获取网易云音乐外链"></a>获取网易云音乐外链</h1><ol>
-<li>前往<a href="https://music.163.com/">网易云网页版</a>，搜索你喜欢的歌并生成外链（版权音乐无法生成）。</li>
-<li>根据需要，设置框体大小和自动播放，复制生成的代码。</li>
-<li>全局搜索<code>site-overview.njk</code>文件（这文件就一个，很快就能搜到）。</li>
-<li>在文件头或文件尾新增一行粘贴外链。粘贴在文件头，播放器就会像我这样在头像上面，文件尾就在下面。</li>
-<li>完成。</li>
-</ol>
-<h1 id="不间断播放（可选）"><a href="#不间断播放（可选）" class="headerlink" title="不间断播放（可选）"></a>不间断播放（可选）</h1><ol>
-<li>找到你的<code>hexo-theme-next</code>文件夹，在文件夹上单击右键选择“在集成终端中打开”。</li>
-<li>在命令行输入：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-pjax source/lib/pjax</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>打开<code>Next主题</code>的<code>_config.yml</code>文件。</li>
-<li>将属性<code>pjax</code>设置为<code>true</code>。</li>
-</ol>
-<h1 id="重新生成网页文件"><a href="#重新生成网页文件" class="headerlink" title="重新生成网页文件"></a>重新生成网页文件</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>其他</category>
@@ -203,6 +177,32 @@
       </categories>
   </entry>
   <entry>
+    <title>Hexo Next主题添加网易云音乐</title>
+    <url>/2024/12/25/Hexo-Next-theme-adds-NetEase-music/</url>
+    <content><![CDATA[<p>前言：我使用的vscode，后面部分操作需用到全局搜索，具体路径太长，我实在懒得贴出来。</p>
+<h1 id="获取网易云音乐外链"><a href="#获取网易云音乐外链" class="headerlink" title="获取网易云音乐外链"></a>获取网易云音乐外链</h1><ol>
+<li>前往<a href="https://music.163.com/">网易云网页版</a>，搜索你喜欢的歌并生成外链（版权音乐无法生成）。</li>
+<li>根据需要，设置框体大小和自动播放，复制生成的代码。</li>
+<li>全局搜索<code>site-overview.njk</code>文件（这文件就一个，很快就能搜到）。</li>
+<li>在文件头或文件尾新增一行粘贴外链。粘贴在文件头，播放器就会像我这样在头像上面，文件尾就在下面。</li>
+<li>完成。</li>
+</ol>
+<h1 id="不间断播放（可选）"><a href="#不间断播放（可选）" class="headerlink" title="不间断播放（可选）"></a>不间断播放（可选）</h1><ol>
+<li>找到你的<code>hexo-theme-next</code>文件夹，在文件夹上单击右键选择“在集成终端中打开”。</li>
+<li>在命令行输入：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-pjax source/lib/pjax</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>打开<code>Next主题</code>的<code>_config.yml</code>文件。</li>
+<li>将属性<code>pjax</code>设置为<code>true</code>。</li>
+</ol>
+<h1 id="重新生成网页文件"><a href="#重新生成网页文件" class="headerlink" title="重新生成网页文件"></a>重新生成网页文件</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
     <title>像素宝可梦教程配套资源</title>
     <url>/2022/06/21/Pixel-Pokemon/</url>
     <content><![CDATA[<p>就决定是你了！</p>
@@ -247,16 +247,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Unity切换场景不销毁物体</title>
-    <url>/2022/10/18/UNITY-DO-NOT-DESTROY-MY-OBJECTS/</url>
-    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>IOSManager.cs<br>使用方法：创建一个空物体，挂上此脚本，将不销毁的物体拖入数组。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 加载场景时不删除的物体</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">public class DontDestroyOnLoad : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //加载场景时不销毁的物体</span><br><span class="line">    public GameObject[] DontDestroyObjects;</span><br><span class="line"></span><br><span class="line">    //是否已经存在DontDestroy的物体</span><br><span class="line">    private static bool isExist;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">    void Awake()</span><br><span class="line">    &#123;</span><br><span class="line">        if (!isExist)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果第一次加载，将这些物体设为DontDestroy</span><br><span class="line">                DontDestroyOnLoad(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            isExist = true;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果已经存在，则删除重复的物体</span><br><span class="line">                Destroy(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Unity相机抖动</title>
     <url>/2022/08/19/Unity-Camera-Shake/</url>
     <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>ShakeCamera.cs</p>
@@ -294,6 +284,16 @@
 <p><img src="/../images/unityxcodefix/1.jpg"></p>
 <p>解决步骤已在图中说明</p>
 <p><img src="/../images/unityxcodefix/2jpg"><br><img src="/../images/unityxcodefix/3.jpg"><br><img src="/../images/unityxcodefix/4.jpg"><br><img src="/../images/unityxcodefix/5.jpg"></p>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Unity切换场景不销毁物体</title>
+    <url>/2022/10/18/UNITY-DO-NOT-DESTROY-MY-OBJECTS/</url>
+    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>IOSManager.cs<br>使用方法：创建一个空物体，挂上此脚本，将不销毁的物体拖入数组。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 加载场景时不删除的物体</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">public class DontDestroyOnLoad : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //加载场景时不销毁的物体</span><br><span class="line">    public GameObject[] DontDestroyObjects;</span><br><span class="line"></span><br><span class="line">    //是否已经存在DontDestroy的物体</span><br><span class="line">    private static bool isExist;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">    void Awake()</span><br><span class="line">    &#123;</span><br><span class="line">        if (!isExist)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果第一次加载，将这些物体设为DontDestroy</span><br><span class="line">                DontDestroyOnLoad(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            isExist = true;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果已经存在，则删除重复的物体</span><br><span class="line">                Destroy(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Unity</category>
@@ -416,6 +416,15 @@
       </categories>
   </entry>
   <entry>
+    <title>不过如此的碎碎念</title>
+    <url>/2024/12/29/diary-1/</url>
+    <content><![CDATA[<p>审了一晚上的原片还剩90分钟，后面还要初稿，定稿，粗剪，精剪，配音配乐，校对字幕，叽里呱啦叽里呱啦…<br>遇事不决，先改改博客的源码，给头像和播放器加了个圆角，看着舒服多了。</p>
+]]></content>
+      <categories>
+        <category>碎碎念</category>
+      </categories>
+  </entry>
+  <entry>
     <title>安装卡巴斯基后无权限修改hosts文件</title>
     <url>/2024/02/15/Windows-does-not-have-permission-to-modify-hosts-after-Kaspersky-is-installed/</url>
     <content><![CDATA[<p>由于本人使用“瓦特工具箱”对一些工具进行加速，需要修改hosts，于是遇到了权限问题。<br>虽然可以使用DNS模式，但考虑到自己还有一些IDE和一些工具需要用到hosts文件，还是得解决一下。</p>
@@ -426,25 +435,6 @@
 ]]></content>
       <categories>
         <category>其他</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>不过如此的碎碎念</title>
-    <url>/2024/12/29/diary-1/</url>
-    <content><![CDATA[<p>审了一晚上的原片还剩90分钟，后面还要初稿，定稿，粗剪，精剪，配音配乐，校对字幕，叽里呱啦叽里呱啦…<br>遇事不决，先改改博客的源码，给头像和播放器加了个圆角，看着舒服多了。</p>
-]]></content>
-      <categories>
-        <category>碎碎念</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>不过如此的碎碎念</title>
-    <url>/2024/12/30/diary-2/</url>
-    <content><![CDATA[<p>草稿完成了！剪辑前10个G，剪完后12个G…<br>给孩子喂胖了。</p>
-<p>在达芬奇中要想使用裁切功能的话，如果视频已经切割成了多段，但又想一起裁切，得复合片段…<br>经验+3</p>
-]]></content>
-      <categories>
-        <category>碎碎念</category>
       </categories>
   </entry>
   <entry>
@@ -579,6 +569,16 @@
 ]]></content>
       <categories>
         <category>VRChat</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>不过如此的碎碎念</title>
+    <url>/2024/12/30/diary-2/</url>
+    <content><![CDATA[<p>草稿完成了！剪辑前10个G，剪完后12个G…<br>给孩子喂胖了。</p>
+<p>在达芬奇中要想使用裁切功能的话，如果视频已经切割成了多段，但又想一起裁切，得复合片段…<br>经验+3</p>
+]]></content>
+      <categories>
+        <category>碎碎念</category>
       </categories>
   </entry>
 </search>

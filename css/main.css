@@ -1275,7 +1275,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #08bdff;
+    background: #ffffc6;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1682,6 +1682,9 @@ pre code {
   vertical-align: middle;
   width: 20px;
   height: 20px;
+}
+.beian a {
+  color: #fff;
 }
 @keyframes icon-animate {
   0%, 100% {
