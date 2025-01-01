@@ -52,6 +52,27 @@
       </categories>
   </entry>
   <entry>
+    <title>修复WordPress更换域名后资源URL失效</title>
+    <url>/2023/09/20/Fixed-Resource-URL-invalid-after-domain-name-change-in-WordPress/</url>
+    <content><![CDATA[<p>尝试直接换了新域名，后果是…网页、数据库和网页里关联的资源全挂了哈哈哈，不过总算修复好了嘎。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE pb_posts SET post_content = REPLACE( post_content, &#x27;旧域名&#x27;, &#x27;新域名&#x27; );</span><br></pre></td></tr></table></figure>
+<p>还需要修改“x_posts”表中的“post_content”字段，和“x_postmeta”中的“meta_value”字段，都是这条指令。<br><code>虽然现在已经更换了hexo，但还是留个作死的纪念吧:p</code></p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Github Desktop设置Proxy</title>
+    <url>/2024/05/20/Github-Desktop-Setup-proxy/</url>
+    <content><![CDATA[<p>打开C:\users\username.gitconfig文件，最后加上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[http]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[https]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[git]</span><br><span class="line">    proxy = socks5://ip:port</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Git报错汇总</title>
     <url>/2023/01/30/Git-error-summary/</url>
     <content><![CDATA[<p>错误内容：<br><code>Error: Failed to connect to github.com port 443 after xxx ms: Timed out</code></p>
@@ -72,27 +93,6 @@
 
 <p>结果：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">user.name=SteveJobs</span><br><span class="line">user.email=hello@world.com</span><br><span class="line">http.proxy=127.0.0.1:7890</span><br><span class="line">https.proxy=127.0.0.1:7890</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Github Desktop设置Proxy</title>
-    <url>/2024/05/20/Github-Desktop-Setup-proxy/</url>
-    <content><![CDATA[<p>打开C:\users\username.gitconfig文件，最后加上</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[http]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[https]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[git]</span><br><span class="line">    proxy = socks5://ip:port</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>修复WordPress更换域名后资源URL失效</title>
-    <url>/2023/09/20/Fixed-Resource-URL-invalid-after-domain-name-change-in-WordPress/</url>
-    <content><![CDATA[<p>尝试直接换了新域名，后果是…网页、数据库和网页里关联的资源全挂了哈哈哈，不过总算修复好了嘎。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UPDATE pb_posts SET post_content = REPLACE( post_content, &#x27;旧域名&#x27;, &#x27;新域名&#x27; );</span><br></pre></td></tr></table></figure>
-<p>还需要修改“x_posts”表中的“post_content”字段，和“x_postmeta”中的“meta_value”字段，都是这条指令。<br><code>虽然现在已经更换了hexo，但还是留个作死的纪念吧:p</code></p>
 ]]></content>
       <categories>
         <category>其他</category>
@@ -247,20 +247,20 @@
       </categories>
   </entry>
   <entry>
-    <title>Unity相机抖动</title>
-    <url>/2022/08/19/Unity-Camera-Shake/</url>
-    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>ShakeCamera.cs</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class ShakeCamera : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    private Vector3 shakePos = Vector3.zero;</span><br><span class="line"></span><br><span class="line">    // Use this for initialization</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Update is called once per frame</span><br><span class="line">    /// &lt;summary&gt;</span><br><span class="line">    /// 按住空格键，画面会一直抖动；松开按键，抖动结束</span><br><span class="line">    /// &lt;/summary&gt;</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        if(Input.GetKey(KeyCode.Space))</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localPosition -= shakePos;</span><br><span class="line">            shakePos = Random.insideUnitSphere / 5.0f;</span><br><span class="line">            transform.localPosition += shakePos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>Unity切换场景不销毁物体</title>
+    <url>/2022/10/18/UNITY-DO-NOT-DESTROY-MY-OBJECTS/</url>
+    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>IOSManager.cs<br>使用方法：创建一个空物体，挂上此脚本，将不销毁的物体拖入数组。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 加载场景时不删除的物体</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">public class DontDestroyOnLoad : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //加载场景时不销毁的物体</span><br><span class="line">    public GameObject[] DontDestroyObjects;</span><br><span class="line"></span><br><span class="line">    //是否已经存在DontDestroy的物体</span><br><span class="line">    private static bool isExist;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">    void Awake()</span><br><span class="line">    &#123;</span><br><span class="line">        if (!isExist)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果第一次加载，将这些物体设为DontDestroy</span><br><span class="line">                DontDestroyOnLoad(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            isExist = true;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果已经存在，则删除重复的物体</span><br><span class="line">                Destroy(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Unity</category>
       </categories>
   </entry>
   <entry>
-    <title>Unity切换场景不销毁物体</title>
-    <url>/2022/10/18/UNITY-DO-NOT-DESTROY-MY-OBJECTS/</url>
-    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>IOSManager.cs<br>使用方法：创建一个空物体，挂上此脚本，将不销毁的物体拖入数组。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 加载场景时不删除的物体</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">public class DontDestroyOnLoad : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //加载场景时不销毁的物体</span><br><span class="line">    public GameObject[] DontDestroyObjects;</span><br><span class="line"></span><br><span class="line">    //是否已经存在DontDestroy的物体</span><br><span class="line">    private static bool isExist;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">    void Awake()</span><br><span class="line">    &#123;</span><br><span class="line">        if (!isExist)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果第一次加载，将这些物体设为DontDestroy</span><br><span class="line">                DontDestroyOnLoad(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            isExist = true;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                //如果已经存在，则删除重复的物体</span><br><span class="line">                Destroy(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //-------------------------------------------------------------------------------</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>Unity相机抖动</title>
+    <url>/2022/08/19/Unity-Camera-Shake/</url>
+    <content><![CDATA[<h1 id="脚本名称"><a href="#脚本名称" class="headerlink" title="脚本名称"></a>脚本名称</h1><p>ShakeCamera.cs</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class ShakeCamera : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    private Vector3 shakePos = Vector3.zero;</span><br><span class="line"></span><br><span class="line">    // Use this for initialization</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Update is called once per frame</span><br><span class="line">    /// &lt;summary&gt;</span><br><span class="line">    /// 按住空格键，画面会一直抖动；松开按键，抖动结束</span><br><span class="line">    /// &lt;/summary&gt;</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        if(Input.GetKey(KeyCode.Space))</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localPosition -= shakePos;</span><br><span class="line">            shakePos = Random.insideUnitSphere / 5.0f;</span><br><span class="line">            transform.localPosition += shakePos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Unity</category>
@@ -448,6 +448,17 @@
       </categories>
   </entry>
   <entry>
+    <title>不过如此的碎碎念</title>
+    <url>/2024/12/28/diary/</url>
+    <content><![CDATA[<p>感觉自己有些懒惰了，打算新开一个分类写一些日常的碎碎念。（这些内容并没有干货）<br>如果想要带点干货的文章，就看看旁边分类里的其他文章吧 :)</p>
+<p>接下来，我要开始剪辑一部时长长达6小时的视频。这也是我首次剪一部这么长的视频，希望达芬奇不会崩溃。<br>而这一切的动力，都源自于高瞰老师的作品。<br>总之，一鼓作气！</p>
+<p>Ctrl+S，Ctrl+S，Ctrl+S…牢记在心。</p>
+]]></content>
+      <categories>
+        <category>碎碎念</category>
+      </categories>
+  </entry>
+  <entry>
     <title>修改Hexo Next主题页脚备案</title>
     <url>/2025/01/01/newicp/</url>
     <content><![CDATA[<h1 id="修改footer-njk"><a href="#修改footer-njk" class="headerlink" title="修改footer.njk"></a>修改<code>footer.njk</code></h1><p>将代码：</p>
@@ -474,17 +485,6 @@
 ]]></content>
       <categories>
         <category>其他</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>不过如此的碎碎念</title>
-    <url>/2024/12/28/diary/</url>
-    <content><![CDATA[<p>感觉自己有些懒惰了，打算新开一个分类写一些日常的碎碎念。（这些内容并没有干货）<br>如果想要带点干货的文章，就看看旁边分类里的其他文章吧 :)</p>
-<p>接下来，我要开始剪辑一部时长长达6小时的视频。这也是我首次剪一部这么长的视频，希望达芬奇不会崩溃。<br>而这一切的动力，都源自于高瞰老师的作品。<br>总之，一鼓作气！</p>
-<p>Ctrl+S，Ctrl+S，Ctrl+S…牢记在心。</p>
-]]></content>
-      <categories>
-        <category>碎碎念</category>
       </categories>
   </entry>
   <entry>
