@@ -1,0 +1,13 @@
+# hexo robots.txt
+User-agent: *
+Allow: /
+Allow: /categories/
+Allow: /tutorial/
+Allow: /aboutme/
+
+Disallow: /images/
+Disallow: /js/
+Disallow: /css/
+Disallow: /atom.xml
+
+Sitemap: https://blog.gamemode1.com/sitemap.xml

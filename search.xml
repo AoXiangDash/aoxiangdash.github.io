@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>DNSPod解析不生效</title>
+    <url>/2024/12/24/dnspod-jie-xi-bu-sheng-xiao/</url>
+    <content><![CDATA[<p>之前一直用的顶级域名，现在想给博客换成二级域名。结果今天设置Cloudflare后，域名和SSL验证等了一天没反应。</p>
+<p>最后经过不断排查，最终想起来DNSPod的主机记录是默认会在后面加上一级域名的，例如我主机记录写的：<br><code>_cf-custom-hostname.blog.gamemode1.com</code><br>看似没问题对吧？但实际上解析的是：<br><code>_cf-custom-hostname.blog.gamemode1.com.gamemode1.com</code></p>
+<p>所以正确的填法应该是：<br><code>_cf-custom-hostname.blog</code></p>
+<p>这算是个低级错误，粗心大意了。<br>我设置好了就会很长时间不去动它，于是回头再来设置就给忘了这点，好记性不如烂笔头还是记录下吧2333。</p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Github Desktop设置Proxy</title>
+    <url>/2024/05/20/github-desktop-she-zhi-proxy/</url>
+    <content><![CDATA[<p>打开C:\users\username.gitconfig文件，最后加上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[http]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[https]</span><br><span class="line">    proxy = socks5://ip:port</span><br><span class="line">[git]</span><br><span class="line">    proxy = socks5://ip:port</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Git报错汇总</title>
+    <url>/2023/01/30/git-bao-cuo-hui-zong/</url>
+    <content><![CDATA[<p>错误内容：<br><code>Error: Failed to connect to github.com port 443 after xxx ms: Timed out</code></p>
+<ol>
+<li><p>查询自己的proxy</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global -l</span><br></pre></td></tr></table></figure>
+<p>这个时候会显示你自己的proxy，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//如果没有配置过，以下内容可能为空</span><br><span class="line">user.name=SteveJobs</span><br><span class="line">user.email=hello@world.com</span><br><span class="line">http.proxy=127.0.0.1:25565</span><br><span class="line">https.proxy=127.0.0.1:25565</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除自己的proxy设置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重新设置自己的proxy<br>将<code>ip</code>和<code>port</code>修改成自己的端口号。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy ip:port</span><br><span class="line">git config --global https.proxy ip:port</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查配置后的proxy</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global -l</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">user.name=SteveJobs</span><br><span class="line">user.email=hello@world.com</span><br><span class="line">http.proxy=127.0.0.1:7890</span><br><span class="line">https.proxy=127.0.0.1:7890</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hexo Next主题代码折叠</title>
+    <url>/2025/01/04/hexo-next-zhu-ti-dai-ma-zhe-die/</url>
+    <content><![CDATA[<p>新版Next主题已自带代码折叠功能，修改<code>Next</code>主题的<code>_config.yml</code>以下属性：</p>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">codeblock:</span></span><br><span class="line">  <span class="attr">fold:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hexo Next主题增加贴纸</title>
+    <url>/2025/01/10/hexo-next-zhu-ti-zeng-jia-tie-zhi/</url>
+    <content><![CDATA[<blockquote>
+<p>增加一个类似我头像下方的“written by human not by AI”的贴纸。</p>
+</blockquote>
+<h1 id="新增栏位"><a href="#新增栏位" class="headerlink" title="新增栏位"></a>新增栏位</h1><ol>
+<li><p>打开<code>themes\hexo-theme-next\layout\_partials\sidebar\site-overview.njk</code>文件，<br>找到这段代码（CC协议的小组件）：</p>
+<figure class="highlight xml"><figcaption><span>site-overview.njk</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 找到这段代码，不是添加！ --&gt;</span></span><br><span class="line">&#123;%- if theme.creative_commons.license and theme.creative_commons.sidebar %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;cc-license animated&quot;</span> <span class="attr">itemprop</span>=<span class="string">&quot;license&quot;</span>&gt;</span></span><br><span class="line">    &#123;%- set ccImage = &#x27;<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&#x27; + theme.vendors.creative_commons.url + &#x27;&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Creative Commons&quot;</span>&gt;</span>&#x27; %&#125;</span><br><span class="line">    &#123;&#123; next_url(ccURL, ccImage, &#123;class: &#x27;cc-opacity&#x27;&#125;) &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
+<p>在下面新增以下代码：</p>
+<figure class="highlight xml"><figcaption><span>site-overview.njk</span></figcaption><table><tr><td class="code"><pre><span class="line">&#123;%- if theme.writtenbyhuman.enable and theme.creative_commons.sidebar %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;cc-license animated&quot;</span> <span class="attr">itemprop</span>=<span class="string">&quot;license&quot;</span>&gt;</span></span><br><span class="line">    &#123;%- set notaiImage = &#x27;<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&#x27; + theme.writtenbyhuman.badge_url + &#x27;&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;written by human not by AI&quot;</span>&gt;</span>&#x27; %&#125;</span><br><span class="line">    &#123;&#123; next_url(&quot;https://notbyai.fyi/&quot;, notaiImage, &#123;class: &#x27;cc-opacity&#x27;&#125;) &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>为了保持统一，我直接引用了CC小组件的样式。</p>
+</blockquote>
+</li>
+<li><p>打开站点的<code>_config.yml</code>文件，新增以下属性：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 人类撰写贴纸</span></span><br><span class="line"><span class="attr">writtenbyhuman:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">badge_url:</span> <span class="string">https://notbyai.fyi/img/written-by-human-not-by-ai-white.svg</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>完成。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hexo Next主题添加网易云音乐</title>
+    <url>/2024/12/24/hexo-next-zhu-ti-tian-jia-wang-yi-yun-yin-le/</url>
+    <content><![CDATA[<p>前言：我使用的vscode，后面部分操作需用到全局搜索，具体路径太长，我实在懒得贴出来。</p>
+<h1 id="获取网易云音乐外链"><a href="#获取网易云音乐外链" class="headerlink" title="获取网易云音乐外链"></a>获取网易云音乐外链</h1><ol>
+<li>前往<a href="https://music.163.com/">网易云网页版</a>，搜索你喜欢的歌并生成外链（版权音乐无法生成）。</li>
+<li>根据需要，设置框体大小和自动播放，复制生成的代码。</li>
+<li>全局搜索<code>site-overview.njk</code>文件（这文件就一个，很快就能搜到）。</li>
+<li>在文件头或文件尾新增一行粘贴外链。粘贴在文件头，播放器就会像我这样在头像上面，文件尾就在下面。</li>
+<li>完成。</li>
+</ol>
+<h1 id="不间断播放（可选）"><a href="#不间断播放（可选）" class="headerlink" title="不间断播放（可选）"></a>不间断播放（可选）</h1><ol>
+<li>找到你的<code>hexo-theme-next</code>文件夹，在文件夹上单击右键选择“在集成终端中打开”。</li>
+<li>在命令行输入：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-pjax source/lib/pjax</span><br></pre></td></tr></table></figure></li>
+<li>打开<code>Next主题</code>的<code>_config.yml</code>文件。</li>
+<li>将属性<code>pjax</code>设置为<code>true</code>。</li>
+</ol>
+<h1 id="重新生成网页文件"><a href="#重新生成网页文件" class="headerlink" title="重新生成网页文件"></a>重新生成网页文件</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hexo Next主题添加萌备案</title>
+    <url>/2025/01/10/hexo-next-zhu-ti-tian-jia-meng-bei-an/</url>
+    <content><![CDATA[<blockquote>
+<p>本套方案进一步增强了可读性，减少对源代码的破坏。</p>
+</blockquote>
+<h1 id="开启自定义样式"><a href="#开启自定义样式" class="headerlink" title="开启自定义样式"></a>开启自定义样式</h1><ol>
+<li><p>打开站点的<code>_config.yml</code>文件，解除以下两行的注释：</p>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">    <span class="attr">style:</span> <span class="string">source/_data/styles.styl</span> <span class="comment"># 用于给萌备案的链接加一个小图标，可选项</span></span><br><span class="line">    <span class="attr">footer:</span> <span class="string">source/_data/footer.njk</span> <span class="comment"># 用于添加萌备案的链接，必选项</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建<code>source/_data/</code>文件夹（注意有下划线），在文件夹内创建<code>styles.styl</code>和<code>footer.njk</code>。</p>
+</li>
+</ol>
+<h1 id="激活图标样式（可选项）"><a href="#激活图标样式（可选项）" class="headerlink" title="激活图标样式（可选项）"></a>激活图标样式（可选项）</h1><ol start="3">
+<li>打开<code>styles.styl</code>，增加以下代码：<figure class="highlight css"><figcaption><span>styles.styl</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 萌备案图标 */</span></span><br><span class="line"><span class="comment">/* 以下代码就是从源代码拷贝的，只改了个判断 */</span></span><br><span class="line">if (hexo-config(&#x27;<span class="selector-tag">footer</span><span class="selector-class">.moeicp</span><span class="selector-class">.enable</span>&#x27;) and hexo-config(&#x27;<span class="selector-tag">footer</span><span class="selector-class">.moeicp</span><span class="selector-class">.moeicon</span>&#x27;)) &#123;</span><br><span class="line">  <span class="selector-class">.beian</span> <span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">3px</span>;</span><br><span class="line">    <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.beian</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#ffffff</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 萌备案图标 END */</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：如果已经添加了工信部的备案，不用加这段代码。</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="新增页脚萌备案链接"><a href="#新增页脚萌备案链接" class="headerlink" title="新增页脚萌备案链接"></a>新增页脚萌备案链接</h1><ol start="4">
+<li>打开<code>footer.njk</code>，增加以下代码：<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">&#123;%- if theme.footer.moeicp.enable %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;beian&quot;</span>&gt;</span></span><br><span class="line">    &#123;%- if theme.footer.moeicp.moeicon %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&#123;&#123; url_for(theme.footer.moeicp.moeicon) &#125;&#125;&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&#123;&#123; &#x27;萌备案&#x27; + theme.footer.moeicp.number + &#x27;号&#x27; &#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">    &#123;%- endif %&#125;</span><br><span class="line">        &#123;&#123;- next_url(&#x27;https://icp.gov.moe/?keyword=&#x27; + theme.footer.moeicp.number, &quot;萌ICP备&quot; + theme.footer.moeicp.number + &quot;号&quot;) &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="新增站点配置下的属性"><a href="#新增站点配置下的属性" class="headerlink" title="新增站点配置下的属性"></a>新增站点配置下的属性</h1><ol start="5">
+<li><p>打开站点的<code>_config.yml</code>文件，在<code>footer</code>属性下添加以下子属性：</p>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">footer:</span></span><br><span class="line">  <span class="comment"># 萌备案</span></span><br><span class="line">  <span class="attr">moeicp:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># 是否开启萌备案页脚</span></span><br><span class="line">    <span class="attr">number:</span> <span class="number">20250777</span> <span class="comment"># 你的萌备案号</span></span><br><span class="line">    <span class="attr">moeicon:</span> <span class="string">/images/moeicon.png</span> <span class="comment"># 萌备案图标路径</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>完成。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hexo Next主题自定义背景</title>
+    <url>/2024/12/24/hexo-next-zhu-ti-zi-ding-yi-bei-jing/</url>
+    <content><![CDATA[<h1 id="保存图片"><a href="#保存图片" class="headerlink" title="保存图片"></a>保存图片</h1><p>将自己的图片命名为background保存到以下路径：<br><code>\themes\next\source\images</code></p>
+<h1 id="修改样式"><a href="#修改样式" class="headerlink" title="修改样式"></a>修改样式</h1><p>进入以下路径：<br><code>\themes\next\source\css\_schemes</code></p>
+<h2 id="选择当前使用的Hexo主题"><a href="#选择当前使用的Hexo主题" class="headerlink" title="选择当前使用的Hexo主题"></a>选择当前使用的Hexo主题</h2><p>进入上述路径后里面应该有四个文件夹（Gemini, Mist, Muse, Pisces），进入你现在用的这个主题的文件夹。</p>
+<h2 id="编辑index-styl文件"><a href="#编辑index-styl文件" class="headerlink" title="编辑index.styl文件"></a>编辑index.styl文件</h2><ol>
+<li><p>打开当前使用主题的<code>index.styl</code>文件，找到如下注释字段：</p>
+<figure class="highlight css"><figcaption><span>index.styl</span></figcaption><table><tr><td class="code"><pre><span class="line">// ==================================================</span><br><span class="line">// Desktop layout styles.</span><br><span class="line">// ==================================================</span><br><span class="line">// Post blocks.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在下面新增一行，添加如下代码：</p>
+<figure class="highlight css"><figcaption><span>index.styl</span></figcaption><table><tr><td class="code"><pre><span class="line">// 整体背景设置</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">/images/background.jpg</span>);// 设定背景图片,注意修改图片后缀</span><br><span class="line">	<span class="attribute">background-repeat</span>: no-repeat;// 设定背景图片非重复填充</span><br><span class="line">	<span class="attribute">background-attachment</span>:fixed;// 设置背景图片不随页面滚动</span><br><span class="line">	<span class="attribute">background-position</span>:<span class="number">50%</span> <span class="number">50%</span>;// 设置背景图片位置</span><br><span class="line">	<span class="attribute">background-size</span>: cover// 设置保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 设置透明度</span><br><span class="line"><span class="selector-class">.main-inner</span>&#123;</span><br><span class="line">	<span class="attribute">opacity</span>: <span class="number">0.95</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.header-inner</span>&#123;</span><br><span class="line">	<span class="attribute">opacity</span>: <span class="number">0.95</span>;</span><br><span class="line">	<span class="attribute">z-index</span>: <span class="number">10</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>代码引用自：<a href="https://splendidwave.github.io/2021/12/27/2021-12/Hexo-Next-%E8%87%AA%E5%AE%9A%E4%B9%89%E8%83%8C%E6%99%AF/">Hexo Next 自定义背景</a></p>
+</blockquote>
+</li>
+<li><p>清理和编译。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hexo 链接自动转拼音</title>
+    <url>/2025/01/08/hexo-lian-jie-zi-dong-zhuan-pin-yin/</url>
+    <content><![CDATA[<p>于是我用了 hexo-permalink-pinyin 这个插件直接将链接转换为拼音。<br>我之前都会把标题翻译成英文，而我英文又不是很好，所以常常为取一个标题而苦恼，现在不用了(≧∀≦)ゞ</p>
+<blockquote>
+<p>注：除了此插件外，<a href="https://github.com/rozbo/hexo-abbrlink">hexo-abbrlink</a> 插件也可以生成非中文的链接，但 hexo-abbrlink 插件生成的是随机链接。</p>
+</blockquote>
+<ol>
+<li><p>安装<code>hexo-permalink-pinyin</code><br>安装命令如下：</p>
+<div class="tabs" id="order"><ul class="nav-tabs"><li class="tab active"><a href="#order-1">npm</a></li><li class="tab"><a href="#order-2">yarn</a></li><li class="tab"><a href="#order-3">pnpm</a></li></ul><div class="tab-content"><div class="tab-pane active" id="order-1"><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i hexo-permalink-pinyin --save</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="order-2"><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yarn add hexo-permalink-pinyin</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="order-3"><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pnpm add hexo-permalink-pinyin</span><br></pre></td></tr></table></figure></div></div></div>
+<blockquote>
+<p>GitHub：<a href="https://github.com/viko16/hexo-permalink-pinyin">hexo-permalink-pinyin</a></p>
+</blockquote>
+</li>
+<li><p>修改配置<br>在<code>Hexo</code>的<code>_config.yml</code>文件下新增以下配置项：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink_pinyin:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># 启用插件</span></span><br><span class="line">  <span class="attr">separator:</span> <span class="string">&#x27;-&#x27;</span> <span class="comment"># 分词符，将使用此符号分隔两个汉字间的拼音</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>完成</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Linux之Docker安装与配置</title>
+    <url>/2022/07/27/linux-zhi-docker-an-zhuang-yu-pei-zhi/</url>
+    <content><![CDATA[<p>第一步：检查系统是否已安装Docker，回车后未返回任何信息就可以进行手动安装。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum list installed | grep docker</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/dockercommon/dockersetup-1.jpg"></p>
+<p>第二步：使用yum安装docker。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install docker</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/dockercommon/dockersetup-2.jpg"></p>
+<p>第三步：检查安装项无误后，输入y开始安装。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">y</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/dockercommon/dockersetup-3.jpg"></p>
+<p>第四步：安装完成（出现“Complete！”）后，启动Docker。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/dockercommon/dockersetup-4.jpg"></p>
+<p>第五步：检查Docker运行状态，出现绿色active字样即正常运行。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl status docker</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/dockercommon/dockersetup-5.jpg"></p>
+<p>第六步：将Docker设置为开机自启。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl enable docker.service</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/dockercommon/dockersetup-6.jpg"></p>
+<p>至此已配置完毕</p>
+<p>关闭Docker开机自启指令。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl disable docker.service</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Linux之rpm包安装与卸载</title>
+    <url>/2022/07/11/linux-zhi-rpm-bao-an-zhuang-yu-xie-zai/</url>
+    <content><![CDATA[<p>*&lt;&gt;内为解释内容，无需输入</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>基本语法：rpm -ivh &lt;rpm包（路径）全称&gt;<br>参数说明：<br>i-install 安装<br>v-verbose 提示<br>h-hash 进度条</p>
+<h1 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h1><p>基本语法：rpm -e &lt;rpm包部全称&gt;<br>一般卸载步骤（举例java jdk）：<br>1、查询包是否存在（模糊搜索，无需全称）：rpm -qa | grep jdk<br>2、卸载：rpm -e &lt;rpm包部分名称或全称&gt;</p>
+<p>卸载注意事项<br>如果其它软件包正依赖于将要卸载的软件包，卸载时会产生错误信息。<br>如果要强制卸载，可以加入参数 -–nodeps（例如：rpm -e –nodeps jdk），不过一般不推荐这样做，可能导致正在依赖该包运行的程序出现问题。<br>站长不是专业人士，如果你和我一样只用于开Minecraft服务器，那么下一条注意事项可以忽略。<br>如果出现类似&lt;warning:XXX.rpm: Header V3 RSA&#x2F;SHA256 Signature, key ID XXX: NOKEY&gt;的警告，这可能是由于安装版本与系统中其它的库文件版本不一致导致的，也可能是未导入公匙导致的。对于业余人士如果最终程序运行正常，可以忽略，专业或商业人士请谨慎对待。</p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Minecraft报错之</title>
+    <url>/2025/02/24/minecraft-bao-cuo-zhi/</url>
+    <content><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>最近自己的MC服务器突然上不去了，具体现象是可以Ping通，但报错：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#中文</span><br><span class="line">登录失败：身份验证目前正在停机维护。</span><br><span class="line"></span><br><span class="line">#英文</span><br><span class="line">Failed to login: The authentication are currently down for maintenance.</span><br></pre></td></tr></table></figure>
+
+<p>经过检查，结论是我们这片区域微软的DNS被污染了，导致无法解析到Mojang的身份验证服务器。</p>
+<h1 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h1><h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ol>
+<li>启用了正版验证。</li>
+<li>服务器可以Ping通并冒绿灯。</li>
+</ol>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li>使用<a href="https://www.dogfight360.com/blog/">羽翼城</a>大佬的<code>UsbEAm Hosts Editor</code>工具。</li>
+<li>在工具内选择<code>In Game - 游戏内相关</code> - <code>我的世界 登陆器API/游戏/皮肤下载</code>。</li>
+<li>点击<code>检测延迟</code>，选中<code>延迟最低的IP</code>，再点击<code>应用选中</code>。</li>
+<li>问题至此解决。<blockquote>
+<ol>
+<li>以上方式基于 Windows (Server) 操作系统，如果你的服务端是Linux系统，那么可以在<code>应用选中</code>后点击<code>编辑Hosts</code>，将同样的Hosts规则应用到服务器。</li>
+<li>如果你和服务器较近，那么你可能需要在<code>本地和服务器</code>都进行以上操作。</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<h1 id="发现过程"><a href="#发现过程" class="headerlink" title="发现过程"></a>发现过程</h1><blockquote>
+<p>只是分享一下是如何发现的，如果你对此没兴趣可以就此离开了~</p>
+</blockquote>
+<p>起初碰到这个问题，我第一时间就去问了DeepSeek和GPT之类的AI，无一例外都没有给出问题的具体解决方式，不是建议去Mojang的论坛就是自己去查Mojang服务器的解析状态，而这种国内特供的问题去那边问估计人家多半也会是此类说辞。<br><img src="/../images/diary/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E4%B9%8BAI%E9%A1%BE%E9%97%AE.jpg"><br>于是我就想着等一天吧，服务器人不多都是自己朋友，等上游DNS重新缓存了问题应该就自己解决了，结果等了2天还是不行，坐不住了。秉承着能懒就懒原则，在找解决方法之初，我的想法是会不会是服务器那边把Mojang墙了（虽然几乎不可能）。为了验证猜想，而我又是 Windows Server 系统，就整出了一个神奇的操作：在我服务器上装了个正经加速器（不是魔法）。<br>此时再进服务器，还是进不去，不过此时有一个细微的变化被我发现了，服务端能连上验证服务器了。于是就想会不会是我本地的问题，于是在本地我开了另外一个加速器，哦呼！还真可以进去了。至此得出结论，并不是被墙了，而是我们这片区域微软的DNS被污染了。于是到了这儿就好办了，把加速器删干净，把服务器和本地的Hosts改了下就好了，微软的DNS被污染也是常见的事了233。</p>
+]]></content>
+      <categories>
+        <category>Minecraft</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Minecraft独显运行</title>
+    <url>/2022/07/09/minecraft-du-xian-yun-xing/</url>
+    <content><![CDATA[<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>适用显卡：英伟达（NVIDIA）<br>有疑问欢迎加QQ群：710218163</p>
+<h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><p>确保已安装英伟达显卡驱动：官网</p>
+<h1 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h1><p>第一步：启动Minecraft（任意版本）。</p>
+<p>第二步：最小化Minecraft窗口，或使用“Alt+Tab”键切换至其他窗口（不要关闭游戏）。</p>
+<p>第三步：打开任务管理器（快捷键“Ctrl+Alt+Delete”）。</p>
+<p>第四步：找到”Java(TM) xxxxx”进程，单击右键，选择“打开文件所在的位置”。</p>
+<p><img src="/../images/mcnvidia/mcnvidia1.jpg"><br><img src="/../images/mcnvidia/mcnvidia2.jpg"></p>
+<p>第五步：此时会自动打开一个文件夹，并自动选中一个文件（并非人为选中），记住自动选中的这个文件名（可能是“java.exe”，也可能是“javaw.exe”，以它自动选中的为主），演示中为“javaw.exe”。</p>
+<p><img src="/../images/mcnvidia/mcnvidia3.jpg"></p>
+<p>第六步：左键单击上方路径，复制完整路径。</p>
+<p><img src="/../images/mcnvidia/mcnvidia4.jpg"></p>
+<p>第七步：打开“英伟达控制面板”（安装了驱动才有）。</p>
+<p>第八步：点击“英伟达控制面板”左侧中的“管理3D设置”，再点击右侧“程序设置”。</p>
+<p>第九步：点击添加，再点击“浏览”，在弹出的窗口中，单击路径，将复制的路径粘贴进去并回车，打开|第六步|中记下的文件名。</p>
+<p><img src="/../images/mcnvidia/mcnvidia5.jpg"></p>
+<p>第十步：将“为此程序选择首选图形处理器”，更改为“高性能NVIDIA处理器”，最后点击应用。</p>
+<p><img src="/../images/mcnvidia/mcnvidia6.jpg"></p>
+<p>第十一步：重启游戏，进入光影包选择界面，如果显示为”NVIDIA GeForce XXXX“则设置成功。</p>
+<p><img src="/../images/mcnvidia/mcnvidia7.jpg"></p>
+]]></content>
+      <categories>
+        <category>Minecraft</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>SpigotMC配置Proxy</title>
+    <url>/2024/02/08/spigotmc-pei-zhi-proxy/</url>
+    <content><![CDATA[<p>Proxy运行指令：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java -Dhttp.proxyHost=&#123;IP&#125; -Dhttp.proxyPort=&#123;PORT&#125; -Dhttps.proxyHost=&#123;IP&#125; -Dhttps.proxyPort=&#123;PORT&#125; -jar BuildTools.jar</span><br></pre></td></tr></table></figure>
+
+<p>例如</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java -Dhttp.proxyHost=<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> -Dhttp.proxyPort=<span class="number">1234</span> -Dhttps.proxyHost=<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> -Dhttps.proxyPort=<span class="number">1234</span> -jar BuildTools.jar --rev latest</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Minecraft</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Unity切换场景不销毁物体</title>
+    <url>/2022/10/18/unity-qie-huan-chang-jing-bu-xiao-hui-wu-ti/</url>
+    <content><![CDATA[<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight csharp"><figcaption><span>DontDestroyOnLoad.cs</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 加载场景时不删除的物体</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">DontDestroyOnLoad</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//加载场景时不销毁的物体</span></span><br><span class="line">    <span class="keyword">public</span> GameObject[] DontDestroyObjects;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//是否已经存在DontDestroy的物体</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="built_in">bool</span> isExist;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//-------------------------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Awake</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!isExist)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//如果第一次加载，将这些物体设为DontDestroy</span></span><br><span class="line">                DontDestroyOnLoad(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            isExist = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; DontDestroyObjects.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//如果已经存在，则删除重复的物体</span></span><br><span class="line">                Destroy(DontDestroyObjects[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//-------------------------------------------------------------------------------</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Unity打包Xcode项目报错</title>
+    <url>/2022/08/23/unity-da-bao-xcode-xiang-mu-bao-cuo/</url>
+    <content><![CDATA[<p>报错主要内容<br><code>tundra: error: Failed to open file “xxxx/Library/Il2cppBuidCache/…..”</code></p>
+<p><img src="/../images/unityxcodefix/1.jpg"></p>
+<p>解决步骤已在图中说明</p>
+<p><img src="/../images/unityxcodefix/2.jpg"><br><img src="/../images/unityxcodefix/3.jpg"><br><img src="/../images/unityxcodefix/4.jpg"><br><img src="/../images/unityxcodefix/5.jpg"></p>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Unity打包上传AppStore后显示语言为英文</title>
+    <url>/2022/08/22/unity-da-bao-shang-chuan-appstore-hou-xian-shi-yu-yan-wei-ying-wen/</url>
+    <content><![CDATA[<p>怕再次遗忘，故做下此笔记。</p>
+<p>解决前</p>
+<p><img src="/../images/appstorelang/before.jpg"></p>
+<p>熟人的游戏，自己的解决前没截图，凑合下:)</p>
+<p>解决后</p>
+<p><img src="/../images/appstorelang/after.jpg"></p>
+<p>解决步骤已在图中说明</p>
+<p><img src="/../images/appstorelang/after.jpg"><br><img src="/../images/appstorelang/pic-1.jpg"><br><img src="/../images/appstorelang/pic-2.jpg"><br><img src="/../images/appstorelang/pic-3.jpg"><br><img src="/../images/appstorelang/pic-4.jpg"><br><img src="/../images/appstorelang/pic-5.jpg"><br><img src="/../images/appstorelang/pic-6.jpg"><br><img src="/../images/appstorelang/pic-7.jpg"><br><img src="/../images/appstorelang/pic-8.jpg"></p>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Unity相机抖动</title>
+    <url>/2022/08/19/unity-xiang-ji-dou-dong/</url>
+    <content><![CDATA[<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight csharp"><figcaption><span>ShakeCamera.cs</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ShakeCamera</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> Vector3 shakePos = Vector3.zero;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Use this for initialization</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Update is called once per frame</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 按住空格键，画面会一直抖动；松开按键，抖动结束</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(Input.GetKey(KeyCode.Space))</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localPosition -= shakePos;</span><br><span class="line">            shakePos = Random.insideUnitSphere / <span class="number">5.0f</span>;</span><br><span class="line">            transform.localPosition += shakePos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Unity接入GameCenter</title>
+    <url>/2022/09/01/unity-jie-ru-gamecenter/</url>
+    <content><![CDATA[<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight csharp"><figcaption><span>IOSManager.cs</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.SocialPlatforms;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.SocialPlatforms.GameCenter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">IOSManager</span> : <span class="title">MonoBehaviour</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">bool</span>   GameCenterState;</span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">string</span> userInfo;</span><br><span class="line">	<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> 初始化 GameCenter 登陆</span></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Start</span> ()</span> &#123;</span><br><span class="line">		Social.localUser.Authenticate(HandleAuthenticated);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> 初始化 GameCenter 结果回调函数</span></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;success&quot;&gt;</span>If set to <span class="doctag">&lt;c&gt;</span>true<span class="doctag">&lt;/c&gt;</span> success.<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">HandleAuthenticated</span>(<span class="params"><span class="built_in">bool</span> success</span>)</span></span><br><span class="line">	&#123;</span><br><span class="line">		GameCenterState = success;</span><br><span class="line">		Debug.Log(<span class="string">&quot;*** HandleAuthenticated: success = &quot;</span> + success);</span><br><span class="line">		<span class="comment"><span class="doctag">///</span>初始化成功</span></span><br><span class="line">		<span class="keyword">if</span> (success) &#123;</span><br><span class="line">			userInfo = <span class="string">&quot;Username: &quot;</span> + Social.localUser.userName +</span><br><span class="line">				<span class="string">&quot;\nUser ID: &quot;</span> + Social.localUser.id +</span><br><span class="line">				<span class="string">&quot;\nIsUnderage: &quot;</span> + Social.localUser.underage;</span><br><span class="line">			Debug.Log (userInfo);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment"><span class="doctag">///</span>初始化失败</span></span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">OnGUI</span>()</span>&#123;</span><br><span class="line"></span><br><span class="line">		GUI.TextArea ( <span class="keyword">new</span> Rect( Screen.width <span class="number">-200</span>, <span class="number">0</span>, <span class="number">200</span>, <span class="number">100</span>), <span class="string">&quot;GameCenter:&quot;</span>+GameCenterState  );</span><br><span class="line">		GUI.TextArea ( <span class="keyword">new</span> Rect( Screen.width <span class="number">-200</span>, <span class="number">100</span>, <span class="number">200</span>, <span class="number">100</span>), <span class="string">&quot;userInfo:&quot;</span>+userInfo  );</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (GUI.Button (<span class="keyword">new</span> Rect (<span class="number">0</span>, <span class="number">0</span>, <span class="number">110</span>, <span class="number">75</span>), <span class="string">&quot;打开成就&quot;</span>)) &#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ShowAchievementsUI();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (GUI.Button (<span class="keyword">new</span> Rect (<span class="number">0</span>, <span class="number">150</span>, <span class="number">110</span>, <span class="number">75</span>), <span class="string">&quot;打开排行榜&quot;</span>)) &#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ShowLeaderboardUI();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (GUI.Button (<span class="keyword">new</span> Rect (<span class="number">0</span>, <span class="number">300</span>, <span class="number">110</span>, <span class="number">75</span>), <span class="string">&quot;排行榜设置分数&quot;</span>)) &#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ReportScore(<span class="number">1000</span>, <span class="string">&quot;XXXX&quot;</span>, HandleScoreReported);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (GUI.Button (<span class="keyword">new</span> Rect (<span class="number">0</span>, <span class="number">300</span>, <span class="number">110</span>, <span class="number">75</span>), <span class="string">&quot;设置成就&quot;</span>)) &#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (Social.localUser.authenticated) &#123;</span><br><span class="line">				Social.ReportProgress(<span class="string">&quot;XXXX&quot;</span>, <span class="number">15</span>, HandleProgressReported);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">//上传排行榜分数</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">HandleScoreReported</span>(<span class="params"><span class="built_in">bool</span> success</span>)</span></span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(<span class="string">&quot;*** HandleScoreReported: success = &quot;</span> + success);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//设置 成就</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">HandleProgressReported</span>(<span class="params"><span class="built_in">bool</span> success</span>)</span></span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(<span class="string">&quot;*** HandleProgressReported: success = &quot;</span> + success);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> 加载好友回调</span></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;success&quot;&gt;</span>If set to <span class="doctag">&lt;c&gt;</span>true<span class="doctag">&lt;/c&gt;</span> success.<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">HandleFriendsLoaded</span>(<span class="params"><span class="built_in">bool</span> success</span>)</span></span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(<span class="string">&quot;*** HandleFriendsLoaded: success = &quot;</span> + success);</span><br><span class="line">		<span class="keyword">foreach</span>(IUserProfile friend <span class="keyword">in</span> Social.localUser.friends)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(<span class="string">&quot;* friend = &quot;</span> + friend.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> 加载成就回调</span></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;achievements&quot;&gt;</span>Achievements.<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">HandleAchievementsLoaded</span>(<span class="params">IAchievement[] achievements</span>)</span></span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(<span class="string">&quot;* HandleAchievementsLoaded&quot;</span>);</span><br><span class="line">		<span class="keyword">foreach</span>(IAchievement achievement <span class="keyword">in</span> achievements)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(<span class="string">&quot;* achievement = &quot;</span> + achievement.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">	<span class="comment"><span class="doctag">///</span></span></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> 成就回调描述</span></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">	<span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;achievementDescriptions&quot;&gt;</span>Achievement descriptions.<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">HandleAchievementDescriptionsLoaded</span>(<span class="params">IAchievementDescription[] achievementDescriptions</span>)</span></span><br><span class="line">	&#123;</span><br><span class="line">		Debug.Log(<span class="string">&quot;*** HandleAchievementDescriptionsLoaded&quot;</span>);</span><br><span class="line">		<span class="keyword">foreach</span>(IAchievementDescription achievementDescription <span class="keyword">in</span> achievementDescriptions)</span><br><span class="line">		&#123;</span><br><span class="line">			Debug.Log(<span class="string">&quot;* achievementDescription = &quot;</span> + achievementDescription.ToString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Unity获取Windows启动参数</title>
+    <url>/2022/10/18/unity-huo-qu-windows-qi-dong-can-shu/</url>
+    <content><![CDATA[<p>参加Unity开发比赛用的，多平台会有不同的启动参数。</p>
+<p>所有启动参数将存储在变量（数组）“arguments”中。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">string</span>[] arguments = Environment.GetCommandLineArgs();</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>VRChat Avatar座位数量上限</title>
+    <url>/2024/12/27/vrchat-avatar-zuo-wei-shu-liang-shang-xian/</url>
+    <content><![CDATA[<p>站点（也称为“座位”）允许其他玩家坐在<code>Avatar</code>的某些位置并与您一起移动。通常需要<code>Box Colliders</code>作为点击的区域。如果不存在碰撞器<code>Box Colliders</code>，<code>VRChat</code>将自动添加一个盒子碰撞器。</p>
+<p>一旦其他玩家坐在您的座位中，您就可以使用带着他们的<code>Avatar</code>一起移动。默认情况下，<code>VRChat</code>在坐在座位时会播放默认的坐姿。玩家可以通过在座位内移动来离开座位。</p>
+<blockquote>
+<p>站点限制：</p>
+<ol>
+<li>入口点和出口点之间的距离必须在<code>2</code>米以内。</li>
+<li>一个<code>Avatar</code>上只能有<code>6</code>个站点，多了就会被禁用。</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>已知冲突：</p>
+<ol>
+<li><code>ABT菜单</code>上有6个站点，可能会影响其他带座位的插件使用，需要删除部分<code>InteractPoint</code>对象。</li>
+</ol>
+<p>更多请看评论区。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Player Mobility</td>
+<td align="center">玩家在座位内是否可以走动<br>注意：对于<code>Avatar</code>，任何操作都会离开座位</td>
+</tr>
+<tr>
+<td align="center">Can Use Station From Station</td>
+<td align="center">是否允许玩家坐在本站点时进入其他站点</td>
+</tr>
+<tr>
+<td align="center">Animator Controller</td>
+<td align="center">用于替换座位上的<code>Avatar</code>的动作</td>
+</tr>
+<tr>
+<td align="center">Disable Station Exit</td>
+<td align="center">允许玩家步行而无需离开座位。在<code>VR</code>中扣动扳机即可退出站点<br>注意：这将在<code>Avatar</code>站点上设置为<code>false</code>，这些站点始终可以步行退出</td>
+</tr>
+<tr>
+<td align="center">Seated</td>
+<td align="center">角色的可玩图层的<code>Seated</code>布尔值是否设置为 True</td>
+</tr>
+<tr>
+<td align="center">Player Enter Location</td>
+<td align="center">玩家入座后将被传送到的位置</td>
+</tr>
+<tr>
+<td align="center">Player Exit Location</td>
+<td align="center">玩家离开座位时将离开的位置</td>
+</tr>
+<tr>
+<td align="center">API Object</td>
+<td align="center">对<code>Avatar</code>无用，可以忽略</td>
+</tr>
+</tbody></table>
+<p>相关文档：<a href="https://vrc.school/docs/Other/Stations/">VRC School</a></p>
+]]></content>
+      <categories>
+        <category>VRChat</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>VCC常用仓库汇总</title>
+    <url>/2024/12/24/vcc-chang-yong-cang-ku-hui-zong/</url>
+    <content><![CDATA[<h1 id="安装VCC"><a href="#安装VCC" class="headerlink" title="安装VCC"></a>安装VCC</h1><table>
+<thead>
+<tr>
+<th align="center"><strong>VRChat Creator Companion</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><a href="https://vrchat.com/home/download">VRChat Home - Download</a></td>
+</tr>
+</tbody></table>
+<h1 id="着色器"><a href="#着色器" class="headerlink" title="着色器"></a>着色器</h1><table>
+<thead>
+<tr>
+<th align="center"><strong>名称</strong></th>
+<th align="center"><strong>来源</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Poiyomi</td>
+<td align="center"><a href="vcc://vpm/addRepo?url=https%3A%2F%2Fpoiyomi.github.io/vpm/index.json">VCC</a></td>
+</tr>
+<tr>
+<td align="center">lilToon</td>
+<td align="center"><a href="vcc://vpm/addRepo?url=https://lilxyzw.github.io/vpm-repos/vpm.json">VCC</a></td>
+</tr>
+<tr>
+<td align="center">UnlitWF Shader</td>
+<td align="center"><a href="vcc://vpm/addRepo?url=https://whiteflare.github.io/vpm-repos/vpm.json">VCC</a></td>
+</tr>
+<tr>
+<td align="center">UTS2</td>
+<td align="center"><a href="https://github.com/unity3d-jp/UnityChanToonShaderVer2_Project">Github</a></td>
+</tr>
+<tr>
+<td align="center">ARK</td>
+<td align="center"><a href="https://github.com/arktoon-archive/arktoon">Github</a></td>
+</tr>
+<tr>
+<td align="center">Crystal Shader</td>
+<td align="center"><a href="https://github.com/zVoyder/Crystal-Shader">Github</a></td>
+</tr>
+<tr>
+<td align="center">Mochies</td>
+<td align="center"><a href="https://github.com/MochiesCode/Mochies-Unity-Shaders">Github</a></td>
+</tr>
+<tr>
+<td align="center">UniVRM v0.99.1</td>
+<td align="center"><a href="https://github.com/vrm-c/UniVRM/releases/tag/v0.99.1">Github</a></td>
+</tr>
+<tr>
+<td align="center">SunaoShader</td>
+<td align="center"><a href="https://booth.pm/ja/items/1723985">BOOTH</a></td>
+</tr>
+</tbody></table>
+<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><table>
+<thead>
+<tr>
+<th align="center"><strong>名称</strong></th>
+<th align="center"><strong>来源</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Modular Avatar</td>
+<td align="center"><a href="vcc://vpm/addRepo?url=https://vpm.nadena.dev/vpm.json">VCC</a></td>
+</tr>
+<tr>
+<td align="center">VRCFury</td>
+<td align="center"><a href="vcc://vpm/addRepo?url=https%3A%2F%2Fvcc.vrcfury.com">VCC</a></td>
+</tr>
+<tr>
+<td align="center">VRCQuestTools</td>
+<td align="center"><a href="vcc://vpm/addRepo?url=https://kurotu.github.io/vpm-repos/vpm.json">VCC</a></td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>VRChat</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>VRChat插件之“Kiss blowing System”</title>
+    <url>/2024/12/24/vrchat-cha-jian-zhi-kiss-blowing-system/</url>
+    <content><![CDATA[<h1 id="安装-MA"><a href="#安装-MA" class="headerlink" title="安装 MA"></a>安装 MA</h1><table>
+<thead>
+<tr>
+<th align="center"><strong>Modular Avatar</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><a href="vcc://vpm/addRepo?url=https://vpm.nadena.dev/vpm.json">一键添加至VCC</a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://modular-avatar.nadena.dev/">官网</a></td>
+</tr>
+</tbody></table>
+<h1 id="安装-liltoon-或-Poi"><a href="#安装-liltoon-或-Poi" class="headerlink" title="安装 liltoon 或 Poi"></a>安装 liltoon 或 Poi</h1><center><span style="color: red;">二选一</span></center>
+
+<table>
+<thead>
+<tr>
+<th align="center"><strong>liltoon</strong></th>
+<th align="center"><strong>Poiyomi Shader</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><a href="vcc://vpm/addRepo?url=https://lilxyzw.github.io/vpm-repos/vpm.json">一键添加至VCC</a></td>
+<td align="center"><a href="vcc://vpm/addRepo?url=https%3A%2F%2Fpoiyomi.github.io/vpm/index.json">一键添加至VCC</a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://lilxyzw.github.io/lilToon/ja_JP/">官网</a></td>
+<td align="center"><a href="https://www.poiyomi.com/">官网</a></td>
+</tr>
+</tbody></table>
+<h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><p>1、把“Kissing system xxx”（装的哪个着色器就用哪个）拖到你的“Avatar”中。<br><code>具体路径：Assets/Melting3D/kiss/Prefab</code><br><img src="/../images/vrckissblowingsystem/1.jpg"><br>2、在“Hierarchy”中右键“Kissing system xxx”，Prefab –&gt; Unpack completely<br><img src="/../images/vrckissblowingsystem/2.jpg"><br>3、将所有子物体拖到“Avatar”中（与“armature”同级）<br><img src="/../images/vrckissblowingsystem/3.jpg"><br>4、将“Kissing system xxx”中的“MA Merge Animator”设置如下<br><img src="/../images/vrckissblowingsystem/4.jpg"><br>5、完成</p>
+<p>不给文档还在那儿卖插件的作者是屑。</p>
+]]></content>
+      <categories>
+        <category>VRChat</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>不过如此的碎碎念</title>
+    <url>/2024/12/29/bu-guo-ru-ci-de-sui-sui-nian-1/</url>
+    <content><![CDATA[<p>审了一晚上的原片还剩90分钟，后面还要初稿，定稿，粗剪，精剪，配音配乐，校对字幕，叽里呱啦叽里呱啦…<br>遇事不决，先改改博客的源码，给头像和播放器加了个圆角，看着舒服多了。</p>
+]]></content>
+      <categories>
+        <category>碎碎念</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>不过如此的碎碎念</title>
+    <url>/2024/12/30/bu-guo-ru-ci-de-sui-sui-nian-2/</url>
+    <content><![CDATA[<p>草稿完成了！剪辑前10个G，剪完后12个G…<br>给孩子喂胖了。</p>
+<p>在达芬奇中要想使用裁切功能的话，如果视频已经切割成了多段，但又想一起裁切，得复合片段…<br>经验+3</p>
+]]></content>
+      <categories>
+        <category>碎碎念</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>新视频系列进度</title>
+    <url>/2025/01/04/bu-guo-ru-ci-de-sui-sui-nian-3/</url>
+    <content><![CDATA[<p>立项2天了，上面绿条是需要完成的进度，下面则目前是已完成的进度。<br>目前还是马力全开的状态，按照这个进度估计15天可以肝完一个视频。<br>可事实上我不可能每天都这么精神抖擞(つд⊂)</p>
+<p><img src="/../images/diary/3.jpg"></p>
+]]></content>
+      <categories>
+        <category>碎碎念</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>关于代码高亮</title>
+    <url>/2025/01/04/bu-guo-ru-ci-de-sui-sui-nian-4/</url>
+    <content><![CDATA[<p>菜菜的我，之前不知从哪里看到的一篇文章，教我代码块直接用<code>反引号</code>就能显示代码块。<br>虽然确实没问题，行号也有，但后来我想加高亮的时候却发现怎么都不成功。<br>后来看了<a href="https://hexo.io/zh-cn/docs/syntax-highlight">官方文档</a>才知道原来要这么用<br>…哎，就不该偷这个懒，还得是官方文档｡ﾟ(ﾟ´ω&#96;ﾟ)ﾟ｡</p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>不过如此的碎碎念</title>
+    <url>/2025/01/22/bu-guo-ru-ci-de-sui-sui-nian-5/</url>
+    <content><![CDATA[<p>以前就觉得做杂谈、解说类视频很难，现在亲自做起来…原来那真是处处难……<br>新年1月已接近尾声，而我新视频制作的总进度才12.5%……<br><img src="/../images/diary/%E8%A1%A8%E6%83%85%E5%8C%85-%E7%8C%AB%E7%8C%AB%E5%93%AD%E6%B3%A3.jpg"></p>
+]]></content>
+      <categories>
+        <category>碎碎念</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>不过如此的碎碎念</title>
+    <url>/2024/12/28/bu-guo-ru-ci-de-sui-sui-nian/</url>
+    <content><![CDATA[<p>感觉自己有些懒惰了，打算新开一个分类写一些日常的碎碎念。（这些内容并没有干货）<br>如果想要带点干货的文章，就看看旁边分类里的其他文章吧 :)</p>
+<p>接下来，我要开始剪辑一部时长长达6小时的视频。这也是我首次剪一部这么长的视频，希望达芬奇不会崩溃。<br>而这一切的动力，都源自于高瞰老师的作品。<br>总之，一鼓作气！</p>
+<p>Ctrl+S，Ctrl+S，Ctrl+S…牢记在心。</p>
+]]></content>
+      <categories>
+        <category>碎碎念</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>使用卡巴斯基记录QQ扫描内存</title>
+    <url>/2025/01/08/shi-yong-qia-ba-si-ji-ji-lu-qq-sao-miao-nei-cun/</url>
+    <content><![CDATA[<blockquote>
+<p>声明：我很喜欢用QQ，这篇文章只是单纯从技术角度分析一些问题。</p>
+</blockquote>
+<ol>
+<li><p>打开卡巴斯基左下角的<code>设置</code>。<br><img src="/../images/kasperskyandqq/1.jpg"></p>
+</li>
+<li><p>依次<code>打开保护-应用程序控制</code>。<br><img src="/../images/kasperskyandqq/2.jpg"></p>
+</li>
+<li><p>打开<code>管理应用程序</code>。<br><img src="/../images/kasperskyandqq/3.jpg"></p>
+</li>
+<li><p>在搜索框搜索图中所示字段。<br><img src="/../images/kasperskyandqq/4.jpg"></p>
+</li>
+<li><p>在<code>组</code>上单击右键，选择<code>详情和规则</code>。<br><img src="/../images/kasperskyandqq/5.jpg"></p>
+</li>
+<li><p>依次进入到<code>访问其他进程-入侵其他进程-读取其他进程的内存</code>。<br><img src="/../images/kasperskyandqq/6.jpg"><br><img src="/../images/kasperskyandqq/7.jpg"></p>
+</li>
+<li><p>那个<code>红色的</code>选项<code>根据自己的需求</code>选择。</p>
+</li>
+<li><p>勾上<code>记录事件</code>，最后<code>保存</code>。</p>
+</li>
+<li><p>现在，只要是这个组内的程序，该类型的事件都会被<code>记录</code>。</p>
+</li>
+<li><p>查看记录：<code>卡巴斯基主界面-更多工具-报告-应用程序控制</code>。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>修复WordPress更换域名后资源URL失效</title>
+    <url>/2023/09/20/xiu-fu-wordpress-geng-huan-yu-ming-hou-zi-yuan-url-shi-xiao/</url>
+    <content><![CDATA[<p>尝试直接换了新域名，后果是…网页、数据库和网页里关联的资源全挂了哈哈哈，不过总算修复好了嘎。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> pb_posts <span class="keyword">SET</span> post_content <span class="operator">=</span> REPLACE( post_content, <span class="string">&#x27;旧域名&#x27;</span>, <span class="string">&#x27;新域名&#x27;</span> );</span><br></pre></td></tr></table></figure>
+
+<p>还需要修改“x_posts”表中的“post_content”字段，和“x_postmeta”中的“meta_value”字段，都是这条指令。</p>
+<blockquote>
+<p>虽然现在已经更换了hexo，但还是留个作死的纪念吧:p</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>修改Hexo Next主题页脚备案</title>
+    <url>/2025/01/01/xiu-gai-hexo-next-zhu-ti-ye-jiao-bei-an/</url>
+    <content><![CDATA[<blockquote>
+<p>此方法比较暴力，只适合<code>临时用</code>或者<code>只需要萌备案</code>可以参考。<br>已参照官方文档重写了页脚，萌备案请参考新发布的文章。</p>
+<a href="/2025/01/10/hexo-next-zhu-ti-tian-jia-meng-bei-an/" title="Hexo Next主题添加萌备案">查看文章</a>
+</blockquote>
+<h1 id="修改footer-njk"><a href="#修改footer-njk" class="headerlink" title="修改footer.njk"></a>修改<code>footer.njk</code></h1><p>将代码：</p>
+<figure class="highlight xml"><figcaption><span>footer.njk</span></figcaption><table><tr><td class="code"><pre><span class="line">&#123;%- if theme.footer.beian.enable %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;beian&quot;</span>&gt;</span></span><br><span class="line">    &#123;&#123;- next_url(&#x27;https://beian.miit.gov.cn&#x27;, theme.footer.beian.icp + &#x27; &#x27;) &#125;&#125;</span><br><span class="line">    &#123;%- if theme.footer.beian.gongan_icon_url %&#125;</span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&#123;&#123; url_for(theme.footer.beian.gongan_icon_url) &#125;&#125;&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">    &#123;%- endif %&#125;</span><br><span class="line">    &#123;%- if theme.footer.beian.gongan_id and theme.footer.beian.gongan_num %&#125;</span><br><span class="line">      &#123;&#123;- next_url(&#x27;https://beian.mps.gov.cn/#/query/webSearch?code=&#x27; + theme.footer.beian.gongan_id, theme.footer.beian.gongan_num + &#x27; &#x27;) &#125;&#125;</span><br><span class="line">    &#123;%- endif %&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改为：</p>
+<figure class="highlight xml"><figcaption><span>footer.njk</span></figcaption><table><tr><td class="code"><pre><span class="line">&#123;%- if theme.footer.beian.enable %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;beian&quot;</span>&gt;</span></span><br><span class="line">    &#123;%- if theme.footer.beian.gongan_icon_url %&#125;</span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&#123;&#123; url_for(theme.footer.beian.gongan_icon_url) &#125;&#125;&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">    &#123;%- endif %&#125;</span><br><span class="line">    &#123;%- if theme.footer.beian.gongan_id and theme.footer.beian.gongan_num %&#125;</span><br><span class="line">      &#123;&#123;- next_url(&#x27;https://icp.gov.moe/?keyword=&#x27; + theme.footer.beian.gongan_id, theme.footer.beian.gongan_num + &#x27; &#x27;) &#125;&#125;</span><br><span class="line">    &#123;%- endif %&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="修改Next主题的-config-yml"><a href="#修改Next主题的-config-yml" class="headerlink" title="修改Next主题的_config.yml"></a>修改<code>Next</code>主题的<code>_config.yml</code></h1><p>将属性：</p>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">beian:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">icp:</span> </span><br><span class="line">  <span class="attr">gongan_id:</span> </span><br><span class="line">  <span class="attr">gongan_num:</span> </span><br><span class="line">  <span class="attr">gongan_icon_url:</span> </span><br></pre></td></tr></table></figure>
+
+<p>修改为：</p>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">beian:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># icp: </span></span><br><span class="line">  <span class="attr">gongan_id:</span> <span class="string">XXXXXXXX</span></span><br><span class="line">  <span class="attr">gongan_num:</span> <span class="string">萌ICP备XXXXXXXX号</span></span><br><span class="line">  <span class="attr">gongan_icon_url:</span> </span><br></pre></td></tr></table></figure>
+
+<h1 id="添加萌备案的图标（可选）"><a href="#添加萌备案的图标（可选）" class="headerlink" title="添加萌备案的图标（可选）"></a>添加萌备案的图标（可选）</h1><ol>
+<li>下载<a href="https://icp.gov.moe/moe-icon.zip">图标包</a>，将<code>moe-icon</code>文件夹解压到<code>source</code>文件夹下。</li>
+<li>打开<code>Next</code>主题footer的样式文件，修改页脚icon大小，参考路径：<blockquote>
+<p>themes\hexo-theme-next\layout_partials\footer.njk</p>
+</blockquote>
+</li>
+<li>搜索<code>if (hexo-config(&#39;footer.beian.enable&#39;) and hexo-config(&#39;footer.beian.gongan_icon_url&#39;))</code>。</li>
+<li>将这段代码修改成以下这样（其实只是设定了下图标大小）：<figure class="highlight css"><figcaption><span>footer.njk</span></figcaption><table><tr><td class="code"><pre><span class="line">if (hexo-config(&#x27;<span class="selector-tag">footer</span><span class="selector-class">.beian</span><span class="selector-class">.enable</span>&#x27;) and hexo-config(&#x27;<span class="selector-tag">footer</span><span class="selector-class">.beian</span><span class="selector-class">.gongan_icon_url</span>&#x27;)) &#123;</span><br><span class="line">  <span class="selector-class">.beian</span> <span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">3px</span>;</span><br><span class="line">    <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">20px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>在上一步中的属性<code>gongan_icon_url</code>中添加<code>./moe-icon/icon120.png</code>。</li>
+<li>完成。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>像素宝可梦教程配套资源</title>
+    <url>/2022/06/21/xiang-su-bao-ke-meng-jiao-cheng-pei-tao-zi-yuan/</url>
+    <content><![CDATA[<p>就决定是你了！</p>
+<p>适用MC版本：1.12.2<br>适用Forge版本：1.12.2 – 14.23.5.2860</p>
+<p>教程：<a href="https://www.bilibili.com/video/BV1wr4y1472C">哔哩哔哩</a></p>
+<p>资源：<a href="https://pan.baidu.com/s/16nHLeQgT8CqllzJQAzbItQ?pwd=1rnw">百度云</a><br>资源出处：<a href="https://www.planetminecraft.com/">Planet Minecraft Community</a></p>
+]]></content>
+      <categories>
+        <category>Minecraft</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>发现一件比较抽象的事儿</title>
+    <url>/2025/01/08/fa-xian-yi-jian-bi-jiao-chou-xiang-de-shi-er/</url>
+    <content><![CDATA[<p>花了点时间研究了站点地图，提交了<code>sitemap</code>之后，谷歌这边倒是完美无瑕。<br>而必应这边则是全自动爬取，它除了抓取了我的<code>sitemap</code>外，还抓取了<code>atom</code>就有点抽象了，于是我就在<code>robot.txt</code>里新增了一条。<br>我不懂这些，感到抽象是因为谷歌只需要这一个文件，而必应都给抓去了，两文件大小也是相差巨大。<br>这个是我插件自动生成的站内搜索文件，怎么就被当站点地图了，还是说必应会抓取目录下所有的xml文件(*´･д･)?</p>
+]]></content>
+      <categories>
+        <category>碎碎念</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>国内激活Meta Quest</title>
+    <url>/2024/08/20/guo-nei-ji-huo-meta-quest/</url>
+    <content><![CDATA[<blockquote>
+<p>oculus助手已更新，界面有较大变化，连接方式由原<code>开热点</code>的方式变为<code>修改IP和网关</code>，该教程仅供参考。</p>
+</blockquote>
+<h1 id="注册Quest账号"><a href="#注册Quest账号" class="headerlink" title="注册Quest账号"></a>注册Quest账号</h1><p>注意：所有步骤都需要在魔法环境进行。用电脑下载安装游戏除外。</p>
+<h2 id="注册方式-邮箱注册"><a href="#注册方式-邮箱注册" class="headerlink" title="注册方式-邮箱注册"></a>注册方式-邮箱注册</h2><p><a href="https://auth.meta.com/">Meta网页版（推荐）</a><br><a href="https://apps.apple.com/gb/app/meta-horizon/id1366478176?uo=2">Meta苹果版应用</a><br><a href="https://play.google.com/store/apps/details?id=com.oculus.twilight">Meta安卓版应用</a><br>*苹果版需要外区商店。<br>*安卓版如果没有谷歌商店，可使用<a href="https://www.chujingapp.com/">出境易</a></p>
+<h2 id="开启Meta账号两步验证-必须"><a href="#开启Meta账号两步验证-必须" class="headerlink" title="开启Meta账号两步验证-必须"></a>开启Meta账号两步验证-必须</h2><p>下载两步验证器（2fas-authenticator）<br><a href="https://apps.apple.com/cn/app/2fa-authenticator-2fas/id1217793794">苹果版</a><br><a href="https://play.google.com/store/apps/details?id=com.twofasapp">安卓版</a></p>
+<h2 id="开启两步验证"><a href="#开启两步验证" class="headerlink" title="开启两步验证"></a>开启两步验证</h2><p>大致步骤：<br>1、前往Meta个人中心（<a href="https://accountscenter.meta.com/">点击直达</a>）<br>2、选择<code>Password and security -&gt; Two-factor authentication -&gt; 你的账号 -&gt; Authentication app</code>，选择后它会给你一个二维码，不要关闭窗口<br><img src="/../images/metaaccount/twofactor.jpg"><br>3、打开刚才下载的手机软件（两步验证器），点击<code>+</code>号，扫描二维码。<br>当有6位数在你手机软件上生成后回到网页，填写备注保存提交。<br>4、此时<code>Authentication app</code>这里应该显示为<code>Recommended</code>，大功告成（暂时）。<br><img src="/../images/metaaccount/two-recommended.jpg"></p>
+<h1 id="激活Meta-Quest"><a href="#激活Meta-Quest" class="headerlink" title="激活Meta Quest"></a>激活Meta Quest</h1><p>必须使用手机软件激活，并给予必要权限（蓝牙，定位，发现本地&#x2F;附近设备等权限）</p>
+<h2 id="下载Meta-Horizon应用"><a href="#下载Meta-Horizon应用" class="headerlink" title="下载Meta Horizon应用"></a>下载Meta Horizon应用</h2><p><a href="https://apps.apple.com/gb/app/meta-horizon/id1366478176?uo=2">Meta苹果版应用</a><br><a href="https://play.google.com/store/apps/details?id=com.oculus.twilight">Meta安卓版应用</a><br>*苹果版需要外区商店。<br>*安卓版如果没有谷歌商店，可使用<a href="https://www.chujingapp.com/">出境易</a></p>
+<h2 id="开启Meta-Quest专用热点"><a href="#开启Meta-Quest专用热点" class="headerlink" title="开启Meta Quest专用热点"></a>开启Meta Quest专用热点</h2><p>1、需要有网卡并搭载Windows系统的电脑（人话：可以连Wifi的Windows电脑）。<br>2、下载<a href="https://ochelper.xlemon.cn/home.html">oculus助手</a>。需要暂时关闭杀软，部分杀软会误报毒，实测安装后没有病毒。<br>安装完后根据软件提示完成Quest热点开启，并在进入到Quest系统之前不要关闭软件。<br><img src="/../images/metaaccount/ochelper.jpg"><br>3、首次激活建议充值流量包，最低档就够了，实测免费流量包完全不够用。<br>4、在Quest上连接<code>oculus助手</code>上显示的热点，开始自动激活和更新。<br>5、更新期间它会让你摘下头显在手机上进行其他操作。<br>建议不要听它的，因为它还会重启一遍，导致白白设置，建议等它全部更新完毕再设置其他的。</p>
+<h2 id="手机上继续进行操作"><a href="#手机上继续进行操作" class="headerlink" title="手机上继续进行操作"></a>手机上继续进行操作</h2><p>注意：需要魔法<br>1、Quest更新完后打开Meta手机应用。如果正确给予了应用权限，稍等一会就会自动出现配对的提示框。<br>如果没有出现配对框，尝试重启应用。<br>2、激活步骤中关于<code>分享数据</code>的选项，选择不分享。其他的按照自己的喜好选择。<br>3、完成所有选项后，头显中的激活框便会自动消失，正式进入Quest系统。<br>4、第一时间在Quest设置中关闭系统自动更新。<br>5、至此，Quest激活和更新已完成，可以等待系统里的原厂App更新完毕后再关闭<code>oculus助手</code>。</p>
+<h1 id="启用开发者畅玩游戏"><a href="#启用开发者畅玩游戏" class="headerlink" title="启用开发者畅玩游戏"></a>启用开发者畅玩游戏</h1><p>注意：一定要首先开启上方提到的<code>两步验证器</code>，否则会永久失去账号。<br>视频教程：绑定手机号<br>1、前往Meta网页版个人中心（<a href="https://accountscenter.meta.com/">点击直达</a>）。<br>选择<code>Password and security -&gt; Two-factor authentication -&gt; 你的账号 -&gt; Text message</code>。<br>2、先尝试绑定你自己的手机号，注意区号是否为<code>China(+86)</code>。<br>3、如果收不到短信，说明Meta服务器或运营商有问题，就需要用到虚拟号了。<br>4、我用的是5sim，注册账号后充值1美元（支持国内支付方式）。<br>充完后选择Facebook服务，再选择香港，等他下发虚拟号。<br>5、下发后回到Meta个人中心并保持刚才的选项，区号应选择+852，填入虚拟号852后面的数字。<br>然后发送验证码，等待虚拟号返回验证码并提交。<br>6、绑定成功后，后续登录选择<code>两步验证器</code>进行验证，因为你无法再用这个虚拟号接收后续短信。<br>7、前往<a href="https://developer.oculus.com/">开发者中心</a>，创建一个组织（Create Organization）随便填写内容并提交，即可成为开发者。<br>8、打开手机App，选择<code>个人头像 -&gt; 右上角打开菜单 -&gt; 设备 -&gt; 选择设备 -&gt; 头戴设备管理 -&gt; 开发者模式 -&gt; 开启开发者模式</code>。<br>9、完成。</p>
+<h1 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h1><p>Q1：下载安装游戏<br>1、需要Windows系统。<br>2、下载<code>Quest助手</code>。<br>3、确保已启用开发者，下载完后使用数据线连接头显和电脑，并在头显内完成权限授权（建议勾上<code>一律允许</code>）。<br>4、后续所有游戏和安卓（APK）安装包，都可以通过<code>Quest助手</code>安装。<br>其他工具：VR魔趣网 87VR游戏大厅</p>
+<p>Q2：连接Wifi后系统界面无法点击任何东西（偶发，疑似网络波动导致）<br>不要惊慌，不要进行任何操作，这是由于连不上Meta服务导致的假死机。<br>等待1分钟或暂时关掉路由器，Quest会恢复操作，此时赶紧关闭Quest系统的Wifi开关。<br>要想连接自家的WiFi，有两种方式：<br>①（推荐）Quest内安装魔法工具（安卓包通用，建议用V2r**NG）<br>②Quest内安装Virtual Hosts，填入的内容参考这部视频：Quest2&#x2F;3 VD 秒连电脑教程。<br>方式②本质上是通过修改hosts的方式连接上Meta服务器。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">```</span><br><span class="line">157.240.11.49 graph.oculus.com</span><br><span class="line">157.240.11.49 www2.oculus.com</span><br><span class="line">157.240.8.49 scontent.oculuscdn.com</span><br><span class="line">157.240.8.49 securecdn.oculus.com</span><br><span class="line">127.0.0.1 america.vrdesktop.net</span><br><span class="line">127.0.0.1 europe.vrdesktop.net</span><br><span class="line">127.0.0.1 download.vrdesktop.net</span><br></pre></td></tr></table></figure>
+<p>后续连接Wifi时先开魔法，再连Wifi，不过单机游戏一般也无需连接网络。</p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>安装卡巴斯基后无权限修改hosts文件</title>
+    <url>/2024/02/15/an-zhuang-qia-ba-si-ji-hou-wu-quan-xian-xiu-gai-hosts-wen-jian/</url>
+    <content><![CDATA[<p>由于本人使用“瓦特工具箱”对一些工具进行加速，需要修改hosts，于是遇到了权限问题。<br>虽然可以使用DNS模式，但考虑到自己还有一些IDE和一些工具需要用到hosts文件，还是得解决一下。</p>
+<p>首先不得不吐槽一下，我找遍了各种论坛和客服支持的存档，没有一个有效的解决方案，全是复制粘贴的无效方案。<br>相信不少人跟我一样，网上搜到的所谓将文件放入“威胁和排除项”的“管理排除项”里，根本不起作用！</p>
+<p>以下是我经过反复摸索后，能够彻底解决问题的方案：</p>
+<p><img src="/../images/winkasperskyhost/kbsj-1.jpg"><br><img src="/../images/winkasperskyhost/kbsj-2.jpg"><br><img src="/../images/winkasperskyhost/kbsj-3.jpg"><br><img src="/../images/winkasperskyhost/kbsj-4.jpg"></p>
+<p>根据图示（点击图片可放大），将hosts文件的上锁状态取消，最后保存。</p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>将Hexo部署到Cloudflare Pages</title>
+    <url>/2025/01/11/jiang-hexo-bu-shu-dao-cloudflare-pages/</url>
+    <content><![CDATA[<h1 id="部署准备"><a href="#部署准备" class="headerlink" title="部署准备"></a>部署准备</h1><ol>
+<li><p>新建一个私人仓库，将<code>Hexo项目根目录</code>除<code>.gitignore</code>中忽略的文件（夹），其他所有源文件推送上去。<br>这是我的<code>.gitignore</code>文件：</p>
+<figure class="highlight yaml"><figcaption><span>.gitignore</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># Created by https://www.toptal.com/developers/gitignore/api/hexo</span></span><br><span class="line"><span class="comment"># Edit at https://www.toptal.com/developers/gitignore?templates=hexo</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### Hexo ###</span></span><br><span class="line"><span class="string">db.json</span></span><br><span class="line"><span class="string">public/</span></span><br><span class="line"><span class="string">.deploy_git/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># End of https://www.toptal.com/developers/gitignore/api/hexo</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>拥有一个 Cloudflare 账号，我就不过多赘述如何注册了。</p>
+</li>
+</ol>
+<h1 id="开始部署"><a href="#开始部署" class="headerlink" title="开始部署"></a>开始部署</h1><ol>
+<li><p>从<code>Cloudflare</code>仪表盘中打开<code>Compute (Workers)</code>-&gt;<code>Wokers 和 Pages</code>。<br><img src="/../images/hexotocloudflarepages/1.jpg"></p>
+</li>
+<li><p>创建<code>Pages</code>，连接你的<code>Github</code>账号，然后选择在<a href="#%E9%83%A8%E7%BD%B2%E5%87%86%E5%A4%87">部署准备</a>中新建的仓库。例如，我这里的GMBlog。<br><img src="/../images/hexotocloudflarepages/2.jpg"></p>
+</li>
+<li><p>在<code>环境变量（高级）</code>中加入以下变量：<br><img src="/../images/hexotocloudflarepages/3.jpg"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">NODE_VERSION=14.3</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>最好是跟你的Hexo原项目环境的Nodejs版本一致，在<code>命令提示符</code>用<code>node -v</code>指令查询。</p>
+</blockquote>
+</li>
+<li><p>直接点击<code>保存并部署</code>，部署成功后还无法访问，原因是我们只创建了应用但还没传入构建指令。</p>
+</li>
+<li><p>来到你当前<code>Pages</code>的设置，修改<code>构建配置</code>并保存。<br><img src="/../images/hexotocloudflarepages/4.jpg"></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 构建命令</span></span><br><span class="line"><span class="string">bash</span> <span class="string">build.sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 构建输出目录</span></span><br><span class="line"><span class="string">public</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>文件<code>build.sh</code>将在稍后创建。</p>
+</blockquote>
+</li>
+<li><p>继续在当前页面，修改<code>构建系统版本</code>并保存。<br><img src="/../images/hexotocloudflarepages/5.jpg"></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 生产系统版本</span></span><br><span class="line"><span class="string">版本</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 预览系统版本</span></span><br><span class="line"><span class="string">版本</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在你的<code>Hexo项目根目录</code>下新建<code>build.sh</code>文件，并加入以下内容：</p>
+<figure class="highlight yaml"><figcaption><span>build.sh</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="string">npm</span> <span class="string">install</span></span><br><span class="line"><span class="string">npm</span> <span class="string">update</span></span><br><span class="line"><span class="string">hexo</span> <span class="string">clean</span></span><br><span class="line"><span class="string">hexo</span> <span class="string">g</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提交并推送。</p>
+</li>
+<li><p>至此已完成，可以在构建日志的<code>资产已上传</code>中看到所有静态文件。<br>以后每写一篇新文章并推送上去后，都会自动进行构建和部署而无需本地构建，爽。<br><img src="/../images/hexotocloudflarepages/6.jpg"></p>
+</li>
+<li><p>自定义域名略。</p>
+</li>
+</ol>
+<h1 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h1><ol>
+<li><a href="https://www.bilibili.com/video/BV1Sp4y157br/">将Hexo博客部署到CloudFlare Pages使用全球加速</a><blockquote>
+<p>但我不清楚为什么这个UP主不用填任何构建命令，也许是当时的系统版本问题，也可能是他仓库里本身就是构建好的静态文件，因此我优化了下这方面。</p>
+</blockquote>
+</li>
+<li><a href="https://ericlee.pages.dev/hexo-cloudflare_pages/">部署Hexo博客到Cloudflare Pages</a><blockquote>
+<p>按照<a href="https://developers.cloudflare.com/pages/framework-guides/deploy-a-hexo-site/#creating-a-post">Cloudflare官方的Hexo文档</a>的说明并不能实现自动化部署，总是提示找不到hexo指令，着实令人恼火。这篇文章提供的方法完美解决了这个问题，感谢。</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h1><p>Q：构建时报错<code>fatal: No url found for submodule path &#39;xxx&#39; in .gitmodules</code>。<br>A：检查项目文件是克隆了其他仓库，例如我在部署时就使用了<code>pjax</code>导致构建失败。解决方法是去到该库文件夹，也就是报错中告诉你的这个目录，删掉该库下的<code>.git</code>文件夹和<code>.gitignore</code>文件。或者你会配置<code>.gitmodules</code>文件就自己写吧，博主不会(つд⊂)，最后重新<code>提交和推送</code>至仓库。</p>
+<p>Q：<code>xxxx.pages.dev</code>无法访问。<br>A：原因你懂的，解决方法是使用自定义域。</p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>移动Hexo主题文件夹</title>
+    <url>/2024/12/25/yi-dong-hexo-zhu-ti-wen-jian-jia/</url>
+    <content><![CDATA[<p>此前我的主题文件都默认装在了<code>node_modules</code>文件夹里，今天才发现根目录下的<code>themes</code>文件夹一直是空的，于是开始好奇这个文件夹的作用。</p>
+<p>在经过研究后发现有一点各大所谓的“Hexo小白教程”里只字未提的东西，那就是应该把主题文件复制到<code>themes</code>文件夹里再进行配置和使用，到这里我无语了一阵子。至于是如何发现的，且听我娓娓道来。毕竟有趣的经历值得记录下来。</p>
+<p>起初，有些教程可能教你<code>npm install hexo-theme-xxxxxx</code>，修改<code>_config.yml</code>文件中的<code>theme</code>属性，然后你就可以写博客，最后生成静态页面提交到Github Page里。我就是这么信了，直接把<code>_config.yml</code>属性的<code>theme</code>改成了<code>next</code>，一切都看起来运作良好。</p>
+<p>以前用的<code>Wordpress</code>，现在和Hexo度过了半年，但越研究越发觉不对劲，为什么大佬们的根目录总是在<code>themes</code>下面，很快就能完成样式的修改，而我却总要把<code>node_modules</code>文件夹打开，顶着又臭又长的路径，逐个找到主题的文件夹。我心想，可能新版本是这样的吧，如此欺骗着自己。</p>
+<p>直到最近我重装了下系统，忘记了备份Hexo的源文件，中间的恢复过程我就略过了。这次我长记性，创建了一个私人仓库用来备份源文件，于是我就发现<code>themes</code>文件夹居然是默认同步的，也就是说这个文件夹的分量很大，而之前一直被我忽略了，相反的，<code>node_modules</code>文件夹并没有默认同步，除非我手动编辑<code>gitignore</code>文件。</p>
+<p>后来我学习了一点<code>nodejs</code>的知识，原来<code>node_modules</code>是用来存放依赖库的，用<code>npm install</code>装的东西都会在这里面。合着我之前特喵一直是直接改的依赖库的东西，这居然没一个教程里提到，也可能是我眼光不好没找到好教程，至少我找到的每个都这样。</p>
+<p>经过研究，规范的做法应该是：通过克隆来的主题直接放在<code>themes</code>文件夹里，而像我这样使用<code>npm install</code>安装之后，应该把主题文件夹手动复制到<code>themes</code>文件夹下，并且把网站的<code>_config.yml</code>文件中的<code>theme</code>属性值修改为主题文件夹的名字，例如我这里用的next，就应该写作<code>theme: hexo-theme-next</code>。</p>
+<p>最后，在不乱动依赖库的情况下，主题文件和各种配置文件都能提交作为备份了，样式也能更方便的修改了，终于不用看那臭长的路径了。</p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>新视频制作进度</title>
+    <url>/2025/02/21/xin-shi-pin-zhi-zuo-jin-du/</url>
+    <content><![CDATA[<p>距离上一次新视频进度报告已过去1个月，根据现状再来重新预估一下，顺便说清一些问题。<br>我在B站发动态不晓得又是碰到哪个敏感肌了，审核长时间不给通过，就在这变本加厉写下了。</p>
+<blockquote>
+<p>咕咕咕</p>
+</blockquote>
+<p>原计划是<code>3月</code>开始更新，不过由于这期间我换了麦克风，又重写了一些文案，导致视频整体观感有些分裂，所以打算重置，这需要额外的时间。</p>
+<blockquote>
+<p>新视频的方向</p>
+</blockquote>
+<p>首先感谢各位大佬的厚爱，同时也很抱歉，往后的新视频<code>不再是教程类</code>。<br>一是总能碰到莫名其妙的问题：被反复问过的问题，大部分自己不仔细导致的问题。<br>当然这个现象在教学区很常见，所以使用了<a href="https://pd.qq.com/s/2rzmdx0gz">QQ频道：gamemode4u</a>，方便各位发帖提问让问题长期留存，以及供后来人查阅。<br>二是游戏区教程的受众有限，不过在制作教学视频期间我认识了很多大佬，深感荣幸。即便如此，在这“受众有限”的人群里，大部分“小学者”又是冲着Money的，如VRChat改模，MC跑路服主，而我做这些教程的本意是希望“传承”。<br>我只懂得一点皮毛，但所谓人生短暂，总得留下点什么。好记性不如烂笔头，我就制作了这些教程。MC、VRC都是我热爱的游戏，如果想靠我懂的这点皮毛去赚Money，可以说赚到的基本为0。</p>
+<blockquote>
+<p>新视频的发布日期</p>
+</blockquote>
+<p>我在探索一个新道路，为了有一个好的开头和高的视频质量，预计在<code>5月</code>发布。</p>
+<blockquote>
+<p>其他一点心里话</p>
+</blockquote>
+<p>这家伙更希望大家直接叫翱翔或者大使，这样感觉更亲切些。这家伙小时候家里条件不好，穷，家暴都是常有的事，玩具更是奢侈，就一回，这家伙在超市里跪着求家长，才求来个悠悠球，那宝贝至今还藏在衣柜里呢，就怕被家长顺手送人了。<br>小时候，家里氛围挺压抑的，家长对外人总是和颜悦色，回到家就变了个样，对这家伙总是吹毛求疵，那时候这家伙话也不多，就爱跟电脑打交道。但这家伙也有自己的小天地，发现了动漫这玩意儿后，就像打开了新世界的大门，在那些幻想的世界里，这家伙找到了不少慰藉。<br>后来接触了acfun、bilibili，还经历了那传说中的100道考题，也是在那段时间，这家伙认识了两个人，<a href="https://baike.baidu.com/item/%E5%BC%A0%E6%9D%B0/256">张杰</a>和<a href="https://space.bilibili.com/686127">籽岷</a>。受他们的启发，这家伙开始尝试着做视频，不过那时候年纪小，想法也简单，做的视频嘛，现在看来确实有点幼稚，但那会儿这家伙可是认认真真的，可惜最后都被家长给拦下了，现在想想，还挺怀念那时候的冲劲的，人生的第一部视频在爱拍。<br>初中那会儿，这家伙基本就是个“隐形人”，不爱说话，整天就泡在MC服务器里，研究各种插件和编程，那时候哪有什么清晰易懂的教程啊，全靠自己摸爬滚打，一步步摸索出来的。<br>到了高中，这是这家伙人生转折点，有那么一次，这家伙站在宿舍阳台护栏上惊动不少人。但就在那一刻，这家伙突然想明白了，“我学了这么多东西，就这么走了太不值了”。从那以后，我就开始了自己的教程之路。<br>再后来大家也看到了，这家伙跑去玩VR，玩VRC，剪视频，写博客，一路折腾下来，会的东西越来越多。虽然那个念头偶尔还会冒出来，但都被深深地压在心底了。要是哪天这家伙真学不动了，那可能就是到头的时候了。不过放心，这家伙会尽量让自己多学点，多给大家带来点好玩的东西的。</p>
+<blockquote>
+<p>本来只是想说说视频的进度，结果写着写着上头了哈哈，各位莫见怪，莫见怪~</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>碎碎念</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>重写了页脚</title>
+    <url>/2025/01/07/chong-xie-liao-ye-jiao/</url>
+    <content><![CDATA[<p>为了在页脚加个小贴纸，发现在源码上怎么改都加不上，<br>于是研究了一下午<code>Next</code>主题里的<code>footer.njk</code>这个东西，关闭了<code>_config.yml</code>里有关页脚的所有属性，然后自己写了一套页脚。<br>嗯…终于有了，舒服了。继续肝视频！</p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+</search>
